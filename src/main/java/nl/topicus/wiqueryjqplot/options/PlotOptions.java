@@ -14,6 +14,8 @@ public class PlotOptions implements Serializable {
 
 	private List<PlotSeries> series;
 
+	private PlotLegend legend;
+
 	public PlotOptions() {
 	}
 
@@ -51,5 +53,13 @@ public class PlotOptions implements Serializable {
 
 	public void setSeries(List<PlotSeries> series) {
 		this.series = series;
+	}
+
+	public PlotLegend getLegend() {
+		return legend;
+	}
+
+	public void setLegend(PlotLegend legend) {
+		this.legend = legend;
 	}
 }
