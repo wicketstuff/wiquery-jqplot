@@ -27,8 +27,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin {
 	public void contribute(WiQueryResourceManager wiQueryResourceManager) {
 		wiQueryResourceManager
 				.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
-		wiQueryResourceManager
-				.addCssResource(JQPlot.class, "jquery.jqplot.css");
+		wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference
+				.get());
 	}
 
 	@Override
