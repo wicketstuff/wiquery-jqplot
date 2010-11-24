@@ -12,9 +12,15 @@ public class PlotOptions implements Serializable {
 
 	private PlotAxis axesDefaults;
 
+	private PlotAxes axes;
+
+	private PlotSeries seriesDefaults;
+
 	private List<PlotSeries> series;
 
 	private PlotLegend legend;
+
+	private PlotGrid grid;
 
 	public PlotOptions() {
 	}
@@ -47,6 +53,22 @@ public class PlotOptions implements Serializable {
 		this.axesDefaults = axesDefaults;
 	}
 
+	public PlotAxes getAxes() {
+		return axes;
+	}
+
+	public void setAxes(PlotAxes axes) {
+		this.axes = axes;
+	}
+
+	public PlotSeries getSeriesDefaults() {
+		return seriesDefaults;
+	}
+
+	public void setSeriesDefaults(PlotSeries seriesDefaults) {
+		this.seriesDefaults = seriesDefaults;
+	}
+
 	public List<PlotSeries> getSeries() {
 		return series;
 	}
@@ -61,5 +83,13 @@ public class PlotOptions implements Serializable {
 
 	public void setLegend(PlotLegend legend) {
 		this.legend = legend;
+	}
+
+	public PlotGrid getGrid() {
+		return grid;
+	}
+
+	public void setGrid(PlotGrid grid) {
+		this.grid = grid;
 	}
 }
