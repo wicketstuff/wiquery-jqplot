@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCategoryAxisRendererResourceReference;
 import nl.topicus.wiqueryjqplot.data.Series;
 import nl.topicus.wiqueryjqplot.data.SeriesEntry;
 import nl.topicus.wiqueryjqplot.options.PlotOptions;
@@ -30,6 +31,11 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 	{
 		super(id, model);
 		setOutputMarkupId(true);
+	}
+
+	public PlotOptions getOptions()
+	{
+		return options;
 	}
 
 	private List<List<List<Object>>> getPlotData()
@@ -58,6 +64,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 	public void contribute(WiQueryResourceManager wiQueryResourceManager)
 	{
 		wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
+		wiQueryResourceManager.addJavaScriptResource(JQPlotCategoryAxisRendererResourceReference
+			.get());
 		wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
 	}
 

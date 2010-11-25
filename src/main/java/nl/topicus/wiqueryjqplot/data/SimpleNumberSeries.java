@@ -2,13 +2,21 @@ package nl.topicus.wiqueryjqplot.data;
 
 import java.io.Serializable;
 
-public class SimpleNumberSeries extends AbstractSeries<Integer, Double, SimpleNumberSeriesEntry>
-		implements Serializable
+public class SimpleNumberSeries<T extends Number> extends
+		AbstractSeries<Integer, T, SimpleNumberSeriesEntry<T>> implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	public void addEntry(Double value)
+	public SimpleNumberSeries(T... values)
 	{
-		addEntry(new SimpleNumberSeriesEntry(getData().size(), value));
+		for (T curValue : values)
+		{
+			addEntry(curValue);
+		}
+	}
+
+	public void addEntry(T value)
+	{
+		addEntry(new SimpleNumberSeriesEntry<T>(getData().size(), value));
 	}
 }

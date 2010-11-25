@@ -9,78 +9,78 @@ public class PlotSeries implements Serializable
 	/**
 	 * wether to render the series.
 	 */
-	private boolean show = true;
+	private Boolean show;
 
 	/**
 	 * either 'xaxis' or 'x2axis'.
 	 */
-	private String xaxis = "xaxis";
+	private String xaxis;
 
 	/**
 	 * either 'yaxis' or 'y2axis'.
 	 */
-	private String yaxis = "yaxis";
+	private String yaxis;
 
 	/**
 	 * label to use in the legend for this line.
 	 */
-	private String label = "";
+	private String label;
 
 	/**
 	 * CSS color spec to use for the line. Determined automatically.
 	 */
-	private String color = "";
+	private String color;
 
 	/**
 	 * Width of the line in pixels.
 	 */
-	private double lineWidth = 2.5;
+	private Double lineWidth;
 
 	/**
 	 * show shadow or not.
 	 */
-	private boolean shadow = true;
+	private Boolean shadow;
 
 	/**
 	 * angle (degrees) of the shadow, clockwise from x axis.
 	 */
-	private double shadowAngle = 45;
+	private Double shadowAngle;
 
 	/**
 	 * offset from the line of the shadow.
 	 */
-	private double shadowOffset = 1.25;
+	private Double shadowOffset;
 
 	/**
 	 * Number of strokes to make when drawing shadow. Each stroke offset by shadowOffset
 	 * from the last.
 	 */
-	private int shadowDepth = 3;
+	private Integer shadowDepth;
 
 	/**
 	 * Opacity of the shadow.
 	 */
-	private double shadowAlpha = 0.1;
+	private Double shadowAlpha;
 
 	/**
 	 * whether to render the line segments or not.
 	 */
-	private boolean showLine = true;
+	private Boolean showLine;
 
 	/**
 	 * render the data point markers or not.
 	 */
-	private boolean showMarker = true;
+	private Boolean showMarker;
 
 	/**
 	 * fill under the line,
 	 */
-	private boolean fill = false;
+	private Boolean fill;
 
 	/**
 	 * stroke a line at top of fill area.
 	 */
-	private boolean fillAndStroke = false;
+	private Boolean fillAndStroke;
 
 	/**
 	 * custom fill color for filled lines (default is line color).
@@ -95,7 +95,7 @@ public class PlotSeries implements Serializable
 	/**
 	 * renderer used to draw the series.
 	 */
-	private String renderer = "$.jqplot.LineRenderer";
+	private String renderer;
 
 	/**
 	 * options passed to the renderer. LineRenderer has no options.
@@ -105,7 +105,7 @@ public class PlotSeries implements Serializable
 	/**
 	 * renderer to use to draw the data point markers.
 	 */
-	private String markerRenderer = "$.jqplot.MarkerRenderer";
+	private String markerRenderer;
 
 	private PlotSeriesMarkerOptions markerOptions;
 
@@ -113,12 +113,12 @@ public class PlotSeries implements Serializable
 	{
 	}
 
-	public boolean isShow()
+	public Boolean isShow()
 	{
 		return show;
 	}
 
-	public void setShow(boolean show)
+	public void setShow(Boolean show)
 	{
 		this.show = show;
 	}
@@ -163,102 +163,102 @@ public class PlotSeries implements Serializable
 		this.color = color;
 	}
 
-	public double getLineWidth()
+	public Double getLineWidth()
 	{
 		return lineWidth;
 	}
 
-	public void setLineWidth(double lineWidth)
+	public void setLineWidth(Double lineWidth)
 	{
 		this.lineWidth = lineWidth;
 	}
 
-	public boolean isShadow()
+	public Boolean isShadow()
 	{
 		return shadow;
 	}
 
-	public void setShadow(boolean shadow)
+	public void setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
 	}
 
-	public double getShadowAngle()
+	public Double getShadowAngle()
 	{
 		return shadowAngle;
 	}
 
-	public void setShadowAngle(double shadowAngle)
+	public void setShadowAngle(Double shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
 	}
 
-	public double getShadowOffset()
+	public Double getShadowOffset()
 	{
 		return shadowOffset;
 	}
 
-	public void setShadowOffset(double shadowOffset)
+	public void setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
 	}
 
-	public int getShadowDepth()
+	public Integer getShadowDepth()
 	{
 		return shadowDepth;
 	}
 
-	public void setShadowDepth(int shadowDepth)
+	public void setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
 	}
 
-	public double getShadowAlpha()
+	public Double getShadowAlpha()
 	{
 		return shadowAlpha;
 	}
 
-	public void setShadowAlpha(double shadowAlpha)
+	public void setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
 	}
 
-	public boolean isShowLine()
+	public Boolean isShowLine()
 	{
 		return showLine;
 	}
 
-	public void setShowLine(boolean showLine)
+	public void setShowLine(Boolean showLine)
 	{
 		this.showLine = showLine;
 	}
 
-	public boolean isShowMarker()
+	public Boolean isShowMarker()
 	{
 		return showMarker;
 	}
 
-	public void setShowMarker(boolean showMarker)
+	public void setShowMarker(Boolean showMarker)
 	{
 		this.showMarker = showMarker;
 	}
 
-	public boolean isFill()
+	public Boolean isFill()
 	{
 		return fill;
 	}
 
-	public void setFill(boolean fill)
+	public void setFill(Boolean fill)
 	{
 		this.fill = fill;
 	}
 
-	public boolean isFillAndStroke()
+	public Boolean isFillAndStroke()
 	{
 		return fillAndStroke;
 	}
 
-	public void setFillAndStroke(boolean fillAndStroke)
+	public void setFillAndStroke(Boolean fillAndStroke)
 	{
 		this.fillAndStroke = fillAndStroke;
 	}

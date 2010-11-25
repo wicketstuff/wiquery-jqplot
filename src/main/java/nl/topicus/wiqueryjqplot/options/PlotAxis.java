@@ -3,11 +3,13 @@ package nl.topicus.wiqueryjqplot.options;
 import java.io.Serializable;
 import java.util.List;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 public class PlotAxis implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private boolean show = true;
+	private Boolean show;
 
 	/**
 	 * minimum numerical value of the axis. Determined automatically.
@@ -48,23 +50,23 @@ public class PlotAxis implements Serializable
 	/**
 	 * wether or not to show the tick labels,
 	 */
-	private boolean showTicks;
+	private Boolean showTicks;
 
 	/**
 	 * wether or not to show the tick marks
 	 */
-	private boolean showTickMarks;
+	private Boolean showTickMarks;
 
 	public PlotAxis()
 	{
 	}
 
-	public boolean isShow()
+	public Boolean isShow()
 	{
 		return show;
 	}
 
-	public void setShow(boolean show)
+	public void setShow(Boolean show)
 	{
 		this.show = show;
 	}
@@ -119,6 +121,7 @@ public class PlotAxis implements Serializable
 		this.numberTicks = numberTicks;
 	}
 
+	@JsonSerialize(using = RawSerializer.class)
 	public String getRenderer()
 	{
 		return renderer;
@@ -149,22 +152,22 @@ public class PlotAxis implements Serializable
 		this.tickOptions = tickOptions;
 	}
 
-	public boolean isShowTicks()
+	public Boolean isShowTicks()
 	{
 		return showTicks;
 	}
 
-	public void setShowTicks(boolean showTicks)
+	public void setShowTicks(Boolean showTicks)
 	{
 		this.showTicks = showTicks;
 	}
 
-	public boolean isShowTickMarks()
+	public Boolean isShowTickMarks()
 	{
 		return showTickMarks;
 	}
 
-	public void setShowTickMarks(boolean showTickMarks)
+	public void setShowTickMarks(Boolean showTickMarks)
 	{
 		this.showTickMarks = showTickMarks;
 	}
