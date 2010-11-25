@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.topicus</groupId>
 	<artifactId>wiquery-jqplot</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>WiQuery-JqPlot</name>
+	<name>WiQuery-JQPlot</name>
 	<properties>
 		<wicket.version>1.4.13</wicket.version>
 		<jetty.version>6.1.25</jetty.version>

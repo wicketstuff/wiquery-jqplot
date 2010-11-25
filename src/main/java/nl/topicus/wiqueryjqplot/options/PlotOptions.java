@@ -3,7 +3,8 @@ package nl.topicus.wiqueryjqplot.options;
 import java.io.Serializable;
 import java.util.List;
 
-public class PlotOptions implements Serializable {
+public class PlotOptions implements Serializable
+{
 	private static final long serialVersionUID = 1L;
 
 	private boolean stackSeries;
@@ -22,74 +23,92 @@ public class PlotOptions implements Serializable {
 
 	private PlotGrid grid;
 
-	public PlotOptions() {
+	public PlotOptions()
+	{
 	}
 
-	public boolean isStackSeries() {
+	public boolean isStackSeries()
+	{
 		return stackSeries;
 	}
 
-	public void setStackSeries(boolean stackSeries) {
+	public void setStackSeries(boolean stackSeries)
+	{
 		this.stackSeries = stackSeries;
 	}
 
-	public PlotTitle getTitle() {
+	public PlotTitle getTitle()
+	{
 		return title;
 	}
 
-	public void setTitle(PlotTitle title) {
+	public void setTitle(PlotTitle title)
+	{
 		this.title = title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(String title)
+	{
 		setTitle(new PlotTitle(title));
 	}
 
-	public PlotAxis getAxesDefaults() {
+	public PlotAxis getAxesDefaults()
+	{
 		return axesDefaults;
 	}
 
-	public void setAxesDefaults(PlotAxis axesDefaults) {
+	public void setAxesDefaults(PlotAxis axesDefaults)
+	{
 		this.axesDefaults = axesDefaults;
 	}
 
-	public PlotAxes getAxes() {
+	public PlotAxes getAxes()
+	{
 		return axes;
 	}
 
-	public void setAxes(PlotAxes axes) {
+	public void setAxes(PlotAxes axes)
+	{
 		this.axes = axes;
 	}
 
-	public PlotSeries getSeriesDefaults() {
+	public PlotSeries getSeriesDefaults()
+	{
 		return seriesDefaults;
 	}
 
-	public void setSeriesDefaults(PlotSeries seriesDefaults) {
+	public void setSeriesDefaults(PlotSeries seriesDefaults)
+	{
 		this.seriesDefaults = seriesDefaults;
 	}
 
-	public List<PlotSeries> getSeries() {
+	public List<PlotSeries> getSeries()
+	{
 		return series;
 	}
 
-	public void setSeries(List<PlotSeries> series) {
+	public void setSeries(List<PlotSeries> series)
+	{
 		this.series = series;
 	}
 
-	public PlotLegend getLegend() {
+	public PlotLegend getLegend()
+	{
 		return legend;
 	}
 
-	public void setLegend(PlotLegend legend) {
+	public void setLegend(PlotLegend legend)
+	{
 		this.legend = legend;
 	}
 
-	public PlotGrid getGrid() {
+	public PlotGrid getGrid()
+	{
 		return grid;
 	}
 
-	public void setGrid(PlotGrid grid) {
+	public void setGrid(PlotGrid grid)
+	{
 		this.grid = grid;
 	}
 }

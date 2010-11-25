@@ -7,19 +7,21 @@ import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.util.time.Duration;
 
 /**
- * Application object for your web application. If you want to run this
- * application without deploying, run the Start class.
+ * Application object for your web application. If you want to run this application
+ * without deploying, run the Start class.
  * 
- * @see nl.topicus.onderwijs.dashboard.Start#main(String[])
  */
-public class WicketApplication extends WebApplication {
+public class WicketApplication extends WebApplication
+{
 	@Override
-	public Class<HomePage> getHomePage() {
+	public Class<HomePage> getHomePage()
+	{
 		return HomePage.class;
 	}
 
 	@Override
-	protected void init() {
+	protected void init()
+	{
 		super.init();
 
 		getMarkupSettings().setStripWicketTags(true);
@@ -31,11 +33,13 @@ public class WicketApplication extends WebApplication {
 		getRequestLoggerSettings().setRecordSessionSize(true);
 	}
 
-	public static WicketApplication get() {
+	public static WicketApplication get()
+	{
 		return (WicketApplication) WebApplication.get();
 	}
 
-	public boolean isDevelopment() {
+	public boolean isDevelopment()
+	{
 		return Application.DEVELOPMENT.equals(getConfigurationType());
 	}
 }

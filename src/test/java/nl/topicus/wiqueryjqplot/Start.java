@@ -5,9 +5,10 @@ import org.mortbay.jetty.Server;
 import org.mortbay.jetty.bio.SocketConnector;
 import org.mortbay.jetty.webapp.WebAppContext;
 
-public class Start {
-
-	public static void main(String[] args) throws Exception {
+public class Start
+{
+	public static void main(String[] args)
+	{
 		Server server = new Server();
 		SocketConnector connector = new SocketConnector();
 
@@ -15,7 +16,7 @@ public class Start {
 		connector.setMaxIdleTime(1000 * 60 * 60);
 		connector.setSoLingerTime(-1);
 		connector.setPort(8080);
-		server.setConnectors(new Connector[] { connector });
+		server.setConnectors(new Connector[] {connector});
 
 		WebAppContext bb = new WebAppContext();
 		bb.setServer(server);
@@ -30,9 +31,9 @@ public class Start {
 
 		server.addHandler(bb);
 
-		try {
-			System.out
-					.println(">>> STARTING EMBEDDED JETTY SERVER, PRESS ANY KEY TO STOP");
+		try
+		{
+			System.out.println(">>> STARTING EMBEDDED JETTY SERVER, PRESS ANY KEY TO STOP");
 			server.start();
 			System.in.read();
 			System.out.println(">>> STOPPING EMBEDDED JETTY SERVER");
@@ -41,7 +42,9 @@ public class Start {
 			// }
 			server.stop();
 			server.join();
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 			System.exit(100);
 		}

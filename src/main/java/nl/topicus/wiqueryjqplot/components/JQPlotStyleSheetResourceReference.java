@@ -2,17 +2,20 @@ package nl.topicus.wiqueryjqplot.components;
 
 import org.odlabs.wiquery.core.commons.WiQueryStyleSheetResourceReference;
 
-public class JQPlotStyleSheetResourceReference extends
-		WiQueryStyleSheetResourceReference {
+public class JQPlotStyleSheetResourceReference extends WiQueryStyleSheetResourceReference
+{
 	private static final long serialVersionUID = -4771815414204892357L;
 
-	private static JQPlotStyleSheetResourceReference INSTANCE = new JQPlotStyleSheetResourceReference();
+	private static JQPlotStyleSheetResourceReference INSTANCE =
+		new JQPlotStyleSheetResourceReference();
 
-	private JQPlotStyleSheetResourceReference() {
+	private JQPlotStyleSheetResourceReference()
+	{
 		super(JQPlotStyleSheetResourceReference.class, "jquery.jqplot.css");
 	}
 
-	public static JQPlotStyleSheetResourceReference get() {
+	public static JQPlotStyleSheetResourceReference get()
+	{
 		return INSTANCE;
 	}
 }
