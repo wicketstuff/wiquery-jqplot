@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.topicus.wiqueryjqplot.web.pages.examples.AreaPage;
+import nl.topicus.wiqueryjqplot.web.pages.examples.CorePage;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
@@ -20,6 +21,7 @@ public class HomePage extends WebPage
 	public HomePage()
 	{
 		List<Class< ? extends Page>> pages = new ArrayList<Class< ? extends Page>>();
+		pages.add(CorePage.class);
 		pages.add(AreaPage.class);
 
 		ListView<Class< ? extends Page>> links =
