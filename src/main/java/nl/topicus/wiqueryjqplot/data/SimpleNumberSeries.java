@@ -17,6 +17,6 @@ public class SimpleNumberSeries<T extends Number> extends
 
 	public void addEntry(T value)
 	{
-		addEntry(new SimpleNumberSeriesEntry<T>(getData().size(), value));
+		addEntry(new SimpleNumberSeriesEntry<T>(getData().size() + 1, value));
 	}
 }

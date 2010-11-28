@@ -16,6 +16,12 @@ public class PlotTick implements Serializable
 		this.label = val;
 	}
 
+	public PlotTick(String val, String label)
+	{
+		this.val = val;
+		this.label = label;
+	}
+
 	public String getVal()
 	{
 		return val;
