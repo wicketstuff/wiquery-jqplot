@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>Topicus WiQuery-JqPlot</title>
+<link rel="stylesheet" href="examples.css" type="text/css"
+	media="screen" charset="utf-8" />
+</head>
+<body>
+<p>jqPlot has numerous options for styling. Out of the box, it
+supports lines with customizable widths, markers (circles, squares and
+diamonds either filled or open as well as dash, X and plus/cross style),
+and colors.</p>
+<p>The plot title is specified by the "title" attribute. Options for
+the title can be used by creating a "title" object instead of a "title"
+string.</p>
+
+<div wicket:id="chart1" class="plot"
+	style="width: 400px; height: 260px;"></div>
+
+<p>Shadows are also customizable. The angle, offset (distance from
+the line), alpha (transparency or darkness) and depth (number of shadow
+strokes, offset by "shadowOffset" from eachother) are all customizable.</p>
+
+<div wicket:id="chart2" class="plot"
+	style="width: 400px; height: 260px;"></div>
+
+<p>Line data can be specified as an array of [x, y] pairs, or as an
+simple 1-D array. If a 1-D array is given, x values are automatically
+generated starting at one and increasing by one for each y value in the
+array.</p>
+<p>Line labels are specified in the "series" options. The "series"
+option is an array of option objects, one for each series. Here, the
+first series ("Rising line") is rendered as only markers by setting
+"showLine:false".</p>
+
+<div wicket:id="chart3" class="plot"
+	style="width: 400px; height: 260px;"></div>
+
+<p>Axes ticks are computed automatically from the data, but can be
+customized if desired. Ticks can be specified as an array of [value,
+label] pairs, or as a 1-D array of labels.</p>
+<p>Here the y axis ticks use a custom format string ("%d") to
+produce integer tick labels. The default format string is %.1f and can
+be customized to any sprintf style format string.Additionally, the grid
+background color and grid line color have been changed.</p>
+
+<div wicket:id="chart4" class="plot"
+	style="width: 400px; height: 260px;"></div>
+
+</body>
+</html>
