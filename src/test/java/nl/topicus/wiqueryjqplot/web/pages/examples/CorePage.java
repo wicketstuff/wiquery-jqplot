@@ -182,7 +182,7 @@ public class CorePage extends WebPage
 		PlotGrid chart4grid = new PlotGrid();
 		chart4grid.setBackground("#f3f3f3");
 		chart4grid.setGridLineColor("#accf9b");
-		// chart4O.setGrid(chart4grid);
+		chart4O.setGrid(chart4grid);
 
 		List<PlotSeries> chart4series = new ArrayList<PlotSeries>();
 		PlotSeries chart4series1 = new PlotSeries();
@@ -200,30 +200,19 @@ public class CorePage extends WebPage
 
 		PlotAxes chart4axes = new PlotAxes();
 		PlotAxis chart4xaxis = new PlotAxis();
-		List<PlotTick> chart4xaxisticks = new ArrayList<PlotTick>();
-		chart4xaxisticks.add(new PlotTick("0", "zero"));
-		chart4xaxisticks.add(new PlotTick("1", "one"));
-		chart4xaxisticks.add(new PlotTick("2", "two"));
-		chart4xaxisticks.add(new PlotTick("3", "three"));
-		chart4xaxisticks.add(new PlotTick("4", "four"));
-		chart4xaxisticks.add(new PlotTick("5", "five"));
-		chart4xaxis.setTicks(chart4xaxisticks);
+		chart4xaxis.setTicks(Arrays.asList(new PlotTick(0, "zero"), new PlotTick(1, "one"),
+			new PlotTick(2, "two"), new PlotTick(3, "three"), new PlotTick(4, "four"),
+			new PlotTick(5, "five")));
 
 		PlotAxis chart4yaxis = new PlotAxis();
-		List<PlotTick> chart4yaxisticks = new ArrayList<PlotTick>();
-		chart4yaxisticks.add(new PlotTick("-5"));
-		chart4yaxisticks.add(new PlotTick("0"));
-		chart4yaxisticks.add(new PlotTick("5"));
-		chart4yaxisticks.add(new PlotTick("10"));
-		chart4yaxisticks.add(new PlotTick("15"));
-		chart4yaxisticks.add(new PlotTick("20"));
-		chart4yaxisticks.add(new PlotTick("25"));
-		chart4yaxisticks.add(new PlotTick("30"));
-		chart4yaxis.setTicks(chart4yaxisticks);
+		chart4yaxis.setTicks(-5, 0, 5, 10, 15, 20, 25, 30);
+		PlotTickOptions chart4yaxisOptions = new PlotTickOptions();
+		chart4yaxisOptions.setFormatString("%d");
+		chart4yaxis.setTickOptions(chart4yaxisOptions);
 
 		chart4axes.setXaxis(chart4xaxis);
 		chart4axes.setYaxis(chart4yaxis);
-		// chart4O.setAxes(chart4axes);
+		chart4O.setAxes(chart4axes);
 		add(chart4);
 	}
 }

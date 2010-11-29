@@ -1,9 +1,11 @@
 package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 public class PlotAxis implements Serializable
 {
@@ -111,6 +113,16 @@ public class PlotAxis implements Serializable
 		this.ticks = ticks;
 	}
 
+	public void setTicks(Object... ticks)
+	{
+		List<PlotTick> newTicks = new ArrayList<PlotTick>();
+		for (Object curTick : ticks)
+		{
+			newTicks.add(new PlotTick(curTick));
+		}
+		this.ticks = newTicks;
+	}
+
 	public Integer getNumberTicks()
 	{
 		return numberTicks;
@@ -121,7 +133,7 @@ public class PlotAxis implements Serializable
 		this.numberTicks = numberTicks;
 	}
 
-	@JsonSerialize(using = RawSerializer.class)
+	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
 	public String getRenderer()
 	{
 		return renderer;

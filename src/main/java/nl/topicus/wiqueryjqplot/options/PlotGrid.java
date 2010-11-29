@@ -2,6 +2,9 @@ package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+
 public class PlotGrid implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -9,63 +12,63 @@ public class PlotGrid implements Serializable
 	/**
 	 * wether to draw lines across the grid or not.
 	 */
-	private boolean drawGridLines = true;
+	private Boolean drawGridLines;
 
 	/**
 	 * Color of the grid lines.
 	 */
-	private String gridLineColor = "#cccccc";
+	private String gridLineColor;
 
 	/**
 	 * CSS color spec for background color of grid.
 	 */
-	private String background = "#fffdf6";
+	private String background;
 
 	/**
 	 * CSS color spec for border around grid.
 	 */
-	private String borderColor = "#999999";
+	private String borderColor;
 
 	/**
 	 * pixel width of border around grid.
 	 */
-	private double borderWidth = 2.0;
+	private Double borderWidth;
 
 	/**
 	 * draw a shadow for grid.
 	 */
-	private boolean shadow = true;
+	private Boolean shadow;
 
 	/**
 	 * angle of the shadow. Clockwise from x axis.
 	 */
-	private double shadowAngle = 45;
+	private Double shadowAngle;
 
 	/**
 	 * offset from the line of the shadow.
 	 */
-	private double shadowOffset = 1.5;
+	private Double shadowOffset;
 
 	/**
 	 * width of the stroke for the shadow.
 	 */
-	private double shadowWidth = 3;
+	private Double shadowWidth;
 
 	/**
 	 * Number of strokes to make when drawing shadow. Each stroke offset by shadowOffset
 	 * from the last.
 	 */
-	private int shadowDepth = 3;
+	private Integer shadowDepth;
 
 	/**
 	 * Opacity of the shadow
 	 */
-	private double shadowAlpha = 0.07;
+	private Double shadowAlpha;
 
 	/**
 	 * renderer to use to draw the grid.
 	 */
-	private String renderer = "$.jqplot.CanvasGridRenderer";
+	private String renderer;
 
 	/**
 	 * options to pass to the renderer. Note, the default CanvasGridRenderer takes no
@@ -77,12 +80,12 @@ public class PlotGrid implements Serializable
 	{
 	}
 
-	public boolean isDrawGridLines()
+	public Boolean isDrawGridLines()
 	{
 		return drawGridLines;
 	}
 
-	public void setDrawGridLines(boolean drawGridLines)
+	public void setDrawGridLines(Boolean drawGridLines)
 	{
 		this.drawGridLines = drawGridLines;
 	}
@@ -117,76 +120,77 @@ public class PlotGrid implements Serializable
 		this.borderColor = borderColor;
 	}
 
-	public double getBorderWidth()
+	public Double getBorderWidth()
 	{
 		return borderWidth;
 	}
 
-	public void setBorderWidth(double borderWidth)
+	public void setBorderWidth(Double borderWidth)
 	{
 		this.borderWidth = borderWidth;
 	}
 
-	public boolean isShadow()
+	public Boolean isShadow()
 	{
 		return shadow;
 	}
 
-	public void setShadow(boolean shadow)
+	public void setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
 	}
 
-	public double getShadowAngle()
+	public Double getShadowAngle()
 	{
 		return shadowAngle;
 	}
 
-	public void setShadowAngle(double shadowAngle)
+	public void setShadowAngle(Double shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
 	}
 
-	public double getShadowOffset()
+	public Double getShadowOffset()
 	{
 		return shadowOffset;
 	}
 
-	public void setShadowOffset(double shadowOffset)
+	public void setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
 	}
 
-	public double getShadowWidth()
+	public Double getShadowWidth()
 	{
 		return shadowWidth;
 	}
 
-	public void setShadowWidth(double shadowWidth)
+	public void setShadowWidth(Double shadowWidth)
 	{
 		this.shadowWidth = shadowWidth;
 	}
 
-	public int getShadowDepth()
+	public Integer getShadowDepth()
 	{
 		return shadowDepth;
 	}
 
-	public void setShadowDepth(int shadowDepth)
+	public void setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
 	}
 
-	public double getShadowAlpha()
+	public Double getShadowAlpha()
 	{
 		return shadowAlpha;
 	}
 
-	public void setShadowAlpha(double shadowAlpha)
+	public void setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
 	}
 
+	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
 	public String getRenderer()
 	{
 		return renderer;
