@@ -19,15 +19,15 @@ public class AreaPage extends WebPage
 
 	public AreaPage()
 	{
-		SimpleNumberSeries<Integer> l1 = new SimpleNumberSeries<Integer>(11, 9, 5, 12, 14);
-		SimpleNumberSeries<Integer> l2 = new SimpleNumberSeries<Integer>(4, 8, 5, 3, 6);
-		SimpleNumberSeries<Integer> l3 = new SimpleNumberSeries<Integer>(12, 6, 13, 11, 2);
-		SimpleNumberSeries<Integer> l4 = new SimpleNumberSeries<Integer>(4, -3, 3, 6, 2, -2);
+		SimpleNumberSeries<Integer> l2 = new SimpleNumberSeries<Integer>(11, 9, 5, 12, 14);
+		SimpleNumberSeries<Integer> l3 = new SimpleNumberSeries<Integer>(4, 8, 5, 3, 6);
+		SimpleNumberSeries<Integer> l4 = new SimpleNumberSeries<Integer>(12, 6, 13, 11, 2);
+		SimpleNumberSeries<Integer> l5 = new SimpleNumberSeries<Integer>(4, -3, 3, 6, 2, -2);
 
 		@SuppressWarnings("unchecked")
 		JQPlot chart1b =
-			new JQPlot("chart1b", new ListModel<SimpleNumberSeries<Integer>>(Arrays.asList(l1, l2,
-				l3, l4)));
+			new JQPlot("chart1b", new ListModel<SimpleNumberSeries<Integer>>(Arrays.asList(l2, l3,
+				l4)));
 		PlotOptions chart1bO = chart1b.getOptions();
 		chart1bO.setStackSeries(true);
 		chart1bO.setSeriesDefaults(new PlotSeries());
@@ -35,12 +35,9 @@ public class AreaPage extends WebPage
 		chart1bO.setAxes(new PlotAxes());
 		chart1bO.getAxes().setXaxis(new PlotAxis());
 		chart1bO.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
-		chart1bO
-			.getAxes()
-			.getXaxis()
-			.setTicks(
-				Arrays.asList(new PlotTick("Mon"), new PlotTick("Tue"), new PlotTick("Wed"),
-					new PlotTick("Thu"), new PlotTick("Fri")));
+		chart1bO.getAxes().getXaxis().setTicks(
+			Arrays.asList(new PlotTick("Mon"), new PlotTick("Tue"), new PlotTick("Wed"),
+				new PlotTick("Thu"), new PlotTick("Fri")));
 
 		add(chart1b);
 	}
