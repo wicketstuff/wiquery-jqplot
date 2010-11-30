@@ -34,9 +34,10 @@ public class PlotTick implements Serializable
 		return val;
 	}
 
-	public void setVal(Object val)
+	public PlotTick setVal(Object val)
 	{
 		this.val = val;
+		return this;
 	}
 
 	public Object getLabel()
@@ -44,9 +45,10 @@ public class PlotTick implements Serializable
 		return label;
 	}
 
-	public void setLabel(Object label)
+	public PlotTick setLabel(Object label)
 	{
 		this.label = label;
+		return this;
 	}
 
 	@JsonValue

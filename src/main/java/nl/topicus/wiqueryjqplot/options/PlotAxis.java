@@ -72,9 +72,10 @@ public class PlotAxis implements Serializable
 		return show;
 	}
 
-	public void setShow(Boolean show)
+	public PlotAxis setShow(Boolean show)
 	{
 		this.show = show;
+		return this;
 	}
 
 	public Integer getMin()
@@ -82,9 +83,10 @@ public class PlotAxis implements Serializable
 		return min;
 	}
 
-	public void setMin(Integer min)
+	public PlotAxis setMin(Integer min)
 	{
 		this.min = min;
+		return this;
 	}
 
 	public Integer getMax()
@@ -92,9 +94,10 @@ public class PlotAxis implements Serializable
 		return max;
 	}
 
-	public void setMax(Integer max)
+	public PlotAxis setMax(Integer max)
 	{
 		this.max = max;
+		return this;
 	}
 
 	public Double getPad()
@@ -102,22 +105,26 @@ public class PlotAxis implements Serializable
 		return pad;
 	}
 
-	public void setPad(Double pad)
+	public PlotAxis setPad(Double pad)
 	{
 		this.pad = pad;
+		return this;
 	}
 
 	public List<PlotTick> getTicks()
 	{
+		if (ticks == null)
+			ticks = new ArrayList<PlotTick>();
 		return ticks;
 	}
 
-	public void setTicks(List<PlotTick> ticks)
+	public PlotAxis setTicks(List<PlotTick> ticks)
 	{
 		this.ticks = ticks;
+		return this;
 	}
 
-	public void setTicks(Object... ticks)
+	public PlotAxis setTicks(Object... ticks)
 	{
 		List<PlotTick> newTicks = new ArrayList<PlotTick>();
 		for (Object curTick : ticks)
@@ -125,6 +132,7 @@ public class PlotAxis implements Serializable
 			newTicks.add(new PlotTick(curTick));
 		}
 		this.ticks = newTicks;
+		return this;
 	}
 
 	public Integer getNumberTicks()
@@ -132,9 +140,10 @@ public class PlotAxis implements Serializable
 		return numberTicks;
 	}
 
-	public void setNumberTicks(Integer numberTicks)
+	public PlotAxis setNumberTicks(Integer numberTicks)
 	{
 		this.numberTicks = numberTicks;
+		return this;
 	}
 
 	public String getRenderer()
@@ -142,9 +151,10 @@ public class PlotAxis implements Serializable
 		return renderer;
 	}
 
-	public void setRenderer(String renderer)
+	public PlotAxis setRenderer(String renderer)
 	{
 		this.renderer = renderer;
+		return this;
 	}
 
 	public Object getRendererOptions()
@@ -152,19 +162,23 @@ public class PlotAxis implements Serializable
 		return rendererOptions;
 	}
 
-	public void setRendererOptions(Object rendererOptions)
+	public PlotAxis setRendererOptions(Object rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
+		return this;
 	}
 
 	public PlotTickOptions getTickOptions()
 	{
+		if (tickOptions == null)
+			tickOptions = new PlotTickOptions();
 		return tickOptions;
 	}
 
-	public void setTickOptions(PlotTickOptions tickOptions)
+	public PlotAxis setTickOptions(PlotTickOptions tickOptions)
 	{
 		this.tickOptions = tickOptions;
+		return this;
 	}
 
 	public Boolean isShowTicks()
@@ -172,9 +186,10 @@ public class PlotAxis implements Serializable
 		return showTicks;
 	}
 
-	public void setShowTicks(Boolean showTicks)
+	public PlotAxis setShowTicks(Boolean showTicks)
 	{
 		this.showTicks = showTicks;
+		return this;
 	}
 
 	public Boolean isShowTickMarks()
@@ -182,8 +197,9 @@ public class PlotAxis implements Serializable
 		return showTickMarks;
 	}
 
-	public void setShowTickMarks(Boolean showTickMarks)
+	public PlotAxis setShowTickMarks(Boolean showTickMarks)
 	{
 		this.showTickMarks = showTickMarks;
+		return this;
 	}
 }

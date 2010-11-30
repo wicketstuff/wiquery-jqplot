@@ -1,6 +1,7 @@
 package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -36,83 +37,113 @@ public class PlotOptions implements Serializable
 		return stackSeries;
 	}
 
-	public void setStackSeries(boolean stackSeries)
+	public PlotOptions setStackSeries(boolean stackSeries)
 	{
 		this.stackSeries = stackSeries;
+		return this;
 	}
 
 	public PlotTitle getTitle()
 	{
+		if (title == null)
+			title = new PlotTitle();
 		return title;
 	}
 
-	public void setTitle(PlotTitle title)
+	public PlotOptions setTitle(PlotTitle title)
 	{
 		this.title = title;
+		return this;
 	}
 
-	public void setTitle(String title)
+	public PlotOptions setTitle(String title)
 	{
 		setTitle(new PlotTitle(title));
+		return this;
 	}
 
 	public PlotAxis getAxesDefaults()
 	{
+		if (axesDefaults == null)
+			axesDefaults = new PlotAxis();
 		return axesDefaults;
 	}
 
-	public void setAxesDefaults(PlotAxis axesDefaults)
+	public PlotOptions setAxesDefaults(PlotAxis axesDefaults)
 	{
 		this.axesDefaults = axesDefaults;
+		return this;
 	}
 
 	public PlotAxes getAxes()
 	{
+		if (axes == null)
+			axes = new PlotAxes();
 		return axes;
 	}
 
-	public void setAxes(PlotAxes axes)
+	public PlotOptions setAxes(PlotAxes axes)
 	{
 		this.axes = axes;
+		return this;
 	}
 
 	public PlotSeries getSeriesDefaults()
 	{
+		if (seriesDefaults == null)
+			seriesDefaults = new PlotSeries();
 		return seriesDefaults;
 	}
 
-	public void setSeriesDefaults(PlotSeries seriesDefaults)
+	public PlotOptions setSeriesDefaults(PlotSeries seriesDefaults)
 	{
 		this.seriesDefaults = seriesDefaults;
+		return this;
+	}
+
+	public PlotSeries addNewSeries()
+	{
+		PlotSeries ret = new PlotSeries();
+		getSeries().add(ret);
+		return ret;
 	}
 
 	public List<PlotSeries> getSeries()
 	{
+		if (series == null)
+			series = new ArrayList<PlotSeries>();
 		return series;
 	}
 
-	public void setSeries(List<PlotSeries> series)
+	public PlotOptions setSeries(List<PlotSeries> series)
 	{
 		this.series = series;
+		return this;
 	}
 
 	public PlotLegend getLegend()
 	{
+		if (legend == null)
+			legend = new PlotLegend();
 		return legend;
 	}
 
-	public void setLegend(PlotLegend legend)
+	public PlotOptions setLegend(PlotLegend legend)
 	{
 		this.legend = legend;
+		return this;
 	}
 
 	public PlotGrid getGrid()
 	{
+		if (grid == null)
+			grid = new PlotGrid();
 		return grid;
 	}
 
-	public void setGrid(PlotGrid grid)
+	public PlotOptions setGrid(PlotGrid grid)
 	{
 		this.grid = grid;
+		return this;
 	}
 }

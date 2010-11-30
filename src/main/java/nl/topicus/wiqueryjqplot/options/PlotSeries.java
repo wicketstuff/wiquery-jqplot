@@ -122,9 +122,10 @@ public class PlotSeries implements Serializable
 		return show;
 	}
 
-	public void setShow(Boolean show)
+	public PlotSeries setShow(Boolean show)
 	{
 		this.show = show;
+		return this;
 	}
 
 	public String getXaxis()
@@ -132,9 +133,10 @@ public class PlotSeries implements Serializable
 		return xaxis;
 	}
 
-	public void setXaxis(String xaxis)
+	public PlotSeries setXaxis(String xaxis)
 	{
 		this.xaxis = xaxis;
+		return this;
 	}
 
 	public String getYaxis()
@@ -142,9 +144,10 @@ public class PlotSeries implements Serializable
 		return yaxis;
 	}
 
-	public void setYaxis(String yaxis)
+	public PlotSeries setYaxis(String yaxis)
 	{
 		this.yaxis = yaxis;
+		return this;
 	}
 
 	public String getLabel()
@@ -152,9 +155,10 @@ public class PlotSeries implements Serializable
 		return label;
 	}
 
-	public void setLabel(String label)
+	public PlotSeries setLabel(String label)
 	{
 		this.label = label;
+		return this;
 	}
 
 	public String getColor()
@@ -162,9 +166,10 @@ public class PlotSeries implements Serializable
 		return color;
 	}
 
-	public void setColor(String color)
+	public PlotSeries setColor(String color)
 	{
 		this.color = color;
+		return this;
 	}
 
 	public Double getLineWidth()
@@ -172,9 +177,10 @@ public class PlotSeries implements Serializable
 		return lineWidth;
 	}
 
-	public void setLineWidth(Double lineWidth)
+	public PlotSeries setLineWidth(Double lineWidth)
 	{
 		this.lineWidth = lineWidth;
+		return this;
 	}
 
 	public Boolean isShadow()
@@ -182,9 +188,10 @@ public class PlotSeries implements Serializable
 		return shadow;
 	}
 
-	public void setShadow(Boolean shadow)
+	public PlotSeries setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
+		return this;
 	}
 
 	public Double getShadowAngle()
@@ -192,9 +199,10 @@ public class PlotSeries implements Serializable
 		return shadowAngle;
 	}
 
-	public void setShadowAngle(Double shadowAngle)
+	public PlotSeries setShadowAngle(Double shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
+		return this;
 	}
 
 	public Double getShadowOffset()
@@ -202,9 +210,10 @@ public class PlotSeries implements Serializable
 		return shadowOffset;
 	}
 
-	public void setShadowOffset(Double shadowOffset)
+	public PlotSeries setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return this;
 	}
 
 	public Integer getShadowDepth()
@@ -212,9 +221,10 @@ public class PlotSeries implements Serializable
 		return shadowDepth;
 	}
 
-	public void setShadowDepth(Integer shadowDepth)
+	public PlotSeries setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return this;
 	}
 
 	public Double getShadowAlpha()
@@ -222,9 +232,10 @@ public class PlotSeries implements Serializable
 		return shadowAlpha;
 	}
 
-	public void setShadowAlpha(Double shadowAlpha)
+	public PlotSeries setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return this;
 	}
 
 	public Boolean isShowLine()
@@ -232,9 +243,10 @@ public class PlotSeries implements Serializable
 		return showLine;
 	}
 
-	public void setShowLine(Boolean showLine)
+	public PlotSeries setShowLine(Boolean showLine)
 	{
 		this.showLine = showLine;
+		return this;
 	}
 
 	public Boolean isShowMarker()
@@ -242,9 +254,10 @@ public class PlotSeries implements Serializable
 		return showMarker;
 	}
 
-	public void setShowMarker(Boolean showMarker)
+	public PlotSeries setShowMarker(Boolean showMarker)
 	{
 		this.showMarker = showMarker;
+		return this;
 	}
 
 	public Boolean isFill()
@@ -252,9 +265,10 @@ public class PlotSeries implements Serializable
 		return fill;
 	}
 
-	public void setFill(Boolean fill)
+	public PlotSeries setFill(Boolean fill)
 	{
 		this.fill = fill;
+		return this;
 	}
 
 	public Boolean isFillAndStroke()
@@ -262,9 +276,10 @@ public class PlotSeries implements Serializable
 		return fillAndStroke;
 	}
 
-	public void setFillAndStroke(Boolean fillAndStroke)
+	public PlotSeries setFillAndStroke(Boolean fillAndStroke)
 	{
 		this.fillAndStroke = fillAndStroke;
+		return this;
 	}
 
 	public String getFillColor()
@@ -272,9 +287,10 @@ public class PlotSeries implements Serializable
 		return fillColor;
 	}
 
-	public void setFillColor(String fillColor)
+	public PlotSeries setFillColor(String fillColor)
 	{
 		this.fillColor = fillColor;
+		return this;
 	}
 
 	public Double getFillAlpha()
@@ -282,9 +298,10 @@ public class PlotSeries implements Serializable
 		return fillAlpha;
 	}
 
-	public void setFillAlpha(Double fillAlpha)
+	public PlotSeries setFillAlpha(Double fillAlpha)
 	{
 		this.fillAlpha = fillAlpha;
+		return this;
 	}
 
 	public String getRenderer()
@@ -292,9 +309,10 @@ public class PlotSeries implements Serializable
 		return renderer;
 	}
 
-	public void setRenderer(String renderer)
+	public PlotSeries setRenderer(String renderer)
 	{
 		this.renderer = renderer;
+		return this;
 	}
 
 	public Object getRendererOptions()
@@ -302,9 +320,10 @@ public class PlotSeries implements Serializable
 		return rendererOptions;
 	}
 
-	public void setRendererOptions(Object rendererOptions)
+	public PlotSeries setRendererOptions(Object rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
+		return this;
 	}
 
 	public String getMarkerRenderer()
@@ -312,18 +331,22 @@ public class PlotSeries implements Serializable
 		return markerRenderer;
 	}
 
-	public void setMarkerRenderer(String markerRenderer)
+	public PlotSeries setMarkerRenderer(String markerRenderer)
 	{
 		this.markerRenderer = markerRenderer;
+		return this;
 	}
 
 	public PlotSeriesMarkerOptions getMarkerOptions()
 	{
+		if (markerOptions == null)
+			markerOptions = new PlotSeriesMarkerOptions();
 		return markerOptions;
 	}
 
-	public void setMarkerOptions(PlotSeriesMarkerOptions markerOptions)
+	public PlotSeries setMarkerOptions(PlotSeriesMarkerOptions markerOptions)
 	{
 		this.markerOptions = markerOptions;
+		return this;
 	}
 }

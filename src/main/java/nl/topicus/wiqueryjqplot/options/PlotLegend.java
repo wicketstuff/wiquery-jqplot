@@ -36,9 +36,10 @@ public class PlotLegend implements Serializable
 		return show;
 	}
 
-	public void setShow(Boolean show)
+	public PlotLegend setShow(Boolean show)
 	{
 		this.show = show;
+		return this;
 	}
 
 	public PlotLegendLocation getLocation()
@@ -46,9 +47,10 @@ public class PlotLegend implements Serializable
 		return location;
 	}
 
-	public void setLocation(PlotLegendLocation location)
+	public PlotLegend setLocation(PlotLegendLocation location)
 	{
 		this.location = location;
+		return this;
 	}
 
 	public Integer getXoffset()
@@ -56,9 +58,10 @@ public class PlotLegend implements Serializable
 		return xoffset;
 	}
 
-	public void setXoffset(Integer xoffset)
+	public PlotLegend setXoffset(Integer xoffset)
 	{
 		this.xoffset = xoffset;
+		return this;
 	}
 
 	public Integer getYoffset()
@@ -66,8 +69,9 @@ public class PlotLegend implements Serializable
 		return yoffset;
 	}
 
-	public void setYoffset(Integer yoffset)
+	public PlotLegend setYoffset(Integer yoffset)
 	{
 		this.yoffset = yoffset;
+		return this;
 	}
 }

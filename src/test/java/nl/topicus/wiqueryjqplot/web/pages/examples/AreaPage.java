@@ -4,11 +4,7 @@ import java.util.Arrays;
 
 import nl.topicus.wiqueryjqplot.components.JQPlot;
 import nl.topicus.wiqueryjqplot.data.SimpleNumberSeries;
-import nl.topicus.wiqueryjqplot.options.PlotAxes;
-import nl.topicus.wiqueryjqplot.options.PlotAxis;
 import nl.topicus.wiqueryjqplot.options.PlotOptions;
-import nl.topicus.wiqueryjqplot.options.PlotSeries;
-import nl.topicus.wiqueryjqplot.options.PlotTick;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
@@ -28,16 +24,12 @@ public class AreaPage extends WebPage
 		JQPlot chart1b =
 			new JQPlot("chart1b", new ListModel<SimpleNumberSeries<Integer>>(Arrays.asList(l2, l3,
 				l4)));
+
 		PlotOptions chart1bO = chart1b.getOptions();
 		chart1bO.setStackSeries(true);
-		chart1bO.setSeriesDefaults(new PlotSeries());
 		chart1bO.getSeriesDefaults().setFill(true);
-		chart1bO.setAxes(new PlotAxes());
-		chart1bO.getAxes().setXaxis(new PlotAxis());
 		chart1bO.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
-		chart1bO.getAxes().getXaxis().setTicks(
-			Arrays.asList(new PlotTick("Mon"), new PlotTick("Tue"), new PlotTick("Wed"),
-				new PlotTick("Thu"), new PlotTick("Fri")));
+		chart1bO.getAxes().getXaxis().setTicks("Mon", "Tue", "Wed", "Thu", "Fri");
 
 		add(chart1b);
 	}

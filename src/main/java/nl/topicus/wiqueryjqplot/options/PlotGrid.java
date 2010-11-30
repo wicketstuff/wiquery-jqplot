@@ -89,9 +89,10 @@ public class PlotGrid implements Serializable
 		return drawGridLines;
 	}
 
-	public void setDrawGridLines(Boolean drawGridLines)
+	public PlotGrid setDrawGridLines(Boolean drawGridLines)
 	{
 		this.drawGridLines = drawGridLines;
+		return this;
 	}
 
 	public String getGridLineColor()
@@ -99,9 +100,10 @@ public class PlotGrid implements Serializable
 		return gridLineColor;
 	}
 
-	public void setGridLineColor(String gridLineColor)
+	public PlotGrid setGridLineColor(String gridLineColor)
 	{
 		this.gridLineColor = gridLineColor;
+		return this;
 	}
 
 	public String getBackground()
@@ -109,9 +111,10 @@ public class PlotGrid implements Serializable
 		return background;
 	}
 
-	public void setBackground(String background)
+	public PlotGrid setBackground(String background)
 	{
 		this.background = background;
+		return this;
 	}
 
 	public String getBorderColor()
@@ -119,9 +122,10 @@ public class PlotGrid implements Serializable
 		return borderColor;
 	}
 
-	public void setBorderColor(String borderColor)
+	public PlotGrid setBorderColor(String borderColor)
 	{
 		this.borderColor = borderColor;
+		return this;
 	}
 
 	public Double getBorderWidth()
@@ -129,9 +133,10 @@ public class PlotGrid implements Serializable
 		return borderWidth;
 	}
 
-	public void setBorderWidth(Double borderWidth)
+	public PlotGrid setBorderWidth(Double borderWidth)
 	{
 		this.borderWidth = borderWidth;
+		return this;
 	}
 
 	public Boolean isShadow()
@@ -139,9 +144,10 @@ public class PlotGrid implements Serializable
 		return shadow;
 	}
 
-	public void setShadow(Boolean shadow)
+	public PlotGrid setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
+		return this;
 	}
 
 	public Double getShadowAngle()
@@ -149,9 +155,10 @@ public class PlotGrid implements Serializable
 		return shadowAngle;
 	}
 
-	public void setShadowAngle(Double shadowAngle)
+	public PlotGrid setShadowAngle(Double shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
+		return this;
 	}
 
 	public Double getShadowOffset()
@@ -159,9 +166,10 @@ public class PlotGrid implements Serializable
 		return shadowOffset;
 	}
 
-	public void setShadowOffset(Double shadowOffset)
+	public PlotGrid setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return this;
 	}
 
 	public Double getShadowWidth()
@@ -169,9 +177,10 @@ public class PlotGrid implements Serializable
 		return shadowWidth;
 	}
 
-	public void setShadowWidth(Double shadowWidth)
+	public PlotGrid setShadowWidth(Double shadowWidth)
 	{
 		this.shadowWidth = shadowWidth;
+		return this;
 	}
 
 	public Integer getShadowDepth()
@@ -179,9 +188,10 @@ public class PlotGrid implements Serializable
 		return shadowDepth;
 	}
 
-	public void setShadowDepth(Integer shadowDepth)
+	public PlotGrid setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return this;
 	}
 
 	public Double getShadowAlpha()
@@ -189,9 +199,10 @@ public class PlotGrid implements Serializable
 		return shadowAlpha;
 	}
 
-	public void setShadowAlpha(Double shadowAlpha)
+	public PlotGrid setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return this;
 	}
 
 	public String getRenderer()
@@ -199,9 +210,10 @@ public class PlotGrid implements Serializable
 		return renderer;
 	}
 
-	public void setRenderer(String renderer)
+	public PlotGrid setRenderer(String renderer)
 	{
 		this.renderer = renderer;
+		return this;
 	}
 
 	public Object getRendererOptions()
@@ -209,8 +221,9 @@ public class PlotGrid implements Serializable
 		return rendererOptions;
 	}
 
-	public void setRendererOptions(Object rendererOptions)
+	public PlotGrid setRendererOptions(Object rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
+		return this;
 	}
 }

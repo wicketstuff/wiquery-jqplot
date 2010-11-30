@@ -1,14 +1,17 @@
 package nl.topicus.wiqueryjqplot.web.pages.examples;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import nl.topicus.wiqueryjqplot.components.JQPlot;
 import nl.topicus.wiqueryjqplot.data.NumberSeries;
 import nl.topicus.wiqueryjqplot.data.NumberSeriesEntry;
 import nl.topicus.wiqueryjqplot.data.SimpleNumberSeries;
-import nl.topicus.wiqueryjqplot.options.*;
+import nl.topicus.wiqueryjqplot.options.PlotAxes;
+import nl.topicus.wiqueryjqplot.options.PlotMarkerStyle;
+import nl.topicus.wiqueryjqplot.options.PlotOptions;
+import nl.topicus.wiqueryjqplot.options.PlotSeries;
+import nl.topicus.wiqueryjqplot.options.PlotTick;
+import nl.topicus.wiqueryjqplot.options.PlotTitle;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
@@ -48,39 +51,23 @@ public class CorePage extends WebPage
 			new JQPlot("chart1", new ListModel<NumberSeries<Double, Double>>(Arrays.asList(l1, l2,
 				l3, l4)));
 		PlotOptions chart1O = chart1.getOptions();
-		chart1O.setTitle(new PlotTitle("Line Style Options"));
-		List<PlotSeries> chart1series = new ArrayList<PlotSeries>();
+		chart1O.setTitle("Line Style Options");
 
-		PlotSeries chart1series1 = new PlotSeries();
+		PlotSeries chart1series1 = chart1O.addNewSeries();
 		chart1series1.setLineWidth(2d);
-		PlotSeriesMarkerOptions chart1series1marker = new PlotSeriesMarkerOptions();
-		chart1series1marker.setStyle(PlotMarkerStyle.diamond);
-		chart1series1.setMarkerOptions(chart1series1marker);
-		chart1series.add(chart1series1);
+		chart1series1.getMarkerOptions().setStyle(PlotMarkerStyle.diamond);
 
-		PlotSeries chart1series2 = new PlotSeries();
+		PlotSeries chart1series2 = chart1O.addNewSeries();
 		chart1series2.setShowLine(false);
-		PlotSeriesMarkerOptions chart1series2marker = new PlotSeriesMarkerOptions();
-		chart1series2marker.setSize(7d);
-		chart1series2marker.setStyle(PlotMarkerStyle.x);
-		chart1series2.setMarkerOptions(chart1series2marker);
-		chart1series.add(chart1series2);
+		chart1series2.getMarkerOptions().setSize(7d).setStyle(PlotMarkerStyle.diamond);
 
-		PlotSeries chart1series3 = new PlotSeries();
-		PlotSeriesMarkerOptions chart1series3marker = new PlotSeriesMarkerOptions();
-		chart1series3marker.setStyle(PlotMarkerStyle.circle);
-		chart1series3.setMarkerOptions(chart1series3marker);
-		chart1series.add(chart1series3);
+		PlotSeries chart1series3 = chart1O.addNewSeries();
+		chart1series3.getMarkerOptions().setStyle(PlotMarkerStyle.circle);
 
-		PlotSeries chart1series4 = new PlotSeries();
+		PlotSeries chart1series4 = chart1O.addNewSeries();
 		chart1series4.setLineWidth(5d);
-		PlotSeriesMarkerOptions chart1series4marker = new PlotSeriesMarkerOptions();
-		chart1series4marker.setStyle(PlotMarkerStyle.filledSquare);
-		chart1series4marker.setSize(14d);
-		chart1series4.setMarkerOptions(chart1series4marker);
-		chart1series.add(chart1series4);
+		chart1series4.getMarkerOptions().setSize(14d).setStyle(PlotMarkerStyle.filledSquare);
 
-		chart1O.setSeries(chart1series);
 		add(chart1);
 	}
 
@@ -95,20 +82,14 @@ public class CorePage extends WebPage
 			new JQPlot("chart2", new ListModel<NumberSeries<Double, Double>>(Arrays.asList(l1)));
 		PlotOptions chart2O = chart2.getOptions();
 		chart2O.setTitle(new PlotTitle("Shadow Options"));
-		List<PlotSeries> chart2series = new ArrayList<PlotSeries>();
 
-		PlotSeries chart2series1 = new PlotSeries();
+		PlotSeries chart2series1 = chart2O.addNewSeries();
 		chart2series1.setLineWidth(5d);
-		chart2series1.setShadowAlpha(0d);
 		chart2series1.setShadowOffset(1.5d);
 		chart2series1.setShadowAlpha(0.08d);
 		chart2series1.setShadowDepth(6);
-		PlotSeriesMarkerOptions chart2series1marker = new PlotSeriesMarkerOptions();
-		chart2series1marker.setShow(false);
-		chart2series1.setMarkerOptions(chart2series1marker);
-		chart2series.add(chart2series1);
+		chart2series1.getMarkerOptions().setShow(false);
 
-		chart2O.setSeries(chart2series);
 		add(chart2);
 	}
 
@@ -131,31 +112,21 @@ public class CorePage extends WebPage
 		@SuppressWarnings("unchecked")
 		JQPlot chart3 = new JQPlot("chart3", new ListModel(Arrays.asList(l1, l2, l3)));
 		PlotOptions chart3O = chart3.getOptions();
-		PlotLegend chart3legend = new PlotLegend();
-		chart3legend.setShow(true);
-		chart3O.setLegend(chart3legend);
-		chart3O.setTitle(new PlotTitle("Mixed Data Input Formats"));
-		List<PlotSeries> chart3series = new ArrayList<PlotSeries>();
+		chart3O.getLegend().setShow(true);
+		chart3O.setTitle("Mixed Data Input Formats");
 
-		PlotSeries chart3series1 = new PlotSeries();
+		PlotSeries chart3series1 = chart3O.addNewSeries();
 		chart3series1.setLabel("Rising line");
 		chart3series1.setShowLine(false);
-		PlotSeriesMarkerOptions chart3series1marker = new PlotSeriesMarkerOptions();
-		chart3series1marker.setStyle(PlotMarkerStyle.square);
-		chart3series1.setMarkerOptions(chart3series1marker);
-		chart3series.add(chart3series1);
+		chart3series1.getMarkerOptions().setStyle(PlotMarkerStyle.square);
 
-		PlotSeries chart3series2 = new PlotSeries();
-		chart3series2.setLabel("Declining line");
-		chart3series.add(chart3series2);
+		chart3O.addNewSeries().setLabel("Declining line");
 
-		PlotSeries chart3series3 = new PlotSeries();
+		PlotSeries chart3series3 = chart3O.addNewSeries();
 		chart3series3.setLabel("Zig Zag line");
 		chart3series3.setLineWidth(5d);
 		chart3series3.setShowMarker(false);
-		chart3series.add(chart3series3);
 
-		chart3O.setSeries(chart3series);
 		add(chart3);
 	}
 
@@ -175,44 +146,24 @@ public class CorePage extends WebPage
 		@SuppressWarnings("unchecked")
 		JQPlot chart4 = new JQPlot("chart4", new ListModel(Arrays.asList(l1, l2)));
 		PlotOptions chart4O = chart4.getOptions();
-		PlotLegend chart4legend = new PlotLegend();
-		chart4legend.setShow(true);
-		chart4O.setLegend(chart4legend);
-		chart4O.setTitle(new PlotTitle("Customized Axes Ticks"));
-		PlotGrid chart4grid = new PlotGrid();
-		chart4grid.setBackground("#f3f3f3");
-		chart4grid.setGridLineColor("#accf9b");
-		chart4O.setGrid(chart4grid);
+		chart4O.getLegend().setShow(true);
+		chart4O.setTitle("Customized Axes Ticks");
+		chart4O.getGrid().setBackground("#f3f3f3").setGridLineColor("#accf9b");
 
-		List<PlotSeries> chart4series = new ArrayList<PlotSeries>();
-		PlotSeries chart4series1 = new PlotSeries();
+		PlotSeries chart4series1 = chart4O.addNewSeries();
 		chart4series1.setLabel("Rising line");
-		PlotSeriesMarkerOptions chart4series1marker = new PlotSeriesMarkerOptions();
-		chart4series1marker.setStyle(PlotMarkerStyle.square);
-		chart4series1.setMarkerOptions(chart4series1marker);
-		chart4series.add(chart4series1);
+		chart4series1.getMarkerOptions().setStyle(PlotMarkerStyle.square);
 
-		PlotSeries chart4series2 = new PlotSeries();
-		chart4series2.setLabel("Declining line");
-		chart4series.add(chart4series2);
+		chart4O.addNewSeries().setLabel("Declining line");
 
-		chart4O.setSeries(chart4series);
+		PlotAxes chart4axes = chart4O.getAxes();
+		chart4axes.getXaxis().setTicks(
+			Arrays.asList(new PlotTick(0, "zero"), new PlotTick(1, "one"), new PlotTick(2, "two"),
+				new PlotTick(3, "three"), new PlotTick(4, "four"), new PlotTick(5, "five")));
 
-		PlotAxes chart4axes = new PlotAxes();
-		PlotAxis chart4xaxis = new PlotAxis();
-		chart4xaxis.setTicks(Arrays.asList(new PlotTick(0, "zero"), new PlotTick(1, "one"),
-			new PlotTick(2, "two"), new PlotTick(3, "three"), new PlotTick(4, "four"),
-			new PlotTick(5, "five")));
+		chart4axes.getYaxis().setTicks(-5, 0, 5, 10, 15, 20, 25, 30).getTickOptions()
+			.setFormatString("%d");
 
-		PlotAxis chart4yaxis = new PlotAxis();
-		chart4yaxis.setTicks(-5, 0, 5, 10, 15, 20, 25, 30);
-		PlotTickOptions chart4yaxisOptions = new PlotTickOptions();
-		chart4yaxisOptions.setFormatString("%d");
-		chart4yaxis.setTickOptions(chart4yaxisOptions);
-
-		chart4axes.setXaxis(chart4xaxis);
-		chart4axes.setYaxis(chart4yaxis);
-		chart4O.setAxes(chart4axes);
 		add(chart4);
 	}
 }

@@ -28,9 +28,10 @@ public class PlotTitle implements Serializable
 		return show;
 	}
 
-	public void setShow(Boolean show)
+	public PlotTitle setShow(Boolean show)
 	{
 		this.show = show;
+		return this;
 	}
 
 	public String getText()
@@ -38,8 +39,9 @@ public class PlotTitle implements Serializable
 		return text;
 	}
 
-	public void setText(String text)
+	public PlotTitle setText(String text)
 	{
 		this.text = text;
+		return this;
 	}
 }

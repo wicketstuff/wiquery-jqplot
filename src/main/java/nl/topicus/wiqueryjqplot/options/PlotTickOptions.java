@@ -52,9 +52,10 @@ public class PlotTickOptions implements Serializable
 		return mark;
 	}
 
-	public void setMark(PlotTickMarkPlacement mark)
+	public PlotTickOptions setMark(PlotTickMarkPlacement mark)
 	{
 		this.mark = mark;
+		return this;
 	}
 
 	public Boolean isShowMark()
@@ -62,9 +63,10 @@ public class PlotTickOptions implements Serializable
 		return showMark;
 	}
 
-	public void setShowMark(Boolean showMark)
+	public PlotTickOptions setShowMark(Boolean showMark)
 	{
 		this.showMark = showMark;
+		return this;
 	}
 
 	public Boolean isShowGridline()
@@ -72,9 +74,10 @@ public class PlotTickOptions implements Serializable
 		return showGridline;
 	}
 
-	public void setShowGridline(Boolean showGridline)
+	public PlotTickOptions setShowGridline(Boolean showGridline)
 	{
 		this.showGridline = showGridline;
+		return this;
 	}
 
 	public Integer getMarkSize()
@@ -82,9 +85,10 @@ public class PlotTickOptions implements Serializable
 		return markSize;
 	}
 
-	public void setMarkSize(Integer markSize)
+	public PlotTickOptions setMarkSize(Integer markSize)
 	{
 		this.markSize = markSize;
+		return this;
 	}
 
 	public Boolean isShow()
@@ -92,9 +96,10 @@ public class PlotTickOptions implements Serializable
 		return show;
 	}
 
-	public void setShow(Boolean show)
+	public PlotTickOptions setShow(Boolean show)
 	{
 		this.show = show;
+		return this;
 	}
 
 	public Boolean isShowLabel()
@@ -102,9 +107,10 @@ public class PlotTickOptions implements Serializable
 		return showLabel;
 	}
 
-	public void setShowLabel(Boolean showLabel)
+	public PlotTickOptions setShowLabel(Boolean showLabel)
 	{
 		this.showLabel = showLabel;
+		return this;
 	}
 
 	public String getFormatString()
@@ -112,8 +118,9 @@ public class PlotTickOptions implements Serializable
 		return formatString;
 	}
 
-	public void setFormatString(String formatString)
+	public PlotTickOptions setFormatString(String formatString)
 	{
 		this.formatString = formatString;
+		return this;
 	}
 }

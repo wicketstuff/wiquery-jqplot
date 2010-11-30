@@ -70,9 +70,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return show;
 	}
 
-	public void setShow(Boolean show)
+	public PlotSeriesMarkerOptions setShow(Boolean show)
 	{
 		this.show = show;
+		return this;
 	}
 
 	public PlotMarkerStyle getStyle()
@@ -80,9 +81,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return style;
 	}
 
-	public void setStyle(PlotMarkerStyle style)
+	public PlotSeriesMarkerOptions setStyle(PlotMarkerStyle style)
 	{
 		this.style = style;
+		return this;
 	}
 
 	public Double getLineWidth()
@@ -90,9 +92,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return lineWidth;
 	}
 
-	public void setLineWidth(Double lineWidth)
+	public PlotSeriesMarkerOptions setLineWidth(Double lineWidth)
 	{
 		this.lineWidth = lineWidth;
+		return this;
 	}
 
 	public Double getSize()
@@ -100,9 +103,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return size;
 	}
 
-	public void setSize(Double size)
+	public PlotSeriesMarkerOptions setSize(Double size)
 	{
 		this.size = size;
+		return this;
 	}
 
 	public String getColor()
@@ -110,9 +114,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return color;
 	}
 
-	public void setColor(String color)
+	public PlotSeriesMarkerOptions setColor(String color)
 	{
 		this.color = color;
+		return this;
 	}
 
 	public Boolean isShadow()
@@ -120,9 +125,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return shadow;
 	}
 
-	public void setShadow(Boolean shadow)
+	public PlotSeriesMarkerOptions setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
+		return this;
 	}
 
 	public Double getShadowAngle()
@@ -130,9 +136,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return shadowAngle;
 	}
 
-	public void setShadowAngle(Double shadowAngle)
+	public PlotSeriesMarkerOptions setShadowAngle(Double shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
+		return this;
 	}
 
 	public Double getShadowOffset()
@@ -140,9 +147,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return shadowOffset;
 	}
 
-	public void setShadowOffset(Double shadowOffset)
+	public PlotSeriesMarkerOptions setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
+		return this;
 	}
 
 	public Integer getShadowDepth()
@@ -150,9 +158,10 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return shadowDepth;
 	}
 
-	public void setShadowDepth(Integer shadowDepth)
+	public PlotSeriesMarkerOptions setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return this;
 	}
 
 	public Double getShadowAlpha()
@@ -160,8 +169,9 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return shadowAlpha;
 	}
 
-	public void setShadowAlpha(Double shadowAlpha)
+	public PlotSeriesMarkerOptions setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return this;
 	}
 }
