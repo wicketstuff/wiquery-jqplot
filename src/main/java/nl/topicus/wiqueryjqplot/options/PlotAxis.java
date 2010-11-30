@@ -4,9 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotAxis implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -40,6 +43,7 @@ public class PlotAxis implements Serializable
 	/**
 	 * renderer to use to draw the axis,
 	 */
+	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
 	private String renderer;
 
 	/**
@@ -133,7 +137,6 @@ public class PlotAxis implements Serializable
 		this.numberTicks = numberTicks;
 	}
 
-	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
 	public String getRenderer()
 	{
 		return renderer;

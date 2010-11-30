@@ -2,37 +2,41 @@ package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotLegend implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private boolean show = false;
+	private Boolean show;
 
 	/**
 	 * compass direction, nw, n, ne, e, se, s, sw, w.
 	 */
-	private PlotLegendLocation location = PlotLegendLocation.ne;
+	private PlotLegendLocation location;
 
 	/**
 	 * pixel offset of the legend box from the x (or x2) axis.
 	 */
-	private int xoffset = 12;
+	private Integer xoffset;
 
 	/**
 	 * pixel offset of the legend box from the y (or y2) axis.
 	 */
-	private int yoffset = 12;
+	private Integer yoffset;
 
 	public PlotLegend()
 	{
 	}
 
-	public boolean isShow()
+	public Boolean isShow()
 	{
 		return show;
 	}
 
-	public void setShow(boolean show)
+	public void setShow(Boolean show)
 	{
 		this.show = show;
 	}
@@ -47,22 +51,22 @@ public class PlotLegend implements Serializable
 		this.location = location;
 	}
 
-	public int getXoffset()
+	public Integer getXoffset()
 	{
 		return xoffset;
 	}
 
-	public void setXoffset(int xoffset)
+	public void setXoffset(Integer xoffset)
 	{
 		this.xoffset = xoffset;
 	}
 
-	public int getYoffset()
+	public Integer getYoffset()
 	{
 		return yoffset;
 	}
 
-	public void setYoffset(int yoffset)
+	public void setYoffset(Integer yoffset)
 	{
 		this.yoffset = yoffset;
 	}

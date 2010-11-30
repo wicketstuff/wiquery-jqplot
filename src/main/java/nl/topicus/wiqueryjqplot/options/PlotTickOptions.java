@@ -2,6 +2,10 @@ package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotTickOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -9,35 +13,35 @@ public class PlotTickOptions implements Serializable
 	/**
 	 * Where to put the tick mark on the axis 'outside', 'inside' or 'cross'
 	 */
-	private PlotTickMarkPlacement mark = PlotTickMarkPlacement.outside;
+	private PlotTickMarkPlacement mark;
 
-	private boolean showMark = true;
+	private Boolean showMark;
 
 	/**
 	 * wether to draw a gridline (across the whole grid) at this tick,
 	 */
-	private boolean showGridline = true;
+	private Boolean showGridline;
 
 	/**
 	 * length the tick will extend beyond the grid in pixels. For 'cross', length will be
 	 * added above and below the grid boundary,
 	 */
-	private int markSize = 4;
+	private Integer markSize;
 
 	/**
 	 * wether to show the tick (mark and label),
 	 */
-	private boolean show = true;
+	private Boolean show;
 
 	/**
 	 * wether to show the text label at the tick,
 	 */
-	private boolean showLabel = true;
+	private Boolean showLabel;
 
 	/**
 	 * format string to use with the axis tick formatter
 	 */
-	private String formatString = "";
+	private String formatString;
 
 	public PlotTickOptions()
 	{
@@ -53,52 +57,52 @@ public class PlotTickOptions implements Serializable
 		this.mark = mark;
 	}
 
-	public boolean isShowMark()
+	public Boolean isShowMark()
 	{
 		return showMark;
 	}
 
-	public void setShowMark(boolean showMark)
+	public void setShowMark(Boolean showMark)
 	{
 		this.showMark = showMark;
 	}
 
-	public boolean isShowGridline()
+	public Boolean isShowGridline()
 	{
 		return showGridline;
 	}
 
-	public void setShowGridline(boolean showGridline)
+	public void setShowGridline(Boolean showGridline)
 	{
 		this.showGridline = showGridline;
 	}
 
-	public int getMarkSize()
+	public Integer getMarkSize()
 	{
 		return markSize;
 	}
 
-	public void setMarkSize(int markSize)
+	public void setMarkSize(Integer markSize)
 	{
 		this.markSize = markSize;
 	}
 
-	public boolean isShow()
+	public Boolean isShow()
 	{
 		return show;
 	}
 
-	public void setShow(boolean show)
+	public void setShow(Boolean show)
 	{
 		this.show = show;
 	}
 
-	public boolean isShowLabel()
+	public Boolean isShowLabel()
 	{
 		return showLabel;
 	}
 
-	public void setShowLabel(boolean showLabel)
+	public void setShowLabel(Boolean showLabel)
 	{
 		this.showLabel = showLabel;
 	}

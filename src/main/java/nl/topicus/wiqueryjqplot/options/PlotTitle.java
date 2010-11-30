@@ -2,11 +2,15 @@ package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotTitle implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private boolean show = true;
+	private Boolean show;
 
 	private String text;
 
@@ -19,12 +23,12 @@ public class PlotTitle implements Serializable
 		setText(text);
 	}
 
-	public boolean isShow()
+	public Boolean isShow()
 	{
 		return show;
 	}
 
-	public void setShow(boolean show)
+	public void setShow(Boolean show)
 	{
 		this.show = show;
 	}

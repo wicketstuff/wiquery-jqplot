@@ -3,6 +3,10 @@ package nl.topicus.wiqueryjqplot.options;
 import java.io.Serializable;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;

@@ -2,9 +2,12 @@ package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotGrid implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -68,6 +71,7 @@ public class PlotGrid implements Serializable
 	/**
 	 * renderer to use to draw the grid.
 	 */
+	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
 	private String renderer;
 
 	/**
@@ -190,7 +194,6 @@ public class PlotGrid implements Serializable
 		this.shadowAlpha = shadowAlpha;
 	}
 
-	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
 	public String getRenderer()
 	{
 		return renderer;

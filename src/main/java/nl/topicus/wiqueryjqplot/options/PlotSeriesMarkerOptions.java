@@ -2,6 +2,10 @@ package nl.topicus.wiqueryjqplot.options;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotSeriesMarkerOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -9,64 +13,64 @@ public class PlotSeriesMarkerOptions implements Serializable
 	/**
 	 * wether to show data point markers.
 	 */
-	private boolean show = true;
+	private Boolean show;
 
 	/**
 	 * circle, diamond, square, filledCircle. filledDiamond or filledSquare.
 	 */
-	private PlotMarkerStyle style = PlotMarkerStyle.filledCircle;
+	private PlotMarkerStyle style;
 
 	/**
 	 * width of the stroke drawing the marker.
 	 */
-	private double lineWidth = 2;
+	private Double lineWidth;
 
 	/**
 	 * size (diameter, edge length, etc.) of the marker.
 	 */
-	private double size = 9;
+	private Double size;
 
 	/**
 	 * color of marker, set to color of line by default.
 	 */
-	private String color = "#666666";
+	private String color;
 
 	/**
 	 * wether to draw shadow on marker or not.
 	 */
-	private boolean shadow = true;
+	private Boolean shadow;
 
 	/**
 	 * angle of the shadow. Clockwise from x axis.
 	 */
-	private double shadowAngle = 45;
+	private Double shadowAngle;
 
 	/**
 	 * offset from the line of the shadow,
 	 */
-	private double shadowOffset = 1;
+	private Double shadowOffset;
 
 	/**
 	 * Number of strokes to make when drawing shadow. Each stroke/ offset by shadowOffset
 	 * from the last.
 	 */
-	private int shadowDepth = 3;
+	private Integer shadowDepth;
 
 	/**
 	 * Opacity of the shadow
 	 */
-	private double shadowAlpha = 0.07;
+	private Double shadowAlpha;
 
 	public PlotSeriesMarkerOptions()
 	{
 	}
 
-	public boolean isShow()
+	public Boolean isShow()
 	{
 		return show;
 	}
 
-	public void setShow(boolean show)
+	public void setShow(Boolean show)
 	{
 		this.show = show;
 	}
@@ -81,22 +85,22 @@ public class PlotSeriesMarkerOptions implements Serializable
 		this.style = style;
 	}
 
-	public double getLineWidth()
+	public Double getLineWidth()
 	{
 		return lineWidth;
 	}
 
-	public void setLineWidth(double lineWidth)
+	public void setLineWidth(Double lineWidth)
 	{
 		this.lineWidth = lineWidth;
 	}
 
-	public double getSize()
+	public Double getSize()
 	{
 		return size;
 	}
 
-	public void setSize(double size)
+	public void setSize(Double size)
 	{
 		this.size = size;
 	}
@@ -111,52 +115,52 @@ public class PlotSeriesMarkerOptions implements Serializable
 		this.color = color;
 	}
 
-	public boolean isShadow()
+	public Boolean isShadow()
 	{
 		return shadow;
 	}
 
-	public void setShadow(boolean shadow)
+	public void setShadow(Boolean shadow)
 	{
 		this.shadow = shadow;
 	}
 
-	public double getShadowAngle()
+	public Double getShadowAngle()
 	{
 		return shadowAngle;
 	}
 
-	public void setShadowAngle(double shadowAngle)
+	public void setShadowAngle(Double shadowAngle)
 	{
 		this.shadowAngle = shadowAngle;
 	}
 
-	public double getShadowOffset()
+	public Double getShadowOffset()
 	{
 		return shadowOffset;
 	}
 
-	public void setShadowOffset(double shadowOffset)
+	public void setShadowOffset(Double shadowOffset)
 	{
 		this.shadowOffset = shadowOffset;
 	}
 
-	public int getShadowDepth()
+	public Integer getShadowDepth()
 	{
 		return shadowDepth;
 	}
 
-	public void setShadowDepth(int shadowDepth)
+	public void setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
 	}
 
-	public double getShadowAlpha()
+	public Double getShadowAlpha()
 	{
 		return shadowAlpha;
 	}
 
-	public void setShadowAlpha(double shadowAlpha)
+	public void setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
 	}
