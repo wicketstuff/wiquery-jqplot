@@ -85,6 +85,7 @@ public class CorePage extends WebPage
 
 		PlotSeries chart2series1 = chart2O.addNewSeries();
 		chart2series1.setLineWidth(5d);
+		chart2series1.setShadowAngle(0d);
 		chart2series1.setShadowOffset(1.5d);
 		chart2series1.setShadowAlpha(0.08d);
 		chart2series1.setShadowDepth(6);
