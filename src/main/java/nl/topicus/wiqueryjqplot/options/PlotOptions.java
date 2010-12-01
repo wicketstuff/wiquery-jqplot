@@ -12,7 +12,7 @@ public class PlotOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private boolean stackSeries;
+	private Boolean stackSeries;
 
 	private PlotTitle title;
 
@@ -32,12 +32,12 @@ public class PlotOptions implements Serializable
 	{
 	}
 
-	public boolean isStackSeries()
+	public Boolean isStackSeries()
 	{
 		return stackSeries;
 	}
 
-	public PlotOptions setStackSeries(boolean stackSeries)
+	public PlotOptions setStackSeries(Boolean stackSeries)
 	{
 		this.stackSeries = stackSeries;
 		return this;

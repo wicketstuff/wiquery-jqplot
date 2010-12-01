@@ -51,6 +51,12 @@ public class PlotAxis implements Serializable
 	 */
 	private Object rendererOptions;
 
+	/**
+	 * renderer to use to draw the ticks,
+	 */
+	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
+	private String tickRenderer;
+
 	private PlotTickOptions tickOptions;
 
 	/**
@@ -62,6 +68,19 @@ public class PlotAxis implements Serializable
 	 * wether or not to show the tick marks
 	 */
 	private Boolean showTickMarks;
+
+	/**
+	 * Label for the axis
+	 */
+	private String label;
+
+	/**
+	 * renderer to use to draw the ticks,
+	 */
+	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
+	private String labelRenderer;
+
+	private Boolean autoscale;
 
 	public PlotAxis()
 	{
@@ -168,6 +187,17 @@ public class PlotAxis implements Serializable
 		return this;
 	}
 
+	public String getTickRenderer()
+	{
+		return tickRenderer;
+	}
+
+	public PlotAxis setTickRenderer(String tickRenderer)
+	{
+		this.tickRenderer = tickRenderer;
+		return this;
+	}
+
 	public PlotTickOptions getTickOptions()
 	{
 		if (tickOptions == null)
@@ -200,6 +230,39 @@ public class PlotAxis implements Serializable
 	public PlotAxis setShowTickMarks(Boolean showTickMarks)
 	{
 		this.showTickMarks = showTickMarks;
+		return this;
+	}
+
+	public String getLabel()
+	{
+		return label;
+	}
+
+	public PlotAxis setLabel(String label)
+	{
+		this.label = label;
+		return this;
+	}
+
+	public String getLabelRenderer()
+	{
+		return labelRenderer;
+	}
+
+	public PlotAxis setLabelRenderer(String labelRenderer)
+	{
+		this.labelRenderer = labelRenderer;
+		return this;
+	}
+
+	public Boolean isAutoscale()
+	{
+		return autoscale;
+	}
+
+	public PlotAxis setAutoscale(Boolean autoscale)
+	{
+		this.autoscale = autoscale;
 		return this;
 	}
 }

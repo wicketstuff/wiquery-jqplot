@@ -6,6 +6,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import nl.topicus.wiqueryjqplot.components.plugins.JQPlotBarRendererResourceReference;
+import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasAxisLabelRendererResourceReference;
+import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasAxisTickRendererResourceReference;
+import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasTextRendererResourceReference;
 import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCategoryAxisRendererResourceReference;
 import nl.topicus.wiqueryjqplot.data.Series;
 import nl.topicus.wiqueryjqplot.data.SeriesEntry;
@@ -64,8 +68,15 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 	public void contribute(WiQueryResourceManager wiQueryResourceManager)
 	{
 		wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
+		wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasTextRendererResourceReference
+			.get());
+		wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasAxisLabelRendererResourceReference
+			.get());
+		wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasAxisTickRendererResourceReference
+			.get());
 		wiQueryResourceManager.addJavaScriptResource(JQPlotCategoryAxisRendererResourceReference
 			.get());
+		wiQueryResourceManager.addJavaScriptResource(JQPlotBarRendererResourceReference.get());
 		wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
 	}
 

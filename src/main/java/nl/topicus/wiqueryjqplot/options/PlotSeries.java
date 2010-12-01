@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotSeries implements Serializable
@@ -104,6 +106,7 @@ public class PlotSeries implements Serializable
 	/**
 	 * renderer used to draw the series.
 	 */
+	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
 	private String renderer;
 
 	/**
@@ -292,9 +295,10 @@ public class PlotSeries implements Serializable
 		return fillToZero;
 	}
 
-	public void setFillToZero(Boolean fillToZero)
+	public PlotSeries setFillToZero(Boolean fillToZero)
 	{
 		this.fillToZero = fillToZero;
+		return this;
 	}
 
 	public String getFillColor()
