@@ -20,6 +20,12 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	 */
 	private Boolean enableFontSupport;
 
+	/**
+	 * ’auto’, ‘start’, ‘middle’ or ‘end’. Whether tick label should be positioned so the
+	 * start, middle, or end of the tick mark.
+	 */
+	private PlotTickLabelPosition labelPosition;
+
 	public PlotCanvasAxisTickRendererOptions()
 	{
 	}
@@ -43,6 +49,17 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	public PlotCanvasAxisTickRendererOptions setEnableFontSupport(Boolean enableFontSupport)
 	{
 		this.enableFontSupport = enableFontSupport;
+		return this;
+	}
+
+	public PlotTickLabelPosition getLabelPosition()
+	{
+		return labelPosition;
+	}
+
+	public PlotCanvasAxisTickRendererOptions setLabelPosition(PlotTickLabelPosition labelPosition)
+	{
+		this.labelPosition = labelPosition;
 		return this;
 	}
 }

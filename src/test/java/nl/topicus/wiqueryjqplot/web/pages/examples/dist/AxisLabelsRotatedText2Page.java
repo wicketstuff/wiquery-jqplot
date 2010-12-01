@@ -5,10 +5,9 @@ import java.util.List;
 
 import nl.topicus.wiqueryjqplot.components.JQPlot;
 import nl.topicus.wiqueryjqplot.data.CategorySeries;
-import nl.topicus.wiqueryjqplot.data.SimpleNumberSeries;
 import nl.topicus.wiqueryjqplot.options.PlotCanvasAxisTickRendererOptions;
-import nl.topicus.wiqueryjqplot.options.PlotLineRendererOptions;
 import nl.topicus.wiqueryjqplot.options.PlotOptions;
+import nl.topicus.wiqueryjqplot.options.PlotTickLabelPosition;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
@@ -39,7 +38,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 
 		addChart1(line);
 		addChart2(line, line2);
-		// addChart3();
+		addChart3(line);
 	}
 
 	private void addChart1(CategorySeries<String, Integer> line)
@@ -107,22 +106,26 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		add(chart2);
 	}
 
-	private void addChart3()
+	private void addChart3(CategorySeries<String, Integer> line)
 	{
-		List<SimpleNumberSeries<Integer>> chart2series =
-			new ArrayList<SimpleNumberSeries<Integer>>();
-		chart2series.add(new SimpleNumberSeries<Integer>(4, -3, 3, 6, 2, -2));
+		List<CategorySeries<String, Integer>> lines =
+			new ArrayList<CategorySeries<String, Integer>>();
+		lines.add(line);
 
-		JQPlot chart1c =
-			new JQPlot("chart1c", new ListModel<SimpleNumberSeries<Integer>>(chart2series));
+		JQPlot chart3 = new JQPlot("chart3", new ListModel<CategorySeries<String, Integer>>(lines));
 
-		PlotOptions chart1cO = chart1c.getOptions();
-		chart1cO.setStackSeries(true);
-		chart1cO.getSeriesDefaults().setFill(true);
-		chart1cO.getSeriesDefaults().setFillToZero(true);
-		chart1cO.getSeriesDefaults().setRendererOptions(
-			new PlotLineRendererOptions().setHighlightMouseDown(true));
-
-		add(chart1c);
+		PlotOptions chart3O = chart3.getOptions();
+		chart3O.setTitle("Concern vs. Occurrance");
+		chart3O.addNewSeries().setRenderer("$.jqplot.BarRenderer");
+		chart3O.getAxesDefaults().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
+		chart3O.getAxesDefaults().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
+		chart3O.getAxesDefaults().setTickOptions(
+			new PlotCanvasAxisTickRendererOptions().setLabelPosition(PlotTickLabelPosition.middle)
+				.setAngle(-30));
+		chart3O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
+		chart3O.getAxes().getXaxis().setLabel("Warranty Concern");
+		chart3O.getAxes().getYaxis().setAutoscale(true);
+		chart3O.getAxes().getYaxis().setLabel("Occurance");
+		add(chart3);
 	}
 }
