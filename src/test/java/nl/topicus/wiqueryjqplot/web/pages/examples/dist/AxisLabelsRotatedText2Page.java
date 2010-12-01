@@ -90,33 +90,19 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		chart2O.addNewSeries().setRenderer("$.jqplot.BarRenderer");
 		chart2O.addNewSeries().setXaxis("x2axis").setYaxis("y2axis");
 
+		chart2O.getAxesDefaults().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
+		chart2O.getAxesDefaults().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
+		chart2O.getAxesDefaults().setTickOptions(
+			new PlotCanvasAxisTickRendererOptions().setAngle(30));
+
 		chart2O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 		chart2O.getAxes().getXaxis().setLabel("Warranty Concern");
-		chart2O.getAxes().getXaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
-		chart2O.getAxes().getXaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart2O.getAxes().getXaxis().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setAngle(30));
-
 		chart2O.getAxes().getX2axis().setRenderer("$.jqplot.CategoryAxisRenderer");
 		chart2O.getAxes().getX2axis().setLabel("Metal");
-		chart2O.getAxes().getX2axis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
-		chart2O.getAxes().getX2axis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart2O.getAxes().getX2axis().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setAngle(30));
-
 		chart2O.getAxes().getYaxis().setLabel("Occurance");
 		chart2O.getAxes().getYaxis().setAutoscale(true);
-		chart2O.getAxes().getYaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
-		chart2O.getAxes().getYaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart2O.getAxes().getYaxis().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setAngle(30));
-
 		chart2O.getAxes().getY2axis().setLabel("Number");
 		chart2O.getAxes().getY2axis().setAutoscale(true);
-		chart2O.getAxes().getY2axis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
-		chart2O.getAxes().getY2axis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart2O.getAxes().getY2axis().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setAngle(30));
 
 		add(chart2);
 	}
