@@ -9,14 +9,14 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.SerializerProvider;
 import org.codehaus.jackson.map.ser.SerializerBase;
 
-public class RawSerializer extends SerializerBase<Object>
+public class PluginReferenceSerializer extends SerializerBase<Object>
 {
 	/**
 	 * Singleton instance to use.
 	 */
-	public final static RawSerializer instance = new RawSerializer();
+	public final static PluginReferenceSerializer instance = new PluginReferenceSerializer();
 
-	public RawSerializer()
+	public PluginReferenceSerializer()
 	{
 		super(Object.class);
 	}

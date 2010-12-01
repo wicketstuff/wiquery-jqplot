@@ -43,7 +43,7 @@ public class PlotAxis implements Serializable
 	/**
 	 * renderer to use to draw the axis,
 	 */
-	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String renderer;
 
 	/**
@@ -54,7 +54,7 @@ public class PlotAxis implements Serializable
 	/**
 	 * renderer to use to draw the ticks,
 	 */
-	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String tickRenderer;
 
 	private PlotTickOptions tickOptions;
@@ -77,7 +77,7 @@ public class PlotAxis implements Serializable
 	/**
 	 * renderer to use to draw the ticks,
 	 */
-	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String labelRenderer;
 
 	private Boolean autoscale;

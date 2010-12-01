@@ -106,7 +106,7 @@ public class PlotSeries implements Serializable
 	/**
 	 * renderer used to draw the series.
 	 */
-	@JsonSerialize(using = RawSerializer.class, include = Inclusion.NON_NULL)
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String renderer;
 
 	/**
