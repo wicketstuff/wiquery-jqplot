@@ -1,4 +1,4 @@
-package nl.topicus.wiqueryjqplot.web.pages.examples;
+package nl.topicus.wiqueryjqplot.web.pages.examples.dist;
 
 import java.util.ArrayList;
 import java.util.List;

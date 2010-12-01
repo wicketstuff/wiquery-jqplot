@@ -3,8 +3,8 @@ package nl.topicus.wiqueryjqplot.web.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.topicus.wiqueryjqplot.web.pages.examples.AreaPage;
 import nl.topicus.wiqueryjqplot.web.pages.examples.CorePage;
+import nl.topicus.wiqueryjqplot.web.pages.examples.dist.AreaPage;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
