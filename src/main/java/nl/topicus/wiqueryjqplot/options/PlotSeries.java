@@ -87,6 +87,11 @@ public class PlotSeries implements Serializable
 	private Boolean fillAndStroke;
 
 	/**
+	 * true will force bar and filled series to fill toward zero on the fill Axis.
+	 */
+	private Boolean fillToZero;
+
+	/**
 	 * custom fill color for filled lines (default is line color).
 	 */
 	private String fillColor;
@@ -280,6 +285,16 @@ public class PlotSeries implements Serializable
 	{
 		this.fillAndStroke = fillAndStroke;
 		return this;
+	}
+
+	public Boolean isFillToZero()
+	{
+		return fillToZero;
+	}
+
+	public void setFillToZero(Boolean fillToZero)
+	{
+		this.fillToZero = fillToZero;
 	}
 
 	public String getFillColor()

@@ -4,6 +4,11 @@
 <title>Topicus WiQuery-JqPlot</title>
 <link rel="stylesheet" href="examples.css" type="text/css"
 	media="screen" charset="utf-8" />
+<style type="text/css">
+.jqplot-target {
+	margin: 30px;
+}
+</style>
 </head>
 <body>
 <p>Area charts support highlighting and mouse events by default. The
@@ -14,7 +19,7 @@ data set for the highlighted area will be returned. This is because the
 area is not associated with one particular data point, but with the
 entire data set of the series.</p>
 
-<div><span>Moused Over: </span><span id="info1b">Nothing</span></div>
+<div><span>Moused Over: </span><span wicket:id="info1b">Nothing</span></div>
 
 <div wicket:id="chart1b" class="plot"
 	style="width: 400px; height: 260px;"></div>
@@ -25,9 +30,10 @@ handling is enabled by setting "highlightMouseDown: true". For
 shown below, clicking in either the positive of negative regions will
 generate the same result.</p>
 
-<div><span>You Clicked: </span><span id="info1c">Nothing
+<div><span>You Clicked: </span><span wicket:id="info1c">Nothing
 yet</span></div>
 
-<div id="chart1c" class="plot" style="width: 400px; height: 260px;"></div>
+<div wicket:id="chart1c" class="plot"
+	style="width: 400px; height: 260px;"></div>
 </body>
 </html>
