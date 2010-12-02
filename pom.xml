@@ -2,10 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.topicus</groupId>
-	<artifactId>wiquery-jqplot</artifactId>
+	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>WiQuery-JQPlot</name>
+	<name>WQPlot</name>
+	<description>WiQuery-JqPlot bindings</description>
 	<properties>
 		<wicket.version>1.4.13</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
