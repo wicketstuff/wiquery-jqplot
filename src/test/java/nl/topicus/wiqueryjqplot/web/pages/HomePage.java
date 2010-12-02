@@ -6,6 +6,7 @@ import java.util.List;
 import nl.topicus.wiqueryjqplot.web.pages.examples.CorePage;
 import nl.topicus.wiqueryjqplot.web.pages.examples.dist.AreaPage;
 import nl.topicus.wiqueryjqplot.web.pages.examples.dist.AxisLabelsRotatedText2Page;
+import nl.topicus.wiqueryjqplot.web.pages.examples.dist.BarLinePieStackPage;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
@@ -25,6 +26,7 @@ public class HomePage extends WebPage
 		pages.add(CorePage.class);
 		pages.add(AreaPage.class);
 		pages.add(AxisLabelsRotatedText2Page.class);
+		pages.add(BarLinePieStackPage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(

@@ -26,6 +26,14 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	 */
 	private PlotTickLabelPosition labelPosition;
 
+	private String fontSize;
+
+	private String fontFamily;
+
+	private String fontWeight;
+
+	private Double fontStretch;
+
 	public PlotCanvasAxisTickRendererOptions()
 	{
 	}
@@ -60,6 +68,50 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	public PlotCanvasAxisTickRendererOptions setLabelPosition(PlotTickLabelPosition labelPosition)
 	{
 		this.labelPosition = labelPosition;
+		return this;
+	}
+
+	public String getFontSize()
+	{
+		return fontSize;
+	}
+
+	public PlotCanvasAxisTickRendererOptions setFontSize(String fontSize)
+	{
+		this.fontSize = fontSize;
+		return this;
+	}
+
+	public String getFontFamily()
+	{
+		return fontFamily;
+	}
+
+	public PlotCanvasAxisTickRendererOptions setFontFamily(String fontFamily)
+	{
+		this.fontFamily = fontFamily;
+		return this;
+	}
+
+	public String getFontWeight()
+	{
+		return fontWeight;
+	}
+
+	public PlotCanvasAxisTickRendererOptions setFontWeight(String fontWeight)
+	{
+		this.fontWeight = fontWeight;
+		return this;
+	}
+
+	public Double getFontStretch()
+	{
+		return fontStretch;
+	}
+
+	public PlotCanvasAxisTickRendererOptions setFontStretch(Double fontStretch)
+	{
+		this.fontStretch = fontStretch;
 		return this;
 	}
 }

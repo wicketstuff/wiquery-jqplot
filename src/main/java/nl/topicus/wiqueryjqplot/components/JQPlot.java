@@ -16,6 +16,8 @@ import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasAxisLabelRenderer
 import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasAxisTickRendererResourceReference;
 import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasTextRendererResourceReference;
 import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCategoryAxisRendererResourceReference;
+import nl.topicus.wiqueryjqplot.components.plugins.JQPlotDateAxisRendererResourceReference;
+import nl.topicus.wiqueryjqplot.components.plugins.JQPlotPieRendererResourceReference;
 import nl.topicus.wiqueryjqplot.data.Series;
 import nl.topicus.wiqueryjqplot.data.SeriesEntry;
 import nl.topicus.wiqueryjqplot.options.PlotOptions;
@@ -50,6 +52,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		plugins.put("$.jqplot.CategoryAxisRenderer", JQPlotCategoryAxisRendererResourceReference
 			.get());
 		plugins.put("$.jqplot.BarRenderer", JQPlotBarRendererResourceReference.get());
+		plugins.put("$.jqplot.PieRenderer", JQPlotPieRendererResourceReference.get());
+		plugins.put("$.jqplot.DateAxisRenderer", JQPlotDateAxisRendererResourceReference.get());
 	}
 
 	public JQPlot(String id, IModel< ? extends Collection< ? extends Series< ? , ? , ? >>> model)

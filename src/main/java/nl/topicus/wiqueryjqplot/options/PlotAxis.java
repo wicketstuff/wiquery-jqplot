@@ -19,12 +19,12 @@ public class PlotAxis implements Serializable
 	/**
 	 * minimum numerical value of the axis. Determined automatically.
 	 */
-	private Integer min;
+	private Object min;
 
 	/**
 	 * maximum numverical value of the axis. Determined automatically.
 	 */
-	private Integer max;
+	private Object max;
 
 	/**
 	 * a factor multiplied by the data range on the axis to give the axis range so that
@@ -39,6 +39,11 @@ public class PlotAxis implements Serializable
 	private List<PlotTick> ticks;
 
 	private Integer numberTicks;
+
+	/**
+	 * number of units between ticks. Mutually exclusive with numberTicks.
+	 */
+	private Object tickInterval;
 
 	/**
 	 * renderer to use to draw the axis,
@@ -97,23 +102,23 @@ public class PlotAxis implements Serializable
 		return this;
 	}
 
-	public Integer getMin()
+	public Object getMin()
 	{
 		return min;
 	}
 
-	public PlotAxis setMin(Integer min)
+	public PlotAxis setMin(Object min)
 	{
 		this.min = min;
 		return this;
 	}
 
-	public Integer getMax()
+	public Object getMax()
 	{
 		return max;
 	}
 
-	public PlotAxis setMax(Integer max)
+	public PlotAxis setMax(Object max)
 	{
 		this.max = max;
 		return this;
@@ -162,6 +167,17 @@ public class PlotAxis implements Serializable
 	public PlotAxis setNumberTicks(Integer numberTicks)
 	{
 		this.numberTicks = numberTicks;
+		return this;
+	}
+
+	public Object getTickInterval()
+	{
+		return tickInterval;
+	}
+
+	public PlotAxis setTickInterval(Object tickInterval)
+	{
+		this.tickInterval = tickInterval;
 		return this;
 	}
 

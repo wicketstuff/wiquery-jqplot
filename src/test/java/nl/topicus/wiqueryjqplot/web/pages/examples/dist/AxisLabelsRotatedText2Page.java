@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.topicus.wiqueryjqplot.components.JQPlot;
-import nl.topicus.wiqueryjqplot.data.CategorySeries;
+import nl.topicus.wiqueryjqplot.data.BaseSeries;
 import nl.topicus.wiqueryjqplot.options.PlotCanvasAxisTickRendererOptions;
 import nl.topicus.wiqueryjqplot.options.PlotOptions;
 import nl.topicus.wiqueryjqplot.options.PlotTickLabelPosition;
@@ -18,7 +18,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 
 	public AxisLabelsRotatedText2Page()
 	{
-		CategorySeries<String, Integer> line = new CategorySeries<String, Integer>();
+		BaseSeries<String, Integer> line = new BaseSeries<String, Integer>();
 		line.addEntry("Cup Holder Pinion Bob", 7);
 		line.addEntry("Generic Fog Lamp", 9);
 		line.addEntry("HDTV Receiver", 15);
@@ -27,7 +27,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		line.addEntry("Transcender/Spice Rack", 6);
 		line.addEntry("Hair Spray Danger Indicator", 18);
 
-		CategorySeries<String, Integer> line2 = new CategorySeries<String, Integer>();
+		BaseSeries<String, Integer> line2 = new BaseSeries<String, Integer>();
 		line2.addEntry("Nickle", 28);
 		line2.addEntry("Aluminum", 13);
 		line2.addEntry("Xenon", 54);
@@ -41,13 +41,13 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		addChart3(line);
 	}
 
-	private void addChart1(CategorySeries<String, Integer> line)
+	private void addChart1(BaseSeries<String, Integer> line)
 	{
-		List<CategorySeries<String, Integer>> lines =
-			new ArrayList<CategorySeries<String, Integer>>();
+		List<BaseSeries<String, Integer>> lines =
+			new ArrayList<BaseSeries<String, Integer>>();
 		lines.add(line);
 
-		JQPlot chart1 = new JQPlot("chart1", new ListModel<CategorySeries<String, Integer>>(lines));
+		JQPlot chart1 = new JQPlot("chart1", new ListModel<BaseSeries<String, Integer>>(lines));
 
 		PlotOptions chart1O = chart1.getOptions();
 		chart1O.setTitle("Concern vs. Occurrance");
@@ -75,15 +75,15 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		add(chart1);
 	}
 
-	private void addChart2(CategorySeries<String, Integer> line,
-			CategorySeries<String, Integer> line2)
+	private void addChart2(BaseSeries<String, Integer> line,
+			BaseSeries<String, Integer> line2)
 	{
-		List<CategorySeries<String, Integer>> lines =
-			new ArrayList<CategorySeries<String, Integer>>();
+		List<BaseSeries<String, Integer>> lines =
+			new ArrayList<BaseSeries<String, Integer>>();
 		lines.add(line);
 		lines.add(line2);
 
-		JQPlot chart2 = new JQPlot("chart2", new ListModel<CategorySeries<String, Integer>>(lines));
+		JQPlot chart2 = new JQPlot("chart2", new ListModel<BaseSeries<String, Integer>>(lines));
 
 		PlotOptions chart2O = chart2.getOptions();
 		chart2O.addNewSeries().setRenderer("$.jqplot.BarRenderer");
@@ -106,13 +106,13 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		add(chart2);
 	}
 
-	private void addChart3(CategorySeries<String, Integer> line)
+	private void addChart3(BaseSeries<String, Integer> line)
 	{
-		List<CategorySeries<String, Integer>> lines =
-			new ArrayList<CategorySeries<String, Integer>>();
+		List<BaseSeries<String, Integer>> lines =
+			new ArrayList<BaseSeries<String, Integer>>();
 		lines.add(line);
 
-		JQPlot chart3 = new JQPlot("chart3", new ListModel<CategorySeries<String, Integer>>(lines));
+		JQPlot chart3 = new JQPlot("chart3", new ListModel<BaseSeries<String, Integer>>(lines));
 
 		PlotOptions chart3O = chart3.getOptions();
 		chart3O.setTitle("Concern vs. Occurrance");
