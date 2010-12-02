@@ -3,23 +3,13 @@ package nl.topicus.wiqueryjqplot.components;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
-import nl.topicus.wiqueryjqplot.components.plugins.JQPlotBarRendererResourceReference;
-import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasAxisLabelRendererResourceReference;
-import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasAxisTickRendererResourceReference;
-import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCanvasTextRendererResourceReference;
-import nl.topicus.wiqueryjqplot.components.plugins.JQPlotCategoryAxisRendererResourceReference;
-import nl.topicus.wiqueryjqplot.components.plugins.JQPlotDateAxisRendererResourceReference;
-import nl.topicus.wiqueryjqplot.components.plugins.JQPlotPieRendererResourceReference;
+import nl.topicus.wiqueryjqplot.components.plugins.*;
 import nl.topicus.wiqueryjqplot.data.Series;
-import nl.topicus.wiqueryjqplot.data.SeriesEntry;
 import nl.topicus.wiqueryjqplot.options.PlotOptions;
 import nl.topicus.wiqueryjqplot.options.PluginReferenceSerializer;
 
@@ -52,6 +42,7 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		plugins.put("$.jqplot.CategoryAxisRenderer", JQPlotCategoryAxisRendererResourceReference
 			.get());
 		plugins.put("$.jqplot.BarRenderer", JQPlotBarRendererResourceReference.get());
+		plugins.put("$.jqplot.BubbleRenderer", JQPlotBubbleRendererResourceReference.get());
 		plugins.put("$.jqplot.PieRenderer", JQPlotPieRendererResourceReference.get());
 		plugins.put("$.jqplot.DateAxisRenderer", JQPlotDateAxisRendererResourceReference.get());
 	}
@@ -65,22 +56,6 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 	public PlotOptions getOptions()
 	{
 		return options;
-	}
-
-	private List<List<List<Object>>> getPlotData()
-	{
-		List<List<List<Object>>> ret = new ArrayList<List<List<Object>>>();
-		Collection< ? extends Series< ? , ? , ? >> allSeries = getModelObject();
-		for (Series< ? , ? , ? > curSeries : allSeries)
-		{
-			List<List<Object>> curSeriesData = new ArrayList<List<Object>>();
-			for (SeriesEntry< ? , ? > curEntry : curSeries.getData())
-			{
-				curSeriesData.add(Arrays.asList(curEntry.getKey(), curEntry.getValue()));
-			}
-			ret.add(curSeriesData);
-		}
-		return ret;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -163,7 +138,7 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		try
 		{
 			optionsStr = mapper.writeValueAsString(options);
-			plotDataStr = mapper.writeValueAsString(getPlotData());
+			plotDataStr = mapper.writeValueAsString(getModelObject());
 		}
 		catch (JsonGenerationException e)
 		{

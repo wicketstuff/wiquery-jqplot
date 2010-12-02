@@ -1,5 +1,10 @@
 package nl.topicus.wiqueryjqplot.data;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.codehaus.jackson.annotate.JsonValue;
+
 public class AbstractSeriesEntry<K, V> implements SeriesEntry<K, V>
 {
 	private K key;
@@ -22,5 +27,11 @@ public class AbstractSeriesEntry<K, V> implements SeriesEntry<K, V>
 	public V getValue()
 	{
 		return value;
+	}
+
+	@JsonValue
+	public List<Object> values()
+	{
+		return Arrays.asList(getKey(), getValue());
 	}
 }
