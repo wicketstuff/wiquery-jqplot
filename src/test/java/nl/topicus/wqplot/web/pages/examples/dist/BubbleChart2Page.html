@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns:wicket>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Bubble Chart Examples</title>
@@ -63,19 +63,19 @@
 <div style="position:absolute;z-index:99;display:none;" id="tooltip1b"></div>
 
 <table><tr>
-    <td><div id="chart1b" class="plot" style="width:460px;height:340px;"></div></td>
+    <td><div wicket:id="chart1b" class="plot" style="width:460px;height:340px;"></div></td>
     <td><div style="height:340px;"><table id="legend1b"><tr><th>Company</th><th>R Value</th></tr></table></div></td>
 </tr></table>
 <pre class="code"></pre>
 
 <p>Below is a basic bubble chart showing usage of the optional label and color properties passed in with the data.</p>
 
-<div id="chart1c" class="plot" style="width:460px;height:340px;"></div>
+<div wicket:id="chart1c" class="plot" style="width:460px;height:340px;"></div>
 <pre class="code"></pre>
 
 <p>The next chart uses the "bubbleGradients: true" option to specify gradient fills on the bubbles.  Radial gradients are not supported in IE<sup>*</sup> and will be automatically disabled.</p>  
 
-<div id="chart2" class="plot" style="width:460px;height:340px;"></div>
+<div wicket:id="chart2" class="plot" style="width:460px;height:340px;"></div>
 
 <p class="note"><sup>*</sup>Radial gradients are not supported in IE because they are not supported in the excanvas emulation layer used by jqPlot to render charts in IE.  jqPlot renders charts using the HTML canvas element which is supported by nearly every browser except IE.  Excanvas translates the canvas rendering to VML rendering for IE, but unfortunately does not properly handle radial gradients.</p>
 
@@ -87,7 +87,7 @@
 
 <p>Events are also trigger with plot interaction.  Specifically, "jqplotDataHighlight", "jqplotDataUnhighlight", "jqplotDataClick" and "jqplotDataRightClick" events are triggered.  Handlers are passed an event object, the series index, the point index, and the bubble data.</p>
 
-<div id="chart3" class="plot" style="width:600px;height:400px;"></div>
+<div wicket:id="chart3" class="plot" style="width:600px;height:400px;"></div>
 <pre class="code"></pre>
   </body>
 </html>
