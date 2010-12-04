@@ -3,6 +3,7 @@ package nl.topicus.wqplot.web.pages;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.topicus.wqplot.web.pages.examples.AutoScalingPage;
 import nl.topicus.wqplot.web.pages.examples.CorePage;
 import nl.topicus.wqplot.web.pages.examples.dist.AreaPage;
 import nl.topicus.wqplot.web.pages.examples.dist.AxisLabelsRotatedText2Page;
@@ -24,7 +25,16 @@ public class HomePage extends WebPage
 	public HomePage()
 	{
 		List<Class< ? extends Page>> pages = new ArrayList<Class< ? extends Page>>();
+
+		/*
+		 * Web examples
+		 */
 		pages.add(CorePage.class);
+		pages.add(AutoScalingPage.class);
+
+		/*
+		 * Dist examples
+		 */
 		pages.add(AreaPage.class);
 		pages.add(AxisLabelsRotatedText2Page.class);
 		pages.add(BarLinePieStackPage.class);
