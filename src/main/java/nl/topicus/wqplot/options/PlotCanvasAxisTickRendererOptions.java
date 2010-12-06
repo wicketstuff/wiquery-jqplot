@@ -2,18 +2,15 @@ package nl.topicus.wqplot.options;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 {
 	private static final long serialVersionUID = 1L;
 
-	/** if this is a minor tick. */
-	private Boolean isMinorTick;
-
-	/** angle of text, measured clockwise from x axis. */
+	/**
+	 * angle of text, measured clockwise from x axis.
+	 */
 	private Double angle;
 
 	/**
@@ -23,22 +20,8 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	private PlotTickLabelPosition labelPosition;
 
 	/**
-	 * A class of a formatter for the tick text. The default $.jqplot.DefaultTickFormatter
-	 * uses sprintf.
+	 * CSS spec for fontWeight
 	 */
-	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
-	private String formatter;
-
-	/** string appended to the tick label if no formatString is specified. */
-	private String prefix;
-
-	/** css spec for the font-family css attribute. */
-	private String fontFamily;
-
-	/** CSS spec for font size. */
-	private String fontSize;
-
-	/** CSS spec for fontWeight */
 	private String fontWeight;
 
 	/**
@@ -46,9 +29,6 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	 * support canvas native font rendering.
 	 */
 	private Double fontStretch;
-
-	/** css spec for the color attribute. */
-	private String textColor;
 
 	/**
 	 * true to turn on native canvas font support in Mozilla 3.5+ and Safari 4+. If true,
@@ -69,17 +49,6 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 
 	public PlotCanvasAxisTickRendererOptions()
 	{
-	}
-
-	public Boolean getIsMinorTick()
-	{
-		return isMinorTick;
-	}
-
-	public PlotCanvasAxisTickRendererOptions setIsMinorTick(Boolean isMinorTick)
-	{
-		this.isMinorTick = isMinorTick;
-		return this;
 	}
 
 	public Double getAngle()
@@ -104,50 +73,6 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 		return this;
 	}
 
-	public String getFormatter()
-	{
-		return formatter;
-	}
-
-	public PlotCanvasAxisTickRendererOptions setFormatter(String formatter)
-	{
-		this.formatter = formatter;
-		return this;
-	}
-
-	public String getPrefix()
-	{
-		return prefix;
-	}
-
-	public PlotCanvasAxisTickRendererOptions setPrefix(String prefix)
-	{
-		this.prefix = prefix;
-		return this;
-	}
-
-	public String getFontFamily()
-	{
-		return fontFamily;
-	}
-
-	public PlotCanvasAxisTickRendererOptions setFontFamily(String fontFamily)
-	{
-		this.fontFamily = fontFamily;
-		return this;
-	}
-
-	public String getFontSize()
-	{
-		return fontSize;
-	}
-
-	public PlotCanvasAxisTickRendererOptions setFontSize(String fontSize)
-	{
-		this.fontSize = fontSize;
-		return this;
-	}
-
 	public String getFontWeight()
 	{
 		return fontWeight;
@@ -167,17 +92,6 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	public PlotCanvasAxisTickRendererOptions setFontStretch(Double fontStretch)
 	{
 		this.fontStretch = fontStretch;
-		return this;
-	}
-
-	public String getTextColor()
-	{
-		return textColor;
-	}
-
-	public PlotCanvasAxisTickRendererOptions setTextColor(String textColor)
-	{
-		this.textColor = textColor;
 		return this;
 	}
 
