@@ -26,7 +26,7 @@ public class PlotTickOptions implements Serializable
 	 * length the tick will extend beyond the grid in pixels. For 'cross', length will be
 	 * added above and below the grid boundary,
 	 */
-	private Integer markSize;
+	private Double markSize;
 
 	/**
 	 * wether to show the tick (mark and label),
@@ -58,7 +58,7 @@ public class PlotTickOptions implements Serializable
 		return this;
 	}
 
-	public Boolean isShowMark()
+	public Boolean getShowMark()
 	{
 		return showMark;
 	}
@@ -69,7 +69,7 @@ public class PlotTickOptions implements Serializable
 		return this;
 	}
 
-	public Boolean isShowGridline()
+	public Boolean getShowGridline()
 	{
 		return showGridline;
 	}
@@ -80,18 +80,18 @@ public class PlotTickOptions implements Serializable
 		return this;
 	}
 
-	public Integer getMarkSize()
+	public Double getMarkSize()
 	{
 		return markSize;
 	}
 
-	public PlotTickOptions setMarkSize(Integer markSize)
+	public PlotTickOptions setMarkSize(Double markSize)
 	{
 		this.markSize = markSize;
 		return this;
 	}
 
-	public Boolean isShow()
+	public Boolean getShow()
 	{
 		return show;
 	}
@@ -102,7 +102,7 @@ public class PlotTickOptions implements Serializable
 		return this;
 	}
 
-	public Boolean isShowLabel()
+	public Boolean getShowLabel()
 	{
 		return showLabel;
 	}

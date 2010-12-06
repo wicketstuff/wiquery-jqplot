@@ -28,9 +28,25 @@ public class PlotSeries implements Serializable
 	private String yaxis;
 
 	/**
+	 * renderer used to draw the series.
+	 */
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
+	private String renderer;
+
+	/**
+	 * options passed to the renderer. LineRenderer has no options.
+	 */
+	private Object rendererOptions;
+
+	/**
 	 * label to use in the legend for this line.
 	 */
 	private String label;
+
+	/**
+	 * true to show label for this series in the legend.
+	 */
+	private Boolean showLabel;
 
 	/**
 	 * CSS color spec to use for the line. Determined automatically.
@@ -69,6 +85,24 @@ public class PlotSeries implements Serializable
 	private Double shadowAlpha;
 
 	/**
+	 * wether line segments should be be broken at null value. False will join point on
+	 * either side of line.
+	 */
+	private Boolean breakOnNull;
+
+	/**
+	 * renderer to use to draw the data point markers.
+	 */
+	@JsonSerialize(using = PluginReferenceSerializer.class)
+	private String markerRenderer;
+
+	/**
+	 * renderer specific options to pass to the markerRenderer, see
+	 * $.jqplot.MarkerRenderer.
+	 */
+	private PlotSeriesMarkerOptions markerOptions;
+
+	/**
 	 * whether to render the line segments or not.
 	 */
 	private Boolean showLine;
@@ -79,19 +113,14 @@ public class PlotSeries implements Serializable
 	private Boolean showMarker;
 
 	/**
+	 * 0 based index of this series in the plot series array.
+	 */
+	private Integer index;
+
+	/**
 	 * fill under the line,
 	 */
 	private Boolean fill;
-
-	/**
-	 * stroke a line at top of fill area.
-	 */
-	private Boolean fillAndStroke;
-
-	/**
-	 * true will force bar and filled series to fill toward zero on the fill Axis.
-	 */
-	private Boolean fillToZero;
 
 	/**
 	 * custom fill color for filled lines (default is line color).
@@ -104,28 +133,53 @@ public class PlotSeries implements Serializable
 	private Double fillAlpha;
 
 	/**
-	 * renderer used to draw the series.
+	 * stroke a line at top of fill area.
 	 */
-	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
-	private String renderer;
+	private Boolean fillAndStroke;
 
 	/**
-	 * options passed to the renderer. LineRenderer has no options.
+	 * true to not stack this series with other series in the plot. To render properly,
+	 * non-stacked series must come after any stacked series in the plot’s data series
+	 * array. So, the plot’s data series array would look like:
+	 * 
+	 * [stackedSeries1, stackedSeries2, ..., nonStackedSeries1, nonStackedSeries2, ...]
+	 * disableStack will put a gap in the stacking order of series, and subsequent stacked
+	 * series will not fill down through the non-stacked series and will most likely not
+	 * stack properly on top of the non-stacked series.
 	 */
-	private Object rendererOptions;
+	private Boolean disableStack;
 
 	/**
-	 * renderer to use to draw the data point markers.
+	 * how close or far (in pixels) the cursor must be from a point marker to detect the
+	 * point.
 	 */
-	private String markerRenderer;
+	private Double neighborThreshold;
 
-	private PlotSeriesMarkerOptions markerOptions;
+	/**
+	 * true will force bar and filled series to fill toward zero on the fill Axis.
+	 */
+	private Boolean fillToZero;
+
+	/**
+	 * fill a filled series to this value on the fill axis. Works in conjunction with
+	 * fillToZero, so that must be true.
+	 */
+	private Object fillToValue;
+
+	/**
+	 * Either ‘x’ or ‘y’. Which axis to fill the line toward if fillToZero is true. ‘y’
+	 * means fill up/down to 0 on the y axis for this series.
+	 */
+	private String fillAxis;
+
+	/** true to color negative values differently in filled and bar charts. */
+	private Boolean useNegativeColors;
 
 	public PlotSeries()
 	{
 	}
 
-	public Boolean isShow()
+	public Boolean getShow()
 	{
 		return show;
 	}
@@ -158,6 +212,28 @@ public class PlotSeries implements Serializable
 		return this;
 	}
 
+	public String getRenderer()
+	{
+		return renderer;
+	}
+
+	public PlotSeries setRenderer(String renderer)
+	{
+		this.renderer = renderer;
+		return this;
+	}
+
+	public Object getRendererOptions()
+	{
+		return rendererOptions;
+	}
+
+	public PlotSeries setRendererOptions(Object rendererOptions)
+	{
+		this.rendererOptions = rendererOptions;
+		return this;
+	}
+
 	public String getLabel()
 	{
 		return label;
@@ -166,6 +242,17 @@ public class PlotSeries implements Serializable
 	public PlotSeries setLabel(String label)
 	{
 		this.label = label;
+		return this;
+	}
+
+	public Boolean getShowLabel()
+	{
+		return showLabel;
+	}
+
+	public PlotSeries setShowLabel(Boolean showLabel)
+	{
+		this.showLabel = showLabel;
 		return this;
 	}
 
@@ -191,7 +278,7 @@ public class PlotSeries implements Serializable
 		return this;
 	}
 
-	public Boolean isShadow()
+	public Boolean getShadow()
 	{
 		return shadow;
 	}
@@ -246,7 +333,42 @@ public class PlotSeries implements Serializable
 		return this;
 	}
 
-	public Boolean isShowLine()
+	public Boolean getBreakOnNull()
+	{
+		return breakOnNull;
+	}
+
+	public PlotSeries setBreakOnNull(Boolean breakOnNull)
+	{
+		this.breakOnNull = breakOnNull;
+		return this;
+	}
+
+	public String getMarkerRenderer()
+	{
+		return markerRenderer;
+	}
+
+	public PlotSeries setMarkerRenderer(String markerRenderer)
+	{
+		this.markerRenderer = markerRenderer;
+		return this;
+	}
+
+	public PlotSeriesMarkerOptions getMarkerOptions()
+	{
+		if (markerOptions == null)
+			markerOptions = new PlotSeriesMarkerOptions();
+		return markerOptions;
+	}
+
+	public PlotSeries setMarkerOptions(PlotSeriesMarkerOptions markerOptions)
+	{
+		this.markerOptions = markerOptions;
+		return this;
+	}
+
+	public Boolean getShowLine()
 	{
 		return showLine;
 	}
@@ -257,7 +379,7 @@ public class PlotSeries implements Serializable
 		return this;
 	}
 
-	public Boolean isShowMarker()
+	public Boolean getShowMarker()
 	{
 		return showMarker;
 	}
@@ -268,7 +390,18 @@ public class PlotSeries implements Serializable
 		return this;
 	}
 
-	public Boolean isFill()
+	public Integer getIndex()
+	{
+		return index;
+	}
+
+	public PlotSeries setIndex(Integer index)
+	{
+		this.index = index;
+		return this;
+	}
+
+	public Boolean getFill()
 	{
 		return fill;
 	}
@@ -276,28 +409,6 @@ public class PlotSeries implements Serializable
 	public PlotSeries setFill(Boolean fill)
 	{
 		this.fill = fill;
-		return this;
-	}
-
-	public Boolean isFillAndStroke()
-	{
-		return fillAndStroke;
-	}
-
-	public PlotSeries setFillAndStroke(Boolean fillAndStroke)
-	{
-		this.fillAndStroke = fillAndStroke;
-		return this;
-	}
-
-	public Boolean isFillToZero()
-	{
-		return fillToZero;
-	}
-
-	public PlotSeries setFillToZero(Boolean fillToZero)
-	{
-		this.fillToZero = fillToZero;
 		return this;
 	}
 
@@ -323,49 +434,80 @@ public class PlotSeries implements Serializable
 		return this;
 	}
 
-	public String getRenderer()
+	public Boolean getFillAndStroke()
 	{
-		return renderer;
+		return fillAndStroke;
 	}
 
-	public PlotSeries setRenderer(String renderer)
+	public PlotSeries setFillAndStroke(Boolean fillAndStroke)
 	{
-		this.renderer = renderer;
+		this.fillAndStroke = fillAndStroke;
 		return this;
 	}
 
-	public Object getRendererOptions()
+	public Boolean getDisableStack()
 	{
-		return rendererOptions;
+		return disableStack;
 	}
 
-	public PlotSeries setRendererOptions(Object rendererOptions)
+	public PlotSeries setDisableStack(Boolean disableStack)
 	{
-		this.rendererOptions = rendererOptions;
+		this.disableStack = disableStack;
 		return this;
 	}
 
-	public String getMarkerRenderer()
+	public Double getNeighborThreshold()
 	{
-		return markerRenderer;
+		return neighborThreshold;
 	}
 
-	public PlotSeries setMarkerRenderer(String markerRenderer)
+	public PlotSeries setNeighborThreshold(Double neighborThreshold)
 	{
-		this.markerRenderer = markerRenderer;
+		this.neighborThreshold = neighborThreshold;
 		return this;
 	}
 
-	public PlotSeriesMarkerOptions getMarkerOptions()
+	public Boolean getFillToZero()
 	{
-		if (markerOptions == null)
-			markerOptions = new PlotSeriesMarkerOptions();
-		return markerOptions;
+		return fillToZero;
 	}
 
-	public PlotSeries setMarkerOptions(PlotSeriesMarkerOptions markerOptions)
+	public PlotSeries setFillToZero(Boolean fillToZero)
 	{
-		this.markerOptions = markerOptions;
+		this.fillToZero = fillToZero;
+		return this;
+	}
+
+	public Object getFillToValue()
+	{
+		return fillToValue;
+	}
+
+	public PlotSeries setFillToValue(Object fillToValue)
+	{
+		this.fillToValue = fillToValue;
+		return this;
+	}
+
+	public String getFillAxis()
+	{
+		return fillAxis;
+	}
+
+	public PlotSeries setFillAxis(String fillAxis)
+	{
+		this.fillAxis = fillAxis;
+		return this;
+	}
+
+	public Boolean getUseNegativeColors()
+	{
+		return useNegativeColors;
+	}
+
+	public PlotSeries setUseNegativeColors(Boolean useNegativeColors)
+	{
+		this.useNegativeColors = useNegativeColors;
 		return this;
 	}
 }

@@ -65,7 +65,7 @@ public class PlotSeriesMarkerOptions implements Serializable
 	{
 	}
 
-	public Boolean isShow()
+	public Boolean getShow()
 	{
 		return show;
 	}
@@ -120,7 +120,7 @@ public class PlotSeriesMarkerOptions implements Serializable
 		return this;
 	}
 
-	public Boolean isShadow()
+	public Boolean getShadow()
 	{
 		return shadow;
 	}

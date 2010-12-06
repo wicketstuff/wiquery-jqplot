@@ -43,8 +43,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 
 	private void addChart1(BaseSeries<String, Integer> line)
 	{
-		List<BaseSeries<String, Integer>> lines =
-			new ArrayList<BaseSeries<String, Integer>>();
+		List<BaseSeries<String, Integer>> lines = new ArrayList<BaseSeries<String, Integer>>();
 		lines.add(line);
 
 		JQPlot chart1 = new JQPlot("chart1", new ListModel<BaseSeries<String, Integer>>(lines));
@@ -58,7 +57,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 
 		PlotCanvasAxisTickRendererOptions xAxisTickOptions =
 			new PlotCanvasAxisTickRendererOptions();
-		xAxisTickOptions.setAngle(-30);
+		xAxisTickOptions.setAngle(-30.0);
 		xAxisTickOptions.setEnableFontSupport(true);
 		chart1O.getAxes().getXaxis().setTickOptions(xAxisTickOptions);
 
@@ -68,18 +67,16 @@ public class AxisLabelsRotatedText2Page extends WebPage
 
 		PlotCanvasAxisTickRendererOptions yAxisTickOptions =
 			new PlotCanvasAxisTickRendererOptions();
-		yAxisTickOptions.setAngle(-30);
+		yAxisTickOptions.setAngle(-30.0);
 		yAxisTickOptions.setEnableFontSupport(true);
 		chart1O.getAxes().getYaxis().setTickOptions(yAxisTickOptions);
 
 		add(chart1);
 	}
 
-	private void addChart2(BaseSeries<String, Integer> line,
-			BaseSeries<String, Integer> line2)
+	private void addChart2(BaseSeries<String, Integer> line, BaseSeries<String, Integer> line2)
 	{
-		List<BaseSeries<String, Integer>> lines =
-			new ArrayList<BaseSeries<String, Integer>>();
+		List<BaseSeries<String, Integer>> lines = new ArrayList<BaseSeries<String, Integer>>();
 		lines.add(line);
 		lines.add(line2);
 
@@ -92,7 +89,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		chart2O.getAxesDefaults().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 		chart2O.getAxesDefaults().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
 		chart2O.getAxesDefaults().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setAngle(30));
+			new PlotCanvasAxisTickRendererOptions().setAngle(30.0));
 
 		chart2O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 		chart2O.getAxes().getXaxis().setLabel("Warranty Concern");
@@ -108,8 +105,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 
 	private void addChart3(BaseSeries<String, Integer> line)
 	{
-		List<BaseSeries<String, Integer>> lines =
-			new ArrayList<BaseSeries<String, Integer>>();
+		List<BaseSeries<String, Integer>> lines = new ArrayList<BaseSeries<String, Integer>>();
 		lines.add(line);
 
 		JQPlot chart3 = new JQPlot("chart3", new ListModel<BaseSeries<String, Integer>>(lines));
@@ -121,7 +117,7 @@ public class AxisLabelsRotatedText2Page extends WebPage
 		chart3O.getAxesDefaults().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
 		chart3O.getAxesDefaults().setTickOptions(
 			new PlotCanvasAxisTickRendererOptions().setLabelPosition(PlotTickLabelPosition.middle)
-				.setAngle(-30));
+				.setAngle(-30.0));
 		chart3O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 		chart3O.getAxes().getXaxis().setLabel("Warranty Concern");
 		chart3O.getAxes().getYaxis().setAutoscale(true);

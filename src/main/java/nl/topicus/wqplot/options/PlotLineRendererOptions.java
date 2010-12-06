@@ -31,7 +31,7 @@ public class PlotLineRendererOptions implements Serializable
 	{
 	}
 
-	public Boolean isHighlightMouseOver()
+	public Boolean getHighlightMouseOver()
 	{
 		return highlightMouseOver;
 	}
@@ -42,7 +42,7 @@ public class PlotLineRendererOptions implements Serializable
 		return this;
 	}
 
-	public Boolean isHighlightMouseDown()
+	public Boolean getHighlightMouseDown()
 	{
 		return highlightMouseDown;
 	}

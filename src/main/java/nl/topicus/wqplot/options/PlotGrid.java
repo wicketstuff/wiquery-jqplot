@@ -23,6 +23,11 @@ public class PlotGrid implements Serializable
 	private String gridLineColor;
 
 	/**
+	 * width of the grid lines.
+	 */
+	private Double gridLineWidth;
+
+	/**
 	 * CSS color spec for background color of grid.
 	 */
 	private String background;
@@ -36,6 +41,11 @@ public class PlotGrid implements Serializable
 	 * pixel width of border around grid.
 	 */
 	private Double borderWidth;
+
+	/**
+	 * True to draw border around grid.
+	 */
+	private Boolean drawBorder;
 
 	/**
 	 * draw a shadow for grid.
@@ -64,6 +74,11 @@ public class PlotGrid implements Serializable
 	private Integer shadowDepth;
 
 	/**
+	 * an optional css color spec for the shadow in ‘rgba(n, n, n, n)’ form
+	 */
+	private String shadowColor;
+
+	/**
 	 * Opacity of the shadow
 	 */
 	private Double shadowAlpha;
@@ -84,7 +99,7 @@ public class PlotGrid implements Serializable
 	{
 	}
 
-	public Boolean isDrawGridLines()
+	public Boolean getDrawGridLines()
 	{
 		return drawGridLines;
 	}
@@ -103,6 +118,17 @@ public class PlotGrid implements Serializable
 	public PlotGrid setGridLineColor(String gridLineColor)
 	{
 		this.gridLineColor = gridLineColor;
+		return this;
+	}
+
+	public Double getGridLineWidth()
+	{
+		return gridLineWidth;
+	}
+
+	public PlotGrid setGridLineWidth(Double gridLineWidth)
+	{
+		this.gridLineWidth = gridLineWidth;
 		return this;
 	}
 
@@ -139,7 +165,18 @@ public class PlotGrid implements Serializable
 		return this;
 	}
 
-	public Boolean isShadow()
+	public Boolean getDrawBorder()
+	{
+		return drawBorder;
+	}
+
+	public PlotGrid setDrawBorder(Boolean drawBorder)
+	{
+		this.drawBorder = drawBorder;
+		return this;
+	}
+
+	public Boolean getShadow()
 	{
 		return shadow;
 	}
@@ -191,6 +228,17 @@ public class PlotGrid implements Serializable
 	public PlotGrid setShadowDepth(Integer shadowDepth)
 	{
 		this.shadowDepth = shadowDepth;
+		return this;
+	}
+
+	public String getShadowColor()
+	{
+		return shadowColor;
+	}
+
+	public PlotGrid setShadowColor(String shadowColor)
+	{
+		this.shadowColor = shadowColor;
 		return this;
 	}
 

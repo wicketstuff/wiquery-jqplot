@@ -83,7 +83,7 @@ public class BarLinePieStackPage extends WebPage
 		tickOptions.setFormatString("%b %#d, %Y");
 		tickOptions.setFontSize("10pt");
 		tickOptions.setFontFamily("Tahoma");
-		tickOptions.setAngle(-40);
+		tickOptions.setAngle(-40.0);
 		tickOptions.setFontWeight("normal");
 		tickOptions.setFontStretch(1.0);
 		chart2O.getAxes().getXaxis().setTickOptions(tickOptions);
