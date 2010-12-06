@@ -3,6 +3,7 @@ package nl.topicus.wqplot.options;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
@@ -25,7 +26,7 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 	 * A class of a formatter for the tick text. The default $.jqplot.DefaultTickFormatter
 	 * uses sprintf.
 	 */
-	@JsonSerialize(using = PluginReferenceSerializer.class)
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String formatter;
 
 	/** string appended to the tick label if no formatString is specified. */

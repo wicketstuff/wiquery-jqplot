@@ -93,7 +93,7 @@ public class PlotSeries implements Serializable
 	/**
 	 * renderer to use to draw the data point markers.
 	 */
-	@JsonSerialize(using = PluginReferenceSerializer.class)
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String markerRenderer;
 
 	/**

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotTitle implements Serializable
@@ -44,7 +45,7 @@ public class PlotTitle implements Serializable
 	/**
 	 * A class for creating a DOM element for the title, see $.jqplot.DivTitleRenderer.
 	 */
-	@JsonSerialize(using = PluginReferenceSerializer.class)
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String renderer;
 
 	/**
