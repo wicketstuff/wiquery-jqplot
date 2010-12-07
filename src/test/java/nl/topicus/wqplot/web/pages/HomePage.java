@@ -9,6 +9,7 @@ import nl.topicus.wqplot.web.pages.examples.dist.AreaPage;
 import nl.topicus.wqplot.web.pages.examples.dist.AxisLabelsRotatedText2Page;
 import nl.topicus.wqplot.web.pages.examples.dist.BarLinePieStackPage;
 import nl.topicus.wqplot.web.pages.examples.dist.BubbleChart2Page;
+import nl.topicus.wqplot.web.pages.examples.dist.MissingValuesPage;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
@@ -39,6 +40,7 @@ public class HomePage extends WebPage
 		pages.add(AxisLabelsRotatedText2Page.class);
 		pages.add(BarLinePieStackPage.class);
 		pages.add(BubbleChart2Page.class);
+		pages.add(MissingValuesPage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(
