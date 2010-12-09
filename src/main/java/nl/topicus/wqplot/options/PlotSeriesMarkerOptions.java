@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PlotSeriesMarkerOptions implements Serializable
@@ -60,6 +62,18 @@ public class PlotSeriesMarkerOptions implements Serializable
 	 * Opacity of the shadow
 	 */
 	private Double shadowAlpha;
+
+	/**
+	 * Renderer that will draws the shadows on the marker.
+	 */
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
+	private String shadowRenderer;
+
+	/**
+	 * Renderer that will draw the marker.
+	 */
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
+	private String shapeRenderer;
 
 	public PlotSeriesMarkerOptions()
 	{
@@ -172,6 +186,28 @@ public class PlotSeriesMarkerOptions implements Serializable
 	public PlotSeriesMarkerOptions setShadowAlpha(Double shadowAlpha)
 	{
 		this.shadowAlpha = shadowAlpha;
+		return this;
+	}
+
+	public String getShadowRenderer()
+	{
+		return shadowRenderer;
+	}
+
+	public PlotSeriesMarkerOptions setShadowRenderer(String shadowRenderer)
+	{
+		this.shadowRenderer = shadowRenderer;
+		return this;
+	}
+
+	public String getShapeRenderer()
+	{
+		return shapeRenderer;
+	}
+
+	public PlotSeriesMarkerOptions setShapeRenderer(String shapeRenderer)
+	{
+		this.shapeRenderer = shapeRenderer;
 		return this;
 	}
 }
