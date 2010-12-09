@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>Topicus WqPlot</title>
+<link rel="stylesheet" href="examples.css" type="text/css"
+	media="screen" charset="utf-8" />
+</head>
+<body>
+<p>jqPlot support axis labels through the "label" option of each
+axis. The default label renderer creates labels in div tags, which
+allows full css control over every label. Labels are assigned css
+classes like "jqplot-axis_name-label" where "axis_name" will be xaxis,
+yaxis, etc.</p>
+
+<div wicket:id="chart1" class="plot"
+	style="width: 400px; height: 260px;"></div>
+
+<p>By including the "jqplot.canvasTextRenderer.min.js" and
+"jqplot.canvasAxisLabelRenderer.min.js" plugins, you can render label
+text directly onto canvas elements. This allows text to be rotated and
+yaxes will have their labels rotated 90 degrees by default. By default
+the labels will be rendered using the Hershey font metrics and not
+stroked as text. Most browsers do not yet support native text rendering
+in canvas elements.</p>
+
+<div wicket:id="chart2" class="plot"
+	style="width: 400px; height: 260px;"></div>
+
+<p>Native canvas text rendering is supported in FireFox 3.5+ and
+Safari 4+. You can enable native font support in those browsers by
+setting the "enableFontSupport" option to true. This allows you to also
+specify the font family of text rendered on the canvas labels. If a
+visitors is using a supported browser, they will see the labels rendered
+as the specified fonts. If they are on an unsupported browser, they will
+see the default Hershey font.</p>
+
+<p>The chart below will have labels rendered in 12pt Georgia if you
+are on a supported browser. Otherwise, They will be in 12pt Hershey.
+Native font support in the canvas element is somewhat inconsistent among
+supported browsers and platforms and depends on fonts installed on the
+system. Therefore, it should be used cautiously.</p>
+
+<div wicket:id="chart3" class="plot"
+	style="width: 400px; height: 260px;"></div>
+
+</body>
+</html>
