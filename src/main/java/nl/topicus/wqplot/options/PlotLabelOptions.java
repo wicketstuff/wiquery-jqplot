@@ -12,6 +12,12 @@ public class PlotLabelOptions implements Serializable
 
 	private Boolean show;
 
+	private Boolean enableFontSupport;
+
+	private String fontFamily;
+
+	private String fontSize;
+
 	public PlotLabelOptions()
 	{
 	}
@@ -24,6 +30,39 @@ public class PlotLabelOptions implements Serializable
 	public PlotLabelOptions setShow(Boolean show)
 	{
 		this.show = show;
+		return this;
+	}
+
+	public Boolean getEnableFontSupport()
+	{
+		return enableFontSupport;
+	}
+
+	public PlotLabelOptions setEnableFontSupport(Boolean enableFontSupport)
+	{
+		this.enableFontSupport = enableFontSupport;
+		return this;
+	}
+
+	public String getFontFamily()
+	{
+		return fontFamily;
+	}
+
+	public PlotLabelOptions setFontFamily(String fontFamily)
+	{
+		this.fontFamily = fontFamily;
+		return this;
+	}
+
+	public String getFontSize()
+	{
+		return fontSize;
+	}
+
+	public PlotLabelOptions setFontSize(String fontSize)
+	{
+		this.fontSize = fontSize;
 		return this;
 	}
 }
