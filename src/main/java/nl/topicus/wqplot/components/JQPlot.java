@@ -152,7 +152,7 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		{
 			e.printStackTrace();
 		}
-		return new JsStatement().append("$.jqplot('" + getMarkupId() + "', " + plotDataStr + ", "
-			+ optionsStr + ")");
+		return new JsStatement().append("$.jqplot.config.catchErrors = true;").append(
+			"$.jqplot('" + getMarkupId() + "', " + plotDataStr + ", " + optionsStr + ")");
 	}
 }
