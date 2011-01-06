@@ -10,6 +10,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+@JsonSerialize(include = Inclusion.NON_NULL)
 public class PlotAxis implements Serializable
 {
 	private static final long serialVersionUID = 1L;
