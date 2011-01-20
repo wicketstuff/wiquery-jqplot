@@ -6,6 +6,7 @@ import java.util.List;
 import nl.topicus.wqplot.web.pages.examples.AutoScalingPage;
 import nl.topicus.wqplot.web.pages.examples.AxisLabelPage;
 import nl.topicus.wqplot.web.pages.examples.CorePage;
+import nl.topicus.wqplot.web.pages.examples.ZoomTestPage;
 import nl.topicus.wqplot.web.pages.examples.dist.AreaPage;
 import nl.topicus.wqplot.web.pages.examples.dist.AxisLabelsRotatedText2Page;
 import nl.topicus.wqplot.web.pages.examples.dist.BarLinePieStackPage;
@@ -34,6 +35,7 @@ public class HomePage extends WebPage
 		pages.add(CorePage.class);
 		pages.add(AutoScalingPage.class);
 		pages.add(AxisLabelPage.class);
+		pages.add(ZoomTestPage.class);
 
 		/*
 		 * Dist examples

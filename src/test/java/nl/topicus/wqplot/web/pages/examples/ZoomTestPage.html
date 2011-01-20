@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>Topicus WqPlot</title>
+<link rel="stylesheet" href="examples.css" type="text/css"
+	media="screen" charset="utf-8" />
+</head>
+<body>
+<p>The cursor plugin also enables plot zooming functionality. Click
+and drag on the plot to zoom. Double click to reset.</p>
+<p>You can also enable single click zoom reset, or disable the
+double click zoom reset. The cursor plugin also extends the plot object
+with a resetZoom() method which can be called from user code or other
+html element (a button for example) to reset the plot zoom.</p>
+
+<div wicket:id="chart1" class="plot"
+	style="width: 600px; height: 400px;"></div>
+	
+<p>Plot zooming also works will multiple axes. The following plot
+uses 3 large datasets. Single Click will reset the zoom on this plot.</p>
+
+<div wicket:id="chart2" class="plot"
+	style="width: 600px; height: 400px;"></div>
+
+</body>
+</html>

@@ -39,12 +39,15 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 			JQPlotCanvasAxisLabelRendererResourceReference.get());
 		plugins.put("$.jqplot.CanvasAxisTickRenderer",
 			JQPlotCanvasAxisTickRendererResourceReference.get());
-		plugins.put("$.jqplot.CategoryAxisRenderer", JQPlotCategoryAxisRendererResourceReference
-			.get());
+		plugins.put("$.jqplot.CategoryAxisRenderer",
+			JQPlotCategoryAxisRendererResourceReference.get());
 		plugins.put("$.jqplot.BarRenderer", JQPlotBarRendererResourceReference.get());
 		plugins.put("$.jqplot.BubbleRenderer", JQPlotBubbleRendererResourceReference.get());
 		plugins.put("$.jqplot.PieRenderer", JQPlotPieRendererResourceReference.get());
 		plugins.put("$.jqplot.DateAxisRenderer", JQPlotDateAxisRendererResourceReference.get());
+		plugins.put("$.jqplot.LogAxisRenderer", JQPlotLogAxisRendererResourceReference.get());
+		plugins.put("$.jqplot.Cursor", JQPlotCursorResourceReference.get());
+
 	}
 
 	public JQPlot(String id, IModel< ? extends Collection< ? extends Series< ? , ? , ? >>> model)

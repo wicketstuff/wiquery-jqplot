@@ -88,6 +88,8 @@ public class PlotOptions implements Serializable
 	 */
 	private Integer defaultAxisStart;
 
+	private PlotCursor cursor;
+
 	public PlotOptions()
 	{
 	}
@@ -250,6 +252,19 @@ public class PlotOptions implements Serializable
 	public PlotOptions setDefaultAxisStart(Integer defaultAxisStart)
 	{
 		this.defaultAxisStart = defaultAxisStart;
+		return this;
+	}
+
+	public PlotCursor getCursor()
+	{
+		if (cursor == null)
+			cursor = new PlotCursor();
+		return cursor;
+	}
+
+	public PlotOptions setCursor(PlotCursor cursor)
+	{
+		this.cursor = cursor;
 		return this;
 	}
 }
