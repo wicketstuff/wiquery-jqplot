@@ -119,4 +119,95 @@ public class PlotCanvasAxisTickRendererOptions extends PlotTickOptions
 		this.pt2px = pt2px;
 		return this;
 	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setMark(PlotTickMarkPlacement mark)
+	{
+		super.setMark(mark);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setShowMark(Boolean showMark)
+	{
+		super.setShowMark(showMark);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setShowGridline(Boolean showGridline)
+	{
+		super.setShowGridline(showGridline);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setIsMinorTick(Boolean isMinorTick)
+	{
+		super.setIsMinorTick(isMinorTick);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setMarkSize(Double markSize)
+	{
+		super.setMarkSize(markSize);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setShow(Boolean show)
+	{
+		super.setShow(show);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setShowLabel(Boolean showLabel)
+	{
+		super.setShowLabel(showLabel);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setFormatter(String formatter)
+	{
+		super.setFormatter(formatter);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setPrefix(String prefix)
+	{
+		super.setPrefix(prefix);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setFormatString(String formatString)
+	{
+		super.setFormatString(formatString);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setFontFamily(String fontFamily)
+	{
+		super.setFontFamily(fontFamily);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setFontSize(String fontSize)
+	{
+		super.setFontSize(fontSize);
+		return this;
+	}
+
+	@Override
+	public PlotCanvasAxisTickRendererOptions setTextColor(String textColor)
+	{
+		super.setTextColor(textColor);
+		return this;
+	}
 }

@@ -10,7 +10,10 @@ import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PlotSeries;
 import nl.topicus.wqplot.options.PlotTitle;
 
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.form.Button;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 
 public class ZoomTestPage extends WebPage
@@ -81,6 +84,11 @@ public class ZoomTestPage extends WebPage
 			new JQPlot("chart1", new ListModel<StringNumberSeries<Double>>(Arrays.asList(l1)));
 		PlotOptions chart1O = chart1.getOptions();
 		chart1O.setTitle("Google, Inc.");
+
+		Button button = new Button("button1");
+		button.add(new AttributeModifier("onclick", true, new Model<String>(chart1.getMarkupId()
+			+ ".resetZoom()")));
+		add(button);
 
 		PlotSeries chart1series1 = chart1O.addNewSeries();
 		chart1series1.setLabel("Google, Inc.");
