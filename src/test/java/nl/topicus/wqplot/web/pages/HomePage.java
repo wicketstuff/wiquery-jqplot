@@ -10,6 +10,7 @@ import nl.topicus.wqplot.web.pages.examples.ZoomTestPage;
 import nl.topicus.wqplot.web.pages.examples.dist.AreaPage;
 import nl.topicus.wqplot.web.pages.examples.dist.AxisLabelsRotatedText2Page;
 import nl.topicus.wqplot.web.pages.examples.dist.BarLinePieStackPage;
+import nl.topicus.wqplot.web.pages.examples.dist.BarMissingValuesPage;
 import nl.topicus.wqplot.web.pages.examples.dist.BubbleChart2Page;
 import nl.topicus.wqplot.web.pages.examples.dist.MissingValuesPage;
 
@@ -43,6 +44,7 @@ public class HomePage extends WebPage
 		pages.add(AreaPage.class);
 		pages.add(AxisLabelsRotatedText2Page.class);
 		pages.add(BarLinePieStackPage.class);
+		pages.add(BarMissingValuesPage.class);
 		pages.add(BubbleChart2Page.class);
 		pages.add(MissingValuesPage.class);
 

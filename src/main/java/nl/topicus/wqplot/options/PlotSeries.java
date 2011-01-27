@@ -37,7 +37,7 @@ public class PlotSeries implements Serializable
 	/**
 	 * options passed to the renderer. LineRenderer has no options.
 	 */
-	private Object rendererOptions;
+	private PlotSeriesRendererOptions rendererOptions;
 
 	/**
 	 * label to use in the legend for this line.
@@ -224,12 +224,12 @@ public class PlotSeries implements Serializable
 		return this;
 	}
 
-	public Object getRendererOptions()
+	public PlotSeriesRendererOptions getRendererOptions()
 	{
 		return rendererOptions;
 	}
 
-	public PlotSeries setRendererOptions(Object rendererOptions)
+	public PlotSeries setRendererOptions(PlotSeriesRendererOptions rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
 		return this;

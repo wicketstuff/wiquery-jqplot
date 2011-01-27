@@ -1,6 +1,5 @@
 package nl.topicus.wqplot.options;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,59 +10,59 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class PlotBarRendererOptions implements Serializable
+public class PlotBarRendererOptions extends PlotSeriesRendererOptions
 {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 *Number of pixels between adjacent bars at the same axis value.
+	 * Number of pixels between adjacent bars at the same axis value.
 	 */
 	private Double barPadding;
 
 	/**
-	 *Number of pixels between groups of bars at adjacent axis values.
+	 * Number of pixels between groups of bars at adjacent axis values.
 	 */
 	private Double barMargin;
 
 	/**
-	 *’vertical’ = up and down bars, ‘horizontal’ = side to side bars
+	 * ’vertical’ = up and down bars, ‘horizontal’ = side to side bars
 	 */
 	private PlotBarDirection barDirection;
 
 	/**
-	 *Width of the bar in pixels (auto by devaul). null = calculated automatically.
+	 * Width of the bar in pixels (auto by devaul). null = calculated automatically.
 	 */
 	private Double barWidth;
 
 	/**
-	 *offset of the shadow from the slice and offset of each succesive stroke of the
+	 * offset of the shadow from the slice and offset of each succesive stroke of the
 	 * shadow from the last.
 	 */
 	private Double shadowOffset;
 
 	/**
-	 *number of strokes to apply to the shadow, each stroke offset shadowOffset from the
+	 * number of strokes to apply to the shadow, each stroke offset shadowOffset from the
 	 * last.
 	 */
 	private Integer shadowDepth;
 
 	/**
-	 *transparency of the shadow (0 = transparent, 1 = opaque)
+	 * transparency of the shadow (0 = transparent, 1 = opaque)
 	 */
 	private Double shadowAlpha;
 
 	/**
-	 *true to enable waterfall plot.
+	 * true to enable waterfall plot.
 	 */
 	private Boolean waterfall;
 
 	/**
-	 *group bars into this many groups
+	 * group bars into this many groups
 	 */
 	private Integer groups;
 
 	/**
-	 *true to color each bar of a series separately rather than have every bar of a given
+	 * true to color each bar of a series separately rather than have every bar of a given
 	 * series the same color. If used for non-stacked multiple series bar plots, user
 	 * should specify a separate ‘seriesColors’ array for each series. Otherwise, each
 	 * series will set their bars to the same color array. This option has no Effect for
@@ -72,19 +71,19 @@ public class PlotBarRendererOptions implements Serializable
 	private Boolean varyBarColor;
 
 	/**
-	 *True to highlight slice when moused over. This must be false to enable
+	 * True to highlight slice when moused over. This must be false to enable
 	 * highlightMouseDown to highlight when clicking on a slice.
 	 */
 	private Boolean highlightMouseOver;
 
 	/**
-	 *True to highlight when a mouse button is pressed over a slice. This will be
+	 * True to highlight when a mouse button is pressed over a slice. This will be
 	 * disabled if highlightMouseOver is true.
 	 */
 	private Boolean highlightMouseDown;
 
 	/**
-	 *an array of colors to use when highlighting a bar.
+	 * an array of colors to use when highlighting a bar.
 	 */
 	private List<String> highlightColors;
 

@@ -8,7 +8,7 @@
 	<name>WQPlot</name>
 	<description>WiQuery-JqPlot bindings</description>
 	<properties>
-		<wicket.version>1.4.13</wicket.version>
+		<wicket.version>1.4.15</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<jackson.version>1.6.1</jackson.version>

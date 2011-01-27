@@ -1,6 +1,5 @@
 package nl.topicus.wqplot.options;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +10,12 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class PlotBubbleRendererOptions implements Serializable
+public class PlotBubbleRendererOptions extends PlotSeriesRendererOptions
 {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 *True to vary the color of each bubble in this series according to the seriesColors
+	 * True to vary the color of each bubble in this series according to the seriesColors
 	 * array. False to set each bubble to the color specified on this series. This has no
 	 * effect if a css background color option is specified in the renderer css options.
 	 */
