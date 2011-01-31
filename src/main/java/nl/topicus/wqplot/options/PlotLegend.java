@@ -92,9 +92,15 @@ public class PlotLegend implements Serializable
 	private String rowSpacing;
 
 	/**
+	 * renderer used to draw the legend.
+	 */
+	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
+	private String renderer;
+
+	/**
 	 * renderer specific options passed to the renderer.
 	 */
-	private Object rendererOptions;
+	private PlotLegendRendererOptions rendererOptions;
 
 	/**
 	 * Wether to draw the legend before the series or not. Used with series specific
@@ -288,12 +294,23 @@ public class PlotLegend implements Serializable
 		return this;
 	}
 
-	public Object getRendererOptions()
+	public String getRenderer()
+	{
+		return renderer;
+	}
+
+	public PlotLegend setRenderer(String renderer)
+	{
+		this.renderer = renderer;
+		return this;
+	}
+
+	public PlotLegendRendererOptions getRendererOptions()
 	{
 		return rendererOptions;
 	}
 
-	public PlotLegend setRendererOptions(Object rendererOptions)
+	public PlotLegend setRendererOptions(PlotLegendRendererOptions rendererOptions)
 	{
 		this.rendererOptions = rendererOptions;
 		return this;

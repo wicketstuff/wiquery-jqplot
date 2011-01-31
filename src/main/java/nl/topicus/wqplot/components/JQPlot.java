@@ -3,9 +3,11 @@ package nl.topicus.wqplot.components;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import nl.topicus.wqplot.components.plugins.*;
@@ -47,8 +49,11 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		plugins.put("$.jqplot.DateAxisRenderer", JQPlotDateAxisRendererResourceReference.get());
 		plugins.put("$.jqplot.LogAxisRenderer", JQPlotLogAxisRendererResourceReference.get());
 		plugins.put("$.jqplot.Cursor", JQPlotCursorResourceReference.get());
-
+		plugins.put("$.jqplot.EnhancedLegendRenderer",
+			JQPlotEnhancedLegendRendererResourceReference.get());
 	}
+
+	private List<String> afterRenderStatements = new ArrayList<String>();
 
 	public JQPlot(String id, IModel< ? extends Collection< ? extends Series< ? , ? , ? >>> model)
 	{
@@ -131,6 +136,11 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		wiQueryResourceManager.addJavaScriptResource(plugins.get(plugin));
 	}
 
+	public void addAfterRenderStatement(String statement)
+	{
+		afterRenderStatements.add(statement);
+	}
+
 	@Override
 	public JsStatement statement()
 	{
@@ -155,8 +165,13 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		{
 			e.printStackTrace();
 		}
-		return new JsStatement().append("$.jqplot.config.catchErrors = true;").append(
-			getMarkupId() + " = $.jqplot('" + getMarkupId() + "', " + plotDataStr + ", "
-				+ optionsStr + ")");
+		JsStatement jsStatement = new JsStatement().append("$.jqplot.config.catchErrors = true;");
+		jsStatement.append(getMarkupId() + " = $.jqplot('" + getMarkupId() + "', " + plotDataStr
+			+ ", " + optionsStr + ");\n");
+
+		for (String statement : afterRenderStatements)
+			jsStatement.append(statement);
+
+		return jsStatement;
 	}
 }

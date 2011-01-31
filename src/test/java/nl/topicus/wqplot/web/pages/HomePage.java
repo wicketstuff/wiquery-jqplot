@@ -3,16 +3,7 @@ package nl.topicus.wqplot.web.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.topicus.wqplot.web.pages.examples.AutoScalingPage;
-import nl.topicus.wqplot.web.pages.examples.AxisLabelPage;
-import nl.topicus.wqplot.web.pages.examples.CorePage;
-import nl.topicus.wqplot.web.pages.examples.ZoomTestPage;
-import nl.topicus.wqplot.web.pages.examples.dist.AreaPage;
-import nl.topicus.wqplot.web.pages.examples.dist.AxisLabelsRotatedText2Page;
-import nl.topicus.wqplot.web.pages.examples.dist.BarLinePieStackPage;
-import nl.topicus.wqplot.web.pages.examples.dist.BarMissingValuesPage;
-import nl.topicus.wqplot.web.pages.examples.dist.BubbleChart2Page;
-import nl.topicus.wqplot.web.pages.examples.dist.MissingValuesPage;
+import nl.topicus.wqplot.web.pages.examples.dist.*;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
@@ -33,16 +24,18 @@ public class HomePage extends WebPage
 		/*
 		 * Web examples
 		 */
-		pages.add(CorePage.class);
-		pages.add(AutoScalingPage.class);
-		pages.add(AxisLabelPage.class);
-		pages.add(ZoomTestPage.class);
+		pages.add(nl.topicus.wqplot.web.pages.examples.CorePage.class);
+		pages.add(nl.topicus.wqplot.web.pages.examples.AutoScalingPage.class);
+		pages.add(nl.topicus.wqplot.web.pages.examples.AxisLabelPage.class);
+		pages.add(nl.topicus.wqplot.web.pages.examples.ZoomTestPage.class);
 
 		/*
 		 * Dist examples
 		 */
 		pages.add(AreaPage.class);
+		pages.add(AxisLabelPage.class);
 		pages.add(AxisLabelsRotatedText2Page.class);
+		pages.add(AxisLabelsRotatedTextPage.class);
 		pages.add(BarLinePieStackPage.class);
 		pages.add(BarMissingValuesPage.class);
 		pages.add(BubbleChart2Page.class);
