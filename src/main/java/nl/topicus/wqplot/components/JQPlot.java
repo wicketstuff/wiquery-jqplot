@@ -15,8 +15,11 @@ import nl.topicus.wqplot.data.Series;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PluginReferenceSerializer;
 
+import org.apache.wicket.RequestCycle;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.protocol.http.request.WebClientInfo;
+import org.apache.wicket.request.ClientInfo;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -75,10 +78,17 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 	@Override
 	public void contribute(WiQueryResourceManager wiQueryResourceManager)
 	{
+		ClientInfo info = RequestCycle.get().getClientInfo();
+		if (info instanceof WebClientInfo
+			&& ((WebClientInfo) info).getProperties().isBrowserInternetExplorer())
+			wiQueryResourceManager.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference
+				.get());
+
 		wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
 		wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
 		wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasTextRendererResourceReference
 			.get());
+
 		try
 		{
 			addPlugins(wiQueryResourceManager);
@@ -165,9 +175,9 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		{
 			e.printStackTrace();
 		}
-		JsStatement jsStatement = new JsStatement().append("$.jqplot.config.catchErrors = true;");
-		jsStatement.append(getMarkupId() + " = $.jqplot('" + getMarkupId() + "', " + plotDataStr
-			+ ", " + optionsStr + ");\n");
+		JsStatement jsStatement = new JsStatement().append("$.jqplot.config.catchErrors = true;\n");
+		jsStatement.append("var " + getMarkupId() + " = $.jqplot('" + getMarkupId() + "', "
+			+ plotDataStr + ", " + optionsStr + ");\n");
 
 		for (String statement : afterRenderStatements)
 			jsStatement.append(statement);
