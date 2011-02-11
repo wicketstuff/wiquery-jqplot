@@ -79,10 +79,17 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 	public void contribute(WiQueryResourceManager wiQueryResourceManager)
 	{
 		ClientInfo info = RequestCycle.get().getClientInfo();
-		if (info instanceof WebClientInfo
-			&& ((WebClientInfo) info).getProperties().isBrowserInternetExplorer())
-			wiQueryResourceManager.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference
-				.get());
+		if (info instanceof WebClientInfo)
+		{
+			/**
+			 * only IE 9 supports canvas natively.
+			 */
+			WebClientInfo webinfo = (WebClientInfo) info;
+			if (webinfo.getProperties().isBrowserInternetExplorer()
+				&& webinfo.getProperties().getBrowserVersionMajor() < 9)
+				wiQueryResourceManager
+					.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
+		}
 
 		wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
 		wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
