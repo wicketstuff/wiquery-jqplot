@@ -54,6 +54,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 		plugins.put("$.jqplot.Cursor", JQPlotCursorResourceReference.get());
 		plugins.put("$.jqplot.EnhancedLegendRenderer",
 			JQPlotEnhancedLegendRendererResourceReference.get());
+		plugins.put("$.jqplot.PointLabels", JQPlotPointLabelsResourceReference.get());
+		plugins.put("$.jqplot.Highlighter", JQPlotHighlighterResourceReference.get());
 	}
 
 	private List<String> afterRenderStatements = new ArrayList<String>();

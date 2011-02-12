@@ -176,6 +176,8 @@ public class PlotSeries implements Serializable
 	/** true to color negative values differently in filled and bar charts. */
 	private Boolean useNegativeColors;
 
+	private PlotPointLabels pointLabels;
+
 	public PlotSeries()
 	{
 	}
@@ -226,6 +228,8 @@ public class PlotSeries implements Serializable
 
 	public PlotSeriesRendererOptions getRendererOptions()
 	{
+		if (rendererOptions == null)
+			rendererOptions = new PlotSeriesRendererOptions();
 		return rendererOptions;
 	}
 
@@ -509,6 +513,19 @@ public class PlotSeries implements Serializable
 	public PlotSeries setUseNegativeColors(Boolean useNegativeColors)
 	{
 		this.useNegativeColors = useNegativeColors;
+		return this;
+	}
+
+	public PlotPointLabels getPointLabels()
+	{
+		if (pointLabels == null)
+			pointLabels = new PlotPointLabels();
+		return pointLabels;
+	}
+
+	public PlotSeries setPlotPointLabels(PlotPointLabels plotPointLabels)
+	{
+		this.pointLabels = plotPointLabels;
 		return this;
 	}
 }

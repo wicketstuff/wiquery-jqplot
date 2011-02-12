@@ -6,14 +6,13 @@ import java.util.List;
 import nl.topicus.wqplot.web.pages.examples.dist.*;
 
 import org.apache.wicket.Page;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.util.ListModel;
 
-public class HomePage extends WebPage
+public class HomePage extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 
@@ -22,12 +21,11 @@ public class HomePage extends WebPage
 		List<Class< ? extends Page>> pages = new ArrayList<Class< ? extends Page>>();
 
 		/*
-		 * Web examples
+		 * Web examples pages.add(nl.topicus.wqplot.web.pages.examples.CorePage.class);
+		 * pages.add(nl.topicus.wqplot.web.pages.examples.AutoScalingPage.class);
+		 * pages.add(nl.topicus.wqplot.web.pages.examples.AxisLabelPage.class);
+		 * pages.add(nl.topicus.wqplot.web.pages.examples.ZoomTestPage.class);
 		 */
-		pages.add(nl.topicus.wqplot.web.pages.examples.CorePage.class);
-		pages.add(nl.topicus.wqplot.web.pages.examples.AutoScalingPage.class);
-		pages.add(nl.topicus.wqplot.web.pages.examples.AxisLabelPage.class);
-		pages.add(nl.topicus.wqplot.web.pages.examples.ZoomTestPage.class);
 
 		/*
 		 * Dist examples
@@ -39,6 +37,7 @@ public class HomePage extends WebPage
 		pages.add(BarLinePieStackPage.class);
 		pages.add(BarMissingValuesPage.class);
 		pages.add(BubbleChart2Page.class);
+		pages.add(BarTestPage.class);
 		pages.add(MissingValuesPage.class);
 
 		ListView<Class< ? extends Page>> links =

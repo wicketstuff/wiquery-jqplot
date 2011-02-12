@@ -23,7 +23,7 @@ public class PlotCursor implements Serializable
 
 	private Boolean followMouse;
 
-	private TooltipLocation tooltipLocation;
+	private PlotTooltipLocation tooltipLocation;
 
 	private Integer tooltipOffset;
 
@@ -100,12 +100,12 @@ public class PlotCursor implements Serializable
 		return this;
 	}
 
-	public TooltipLocation getTooltipLocation()
+	public PlotTooltipLocation getTooltipLocation()
 	{
 		return tooltipLocation;
 	}
 
-	public PlotCursor setTooltipLocation(TooltipLocation tooltipLocation)
+	public PlotCursor setTooltipLocation(PlotTooltipLocation tooltipLocation)
 	{
 		this.tooltipLocation = tooltipLocation;
 		return this;
@@ -175,17 +175,5 @@ public class PlotCursor implements Serializable
 	{
 		this.renderer = renderer;
 		return this;
-	}
-
-	public enum TooltipLocation
-	{
-		n,
-		ne,
-		e,
-		se,
-		s,
-		sw,
-		w,
-		nw;
 	}
 }

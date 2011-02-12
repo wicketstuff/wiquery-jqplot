@@ -5,10 +5,10 @@ import java.util.Arrays;
 import nl.topicus.wqplot.components.JQPlot;
 import nl.topicus.wqplot.data.NumberSeries;
 import nl.topicus.wqplot.data.StringNumberSeries;
-import nl.topicus.wqplot.options.PlotCursor.TooltipLocation;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PlotSeries;
 import nl.topicus.wqplot.options.PlotTitle;
+import nl.topicus.wqplot.options.PlotTooltipLocation;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.WebPage;
@@ -970,7 +970,7 @@ public class ZoomTestPage extends WebPage
 		chart2O.addNewSeries().setYaxis("y2axis");
 		chart2O.addNewSeries().setYaxis("y3axis");
 		chart2O.getCursor().setShow(true);
-		chart2O.getCursor().setTooltipLocation(TooltipLocation.sw);
+		chart2O.getCursor().setTooltipLocation(PlotTooltipLocation.sw);
 		chart2O.getCursor().setZoom(true);
 		chart2O.getCursor().setShowTooltipGridPosition(true);
 		chart2O.getAxesDefaults().setUseSeriesColor(true);

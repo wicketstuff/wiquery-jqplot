@@ -8,11 +8,11 @@ import nl.topicus.wqplot.data.StringNumberSeries;
 import nl.topicus.wqplot.options.PlotCanvasAxisTickRendererOptions;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PlotTickLabelPosition;
+import nl.topicus.wqplot.web.pages.BasePage;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
 
-public class AxisLabelsRotatedTextPage extends WebPage
+public class AxisLabelsRotatedTextPage extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 
@@ -92,7 +92,7 @@ public class AxisLabelsRotatedTextPage extends WebPage
 			.setTickOptions(
 				new PlotCanvasAxisTickRendererOptions().setLabelPosition(
 					PlotTickLabelPosition.middle).setAngle(15d));
-		chart2O.getAxes().getYaxis().setLabel("Inclement Factor");
+		chart2O.getAxes().getYaxis().setLabel("Incliment Factor");
 		chart2O.getAxes().getYaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 
 		add(chart2);

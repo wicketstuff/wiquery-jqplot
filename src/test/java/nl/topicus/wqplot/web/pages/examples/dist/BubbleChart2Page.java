@@ -8,11 +8,11 @@ import nl.topicus.wqplot.data.BubbleSeries;
 import nl.topicus.wqplot.data.BubbleSeriesEntryLabel;
 import nl.topicus.wqplot.options.PlotBubbleRendererOptions;
 import nl.topicus.wqplot.options.PlotOptions;
+import nl.topicus.wqplot.web.pages.BasePage;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
 
-public class BubbleChart2Page extends WebPage
+public class BubbleChart2Page extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 
@@ -79,13 +79,13 @@ public class BubbleChart2Page extends WebPage
 		PlotOptions chart1bO = chart1b.getOptions();
 		chart1bO.setTitle("Tooltip and Custom Legend Highlighting");
 		chart1bO.getSeriesDefaults().setRenderer("$.jqplot.BubbleRenderer");
-		chart1bO.getSeriesDefaults().setShadow(true);
-		chart1bO.getSeriesDefaults().setShadowAlpha(0.05);
 		PlotBubbleRendererOptions renderOptions = new PlotBubbleRendererOptions();
 		renderOptions.setBubbleAlpha(0.6);
 		renderOptions.setHighlightAlpha(0.8);
 		renderOptions.setShowLabels(false);
 		chart1bO.getSeriesDefaults().setRendererOptions(renderOptions);
+		chart1bO.getSeriesDefaults().setShadow(true);
+		chart1bO.getSeriesDefaults().setShadowAlpha(0.05);
 
 		add(chart1b);
 	}

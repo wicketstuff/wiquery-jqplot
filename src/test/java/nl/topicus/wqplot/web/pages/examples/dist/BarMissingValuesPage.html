@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-
-<html lang="en" xmlns:wicket>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Simple Test</title>
-  
-  <link rel="stylesheet" type="text/css" href="examples.css" />
-  
-  <style type="text/css" media="screen">
-    .jqplot-axis {
-      font-size: 0.85em;
-    }
-  </style>
-  </head>
-  <body>
-    <div wicket:id="chart1" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
-    <div wicket:id="chart2" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
-  </body>
+<html xmlns:wicket>
+<body>
+<wicket:extend>
+	<style type="text/css" media="screen">
+		.jqplot-axis { font-size: 0.85em; }
+	</style>
+	<div wicket:id="chart1" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
+	<div wicket:id="chart2" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
+</wicket:extend>
+</body>
 </html>

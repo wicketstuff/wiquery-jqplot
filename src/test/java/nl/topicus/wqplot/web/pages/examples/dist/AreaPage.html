@@ -1,39 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns:wicket>
-<head>
-<title>Topicus WiQuery-JqPlot</title>
-<link rel="stylesheet" href="examples.css" type="text/css"
-	media="screen" charset="utf-8" />
-<style type="text/css">
-.jqplot-target {
-	margin: 30px;
-}
-</style>
-</head>
 <body>
-<p>Area charts support highlighting and mouse events by default. The
-options and handlers and callbacks are essentially the same as with bar,
-pie, donut and funnel charts. One notable exception for area charts is
-that no data point index will be provided to the callback and the entire
-data set for the highlighted area will be returned. This is because the
-area is not associated with one particular data point, but with the
-entire data set of the series.</p>
-
-<div><span>Moused Over: </span><span wicket:id="info1b">Nothing</span></div>
-
-<div wicket:id="chart1b" class="plot"
-	style="width: 400px; height: 260px;"></div>
-
-<p>For the chart below, mouseover has been disabled and click
-handling is enabled by setting "highlightMouseDown: true". For
-"fillToZero" area charts that have both negative and positive values as
-shown below, clicking in either the positive of negative regions will
-generate the same result.</p>
-
-<div><span>You Clicked: </span><span wicket:id="info1c">Nothing
-yet</span></div>
-
-<div wicket:id="chart1c" class="plot"
-	style="width: 400px; height: 260px;"></div>
+<wicket:extend>
+	<style type="text/css">
+	.jqplot-target {
+		margin: 30px;
+	}
+	</style>
+	
+	<p>Area charts support highlighting and mouse events by default. The
+	options and handlers and callbacks are essentially the same as with bar,
+	pie, donut and funnel charts. One notable exception for area charts is
+	that no data point index will be provided to the callback and the entire
+	data set for the highlighted area will be returned. This is because the
+	area is not associated with one particular data point, but with the
+	entire data set of the series.</p>
+	
+	<div><span>Moused Over: </span><span wicket:id="info1b">Nothing</span></div>
+	
+	<div wicket:id="chart1b" class="plot"
+		style="width: 400px; height: 260px;"></div>
+	
+	<p>For the chart below, mouseover has been disabled and click
+	handling is enabled by setting "highlightMouseDown: true". For
+	"fillToZero" area charts that have both negative and positive values as
+	shown below, clicking in either the positive of negative regions will
+	generate the same result.</p>
+	
+	<div><span>You Clicked: </span><span wicket:id="info1c">Nothing
+	yet</span></div>
+	
+	<div wicket:id="chart1c" class="plot"
+		style="width: 400px; height: 260px;"></div>
+</wicket:extend>
 </body>
 </html>

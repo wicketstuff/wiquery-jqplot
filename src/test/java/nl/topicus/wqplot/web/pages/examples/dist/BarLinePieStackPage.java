@@ -16,11 +16,11 @@ import nl.topicus.wqplot.options.PlotLegendLocation;
 import nl.topicus.wqplot.options.PlotMarkerStyle;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PlotPieRendererOptions;
+import nl.topicus.wqplot.web.pages.BasePage;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
 
-public class BarLinePieStackPage extends WebPage
+public class BarLinePieStackPage extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 
@@ -34,8 +34,6 @@ public class BarLinePieStackPage extends WebPage
 		addChart3b();
 		addChart3c();
 		addChart4();
-		addChart5();
-		addChart6();
 	}
 
 	private void addChart1()
@@ -213,32 +211,10 @@ public class BarLinePieStackPage extends WebPage
 		chart4O.setTitle("Pie Chart with Legend and sliceMargin");
 		PlotPieRendererOptions renderOptions = new PlotPieRendererOptions();
 		renderOptions.setSliceMargin(8.0);
-		chart4O.getSeriesDefaults().setRenderer("$.jqplot.PieRenderer").setRendererOptions(
-			renderOptions);
+		chart4O.getSeriesDefaults().setRenderer("$.jqplot.PieRenderer")
+			.setRendererOptions(renderOptions);
 		chart4O.getLegend().setShow(true);
 
 		add(chart4);
-	}
-
-	private void addChart5()
-	{
-		List<SimpleNumberSeries<Double>> chart5series = new ArrayList<SimpleNumberSeries<Double>>();
-		chart5series.add(new SimpleNumberSeries<Double>(2.2, 3.0, 0.6, 4.8, 3.0));
-		chart5series.add(new SimpleNumberSeries<Double>(1.0, 4.0, 3.0, 2.0, 5.7));
-
-		add(new JQPlot("chart5", new ListModel<SimpleNumberSeries<Double>>(chart5series)));
-	}
-
-	private void addChart6()
-	{
-		List<SimpleNumberSeries<Integer>> lines = new ArrayList<SimpleNumberSeries<Integer>>();
-		lines.add(new SimpleNumberSeries<Integer>(3, 7, 3, 2, 9, 11, 8));
-
-		JQPlot chart6 = new JQPlot("chart6", new ListModel<SimpleNumberSeries<Integer>>(lines));
-
-		PlotOptions chart6O = chart6.getOptions();
-		chart6O.getAxes().getXaxis().setNumberTicks(5);
-
-		add(chart6);
 	}
 }

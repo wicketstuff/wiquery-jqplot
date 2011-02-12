@@ -90,6 +90,8 @@ public class PlotOptions implements Serializable
 
 	private PlotCursor cursor;
 
+	private PlotHighlighter highlighter;
+
 	public PlotOptions()
 	{
 	}
@@ -265,6 +267,19 @@ public class PlotOptions implements Serializable
 	public PlotOptions setCursor(PlotCursor cursor)
 	{
 		this.cursor = cursor;
+		return this;
+	}
+
+	public PlotHighlighter getHighlighter()
+	{
+		if (highlighter == null)
+			highlighter = new PlotHighlighter();
+		return highlighter;
+	}
+
+	public PlotOptions setHighlighter(PlotHighlighter highlighter)
+	{
+		this.highlighter = highlighter;
 		return this;
 	}
 }

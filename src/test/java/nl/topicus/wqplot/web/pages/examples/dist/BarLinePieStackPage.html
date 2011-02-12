@@ -1,37 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:wicket>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Multiple Chart types on same page</title>
-
-<link rel="stylesheet" type="text/css" href="examples.css" />
-
-<style type="text/css" media="screen">
-.jqplot-axis {
-	font-size: 0.85em!important;
-}
-
-.jqplot-title {
-	font-size: 1.1em!important;
-}
-</style>
-</head>
+<html xmlns:wicket>
 <body>
-<div wicket:id="chart1"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
-<div wicket:id="chart2"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
-<div wicket:id="chart3"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
-<div wicket:id="chart3b"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
-<div wicket:id="chart3c"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
-<div wicket:id="chart4"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
-<div wicket:id="chart5"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
-<div wicket:id="chart6"
-	style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
+<wicket:extend>
+	<style type="text/css" media="screen">
+	.jqplot-axis {
+		font-size: 0.85em!important;
+	}
+	
+	.jqplot-title {
+		font-size: 1.1em!important;
+	}
+	</style>
+	<div wicket:id="chart1" style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
+	<div wicket:id="chart2" style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
+	<div wicket:id="chart3" style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
+	<div wicket:id="chart3b" style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
+	<div wicket:id="chart3c" style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
+	<div wicket:id="chart4" style="margin-top: 20px; margin-left: 50px; width: 360px; height: 300px;"></div>
+</wicket:extend>
 </body>
 </html>

@@ -7,11 +7,11 @@ import nl.topicus.wqplot.components.JQPlot;
 import nl.topicus.wqplot.data.NumberSeries;
 import nl.topicus.wqplot.data.SimpleNumberSeries;
 import nl.topicus.wqplot.options.PlotOptions;
+import nl.topicus.wqplot.web.pages.BasePage;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
 
-public class MissingValuesPage extends WebPage
+public class MissingValuesPage extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 

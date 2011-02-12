@@ -8,16 +8,16 @@ import nl.topicus.wqplot.components.JQPlotEvent;
 import nl.topicus.wqplot.data.SimpleNumberSeries;
 import nl.topicus.wqplot.options.PlotLineRendererOptions;
 import nl.topicus.wqplot.options.PlotOptions;
+import nl.topicus.wqplot.web.pages.BasePage;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
 import org.odlabs.wiquery.core.events.Event;
 import org.odlabs.wiquery.core.events.WiQueryEventBehavior;
 import org.odlabs.wiquery.core.javascript.JsScope;
 import org.odlabs.wiquery.core.javascript.JsScopeContext;
 
-public class AreaPage extends WebPage
+public class AreaPage extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 

@@ -11,11 +11,11 @@ import nl.topicus.wqplot.options.PlotAxisRendererOptions;
 import nl.topicus.wqplot.options.PlotBarRendererOptions;
 import nl.topicus.wqplot.options.PlotLegendLocation;
 import nl.topicus.wqplot.options.PlotOptions;
+import nl.topicus.wqplot.web.pages.BasePage;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
 
-public class BarMissingValuesPage extends WebPage
+public class BarMissingValuesPage extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 

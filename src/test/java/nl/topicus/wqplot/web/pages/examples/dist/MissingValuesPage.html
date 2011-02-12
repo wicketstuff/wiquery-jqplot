@@ -1,46 +1,34 @@
-<!DOCTYPE html>
-
-<html lang="en" xmlns:wicket>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Null Value Handling</title>
-  
-  <link rel="stylesheet" type="text/css" href="examples.css" />
-  
-  <style type="text/css">
-    .jqplot-target {
-        margin-bottom: 2em;
-    }
-    
-    pre {
-        background: #D8F4DC;
-        border: 1px solid rgb(200, 200, 200);
-        padding-top: 1em;
-        padding-left: 3em;
-        padding-bottom: 1em;
-        margin-top: 1em;
-        margin-bottom: 4em;
-        
-    }
-    
-    p {
-        margin: 2em 0;
-    }
-    
-    .note {
-        font-size: 0.8em;
-    }
-  </style>
-  </head>
-  <body>
-<?php include "nav.inc"; ?>
-    <div wicket:id="chart1" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
-<pre class="code"></pre>
-    <div wicket:id="chart1b" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
-<pre class="code"></pre>
-    <div wicket:id="chart2" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
-<pre class="code"></pre>
-    <div wicket:id="chart2b" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
-<pre class="code"></pre>
-  </body>
+<html xmlns:wicket>
+<body>
+<wicket:extend>
+	<style type="text/css">
+		.jqplot-target {
+		    margin-bottom: 2em;
+		}
+		
+		pre {
+		    background: #D8F4DC;
+		    border: 1px solid rgb(200, 200, 200);
+		    padding-top: 1em;
+		    padding-left: 3em;
+		    padding-bottom: 1em;
+		    margin-top: 1em;
+		    margin-bottom: 4em;
+		    
+		}
+		
+		p {
+		    margin: 2em 0;
+		}
+		
+		.note {
+		    font-size: 0.8em;
+		}
+	</style>
+	<div wicket:id="chart1" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
+	<div wicket:id="chart1b" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
+	<div wicket:id="chart2" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
+	<div wicket:id="chart2b" style="margin-top:20px; margin-left:20px; width:500px; height:300px;"></div>
+</wicket:extend>
+</body>
 </html>

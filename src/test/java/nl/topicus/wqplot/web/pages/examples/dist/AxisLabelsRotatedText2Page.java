@@ -8,11 +8,11 @@ import nl.topicus.wqplot.data.BaseSeries;
 import nl.topicus.wqplot.options.PlotCanvasAxisTickRendererOptions;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PlotTickLabelPosition;
+import nl.topicus.wqplot.web.pages.BasePage;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.util.ListModel;
 
-public class AxisLabelsRotatedText2Page extends WebPage
+public class AxisLabelsRotatedText2Page extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 
