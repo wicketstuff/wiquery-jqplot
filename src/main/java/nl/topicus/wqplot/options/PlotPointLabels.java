@@ -52,6 +52,8 @@ public class PlotPointLabels implements Serializable
 	@JsonSerialize(using = PluginReferenceSerializer.class, include = Inclusion.NON_NULL)
 	private String renderer;
 
+	private String formatString;
+
 	public PlotPointLabels()
 	{
 		renderer = "$.jqplot.PointLabels";
@@ -175,6 +177,28 @@ public class PlotPointLabels implements Serializable
 	public PlotPointLabels setHideZeros(Boolean hideZeros)
 	{
 		this.hideZeros = hideZeros;
+		return this;
+	}
+
+	public String getRenderer()
+	{
+		return renderer;
+	}
+
+	public PlotPointLabels setRenderer(String renderer)
+	{
+		this.renderer = renderer;
+		return this;
+	}
+
+	public String getFormatString()
+	{
+		return formatString;
+	}
+
+	public PlotPointLabels setFormatString(String formatString)
+	{
+		this.formatString = formatString;
 		return this;
 	}
 }

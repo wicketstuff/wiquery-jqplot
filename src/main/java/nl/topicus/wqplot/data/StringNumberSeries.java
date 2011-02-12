@@ -21,8 +21,9 @@ public class StringNumberSeries<Y extends Number> extends
 			addEntry(curValue);
 	}
 
-	public void addEntry(String key, Y value)
+	public StringNumberSeries<Y> addEntry(String key, Y value)
 	{
 		addEntry(new StringNumberSeriesEntry<Y>(key, value));
+		return this;
 	}
 }

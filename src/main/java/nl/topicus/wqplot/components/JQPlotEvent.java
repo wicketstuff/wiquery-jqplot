@@ -6,7 +6,8 @@ public enum JQPlotEvent implements EventLabel
 {
 	DATA_HIGHLIGHT("jqplotDataHighlight"),
 	DATA_UNHIGHLIGHT("jqplotDataUnhighlight"),
-	DATA_CLICK("jqplotDataClick");
+	DATA_CLICK("jqplotDataClick"),
+	DATA_RIGHTCLICK("jqplotDataRightClick");
 
 	private String label;
 

@@ -38,7 +38,7 @@ public class HomePage extends BasePage
 		pages.add(BarMissingValuesPage.class);
 		pages.add(BubbleChart2Page.class);
 		pages.add(BarTestPage.class);
-		pages.add(MissingValuesPage.class);
+		// pages.add(MissingValuesPage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(

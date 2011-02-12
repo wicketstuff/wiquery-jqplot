@@ -16,8 +16,9 @@ public abstract class AbstractSeries<K, V, E extends SeriesEntry<K, V>> implemen
 		return data;
 	}
 
-	public void addEntry(E entry)
+	public AbstractSeries<K, V, E> addEntry(E entry)
 	{
 		data.add(entry);
+		return this;
 	}
 }

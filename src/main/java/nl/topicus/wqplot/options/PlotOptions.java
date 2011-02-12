@@ -92,6 +92,8 @@ public class PlotOptions implements Serializable
 
 	private PlotHighlighter highlighter;
 
+	private Object captureRightClick;
+
 	public PlotOptions()
 	{
 	}
@@ -280,6 +282,17 @@ public class PlotOptions implements Serializable
 	public PlotOptions setHighlighter(PlotHighlighter highlighter)
 	{
 		this.highlighter = highlighter;
+		return this;
+	}
+
+	public Object getCaptureRightClick()
+	{
+		return captureRightClick;
+	}
+
+	public PlotOptions setCaptureRightClick(Object captureRightClick)
+	{
+		this.captureRightClick = captureRightClick;
 		return this;
 	}
 }

@@ -21,8 +21,9 @@ public class NumberSeries<T extends Number, Y extends Number> extends
 			addEntry(curValue);
 	}
 
-	public void addEntry(T key, Y value)
+	public NumberSeries<T, Y> addEntry(T key, Y value)
 	{
 		addEntry(new NumberSeriesEntry<T, Y>(key, value));
+		return this;
 	}
 }
