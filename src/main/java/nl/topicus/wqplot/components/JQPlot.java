@@ -10,7 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import nl.topicus.wqplot.components.plugins.*;
+import nl.topicus.wqplot.components.plugins.DefaultPlugins;
+import nl.topicus.wqplot.components.plugins.IPlugin;
+import nl.topicus.wqplot.components.plugins.IPluginResolver;
+import nl.topicus.wqplot.components.plugins.JQPlotCanvasTextRendererResourceReference;
 import nl.topicus.wqplot.data.Series;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PluginReferenceSerializer;
@@ -26,41 +29,25 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.odlabs.wiquery.core.commons.IWiQueryPlugin;
-import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
 import org.odlabs.wiquery.core.commons.WiQueryResourceManager;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
-public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
+public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPluginResolver
 {
 	private static final long serialVersionUID = 1L;
 
 	private PlotOptions options = new PlotOptions();
 
-	private Map<String, WiQueryJavaScriptResourceReference> plugins =
-		new HashMap<String, WiQueryJavaScriptResourceReference>();
-	{
-		plugins.put("$.jqplot.CanvasTextRenderer", JQPlotCanvasTextRendererResourceReference.get());
-		plugins.put("$.jqplot.CanvasAxisLabelRenderer",
-			JQPlotCanvasAxisLabelRendererResourceReference.get());
-		plugins.put("$.jqplot.CanvasAxisTickRenderer",
-			JQPlotCanvasAxisTickRendererResourceReference.get());
-		plugins.put("$.jqplot.CategoryAxisRenderer",
-			JQPlotCategoryAxisRendererResourceReference.get());
-		plugins.put("$.jqplot.BarRenderer", JQPlotBarRendererResourceReference.get());
-		plugins.put("$.jqplot.BubbleRenderer", JQPlotBubbleRendererResourceReference.get());
-		plugins.put("$.jqplot.PieRenderer", JQPlotPieRendererResourceReference.get());
-		plugins.put("$.jqplot.DateAxisRenderer", JQPlotDateAxisRendererResourceReference.get());
-		plugins.put("$.jqplot.LogAxisRenderer", JQPlotLogAxisRendererResourceReference.get());
-		plugins.put("$.jqplot.Cursor", JQPlotCursorResourceReference.get());
-		plugins.put("$.jqplot.EnhancedLegendRenderer",
-			JQPlotEnhancedLegendRendererResourceReference.get());
-	}
+	private Map<String, IPlugin> plugins = new HashMap<String, IPlugin>();
+
+	private List<IPluginResolver> resolvers = new ArrayList<IPluginResolver>();
 
 	private List<String> afterRenderStatements = new ArrayList<String>();
 
 	public JQPlot(String id, IModel< ? extends Collection< ? extends Series< ? , ? , ? >>> model)
 	{
 		super(id, model);
+		resolvers.add(DefaultPlugins.get());
 		setOutputMarkupId(true);
 	}
 
@@ -148,14 +135,59 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin
 
 	private void addPlugin(WiQueryResourceManager wiQueryResourceManager, String plugin)
 	{
-		if (!plugins.containsKey(plugin))
-			throw new IllegalArgumentException("Unknown plugin '" + plugin + "'");
-		wiQueryResourceManager.addJavaScriptResource(plugins.get(plugin));
+		if (plugins.containsKey(plugin))
+		{
+			wiQueryResourceManager.addJavaScriptResource(getPlugin(plugin)
+				.getJavaScriptResourceReference());
+			return;
+		}
+
+		for (IPluginResolver pluginResolver : resolvers)
+		{
+			IPlugin iPlugin = pluginResolver.getPlugin(plugin);
+			if (iPlugin != null)
+			{
+				wiQueryResourceManager.addJavaScriptResource(iPlugin
+					.getJavaScriptResourceReference());
+				return;
+			}
+		}
+		throw new IllegalArgumentException("Unknown plugin '" + plugin + "'");
+	}
+
+	/**
+	 * Allows to register a new plugin.
+	 * 
+	 * @param iPlugin
+	 */
+	public void registerPlugin(IPlugin iPlugin)
+	{
+		if (iPlugin == null)
+			throw new IllegalArgumentException("Plugin cannot be null!");
+		plugins.put(iPlugin.getName(), iPlugin);
+	}
+
+	/**
+	 * Allows to register a new resolver.
+	 * 
+	 * @param resolver
+	 */
+	public void registerPluginResolver(IPluginResolver resolver)
+	{
+		if (resolver == null)
+			throw new IllegalArgumentException("Resolver cannot be null!");
+		resolvers.add(resolver);
 	}
 
 	public void addAfterRenderStatement(String statement)
 	{
 		afterRenderStatements.add(statement);
+	}
+
+	@Override
+	public IPlugin getPlugin(String name)
+	{
+		return plugins.get(name);
 	}
 
 	@Override

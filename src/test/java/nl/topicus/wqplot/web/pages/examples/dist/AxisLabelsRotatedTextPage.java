@@ -47,6 +47,7 @@ public class AxisLabelsRotatedTextPage extends WebPage
 		addChart3(line3);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart1(SimpleNumberSeries<Double> line)
 	{
 		JQPlot chart1 =
@@ -61,12 +62,9 @@ public class AxisLabelsRotatedTextPage extends WebPage
 
 		chart1O.getAxes().getYaxis().setAutoscale(true);
 		chart1O.getAxes().getYaxis().setRenderer("$.jqplot.LogAxisRenderer");
-		chart1O
-			.getAxes()
-			.getYaxis()
-			.setTickOptions(
-				new PlotCanvasAxisTickRendererOptions().setFormatString("%.2f")
-					.setLabelPosition(PlotTickLabelPosition.middle).setAngle(-30d));
+		chart1O.getAxes().getYaxis().setTickOptions(
+			new PlotCanvasAxisTickRendererOptions().setFormatString("%.2f").setLabelPosition(
+				PlotTickLabelPosition.middle).setAngle(-30d));
 		chart1O.getAxes().getYaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
 		chart1O.getAxes().getYaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 		chart1O.getAxes().getYaxis().getLabelOptions().setFontSize("13pt");
@@ -75,6 +73,7 @@ public class AxisLabelsRotatedTextPage extends WebPage
 		add(chart1);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart2(StringNumberSeries<Integer> line)
 	{
 		JQPlot chart2 =
@@ -86,18 +85,16 @@ public class AxisLabelsRotatedTextPage extends WebPage
 		chart2O.getAxes().getXaxis().setLabel("Incliment Occurrance");
 		chart2O.getAxes().getXaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 		chart2O.getAxes().getXaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart2O
-			.getAxes()
-			.getXaxis()
-			.setTickOptions(
-				new PlotCanvasAxisTickRendererOptions().setLabelPosition(
-					PlotTickLabelPosition.middle).setAngle(15d));
+		chart2O.getAxes().getXaxis().setTickOptions(
+			new PlotCanvasAxisTickRendererOptions().setLabelPosition(PlotTickLabelPosition.middle)
+				.setAngle(15d));
 		chart2O.getAxes().getYaxis().setLabel("Inclement Factor");
 		chart2O.getAxes().getYaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 
 		add(chart2);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart3(StringNumberSeries<Integer> line)
 	{
 		JQPlot chart3 =
@@ -109,8 +106,8 @@ public class AxisLabelsRotatedTextPage extends WebPage
 		chart3O.getAxes().getXaxis().setLabel("Warranty Concern");
 		chart3O.getAxes().getXaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 		chart3O.getAxes().getXaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart3O.getAxes().getXaxis()
-			.setTickOptions(new PlotCanvasAxisTickRendererOptions().setAngle(-30d));
+		chart3O.getAxes().getXaxis().setTickOptions(
+			new PlotCanvasAxisTickRendererOptions().setAngle(-30d));
 
 		chart3O.getAxes().getYaxis().setAutoscale(true);
 		chart3O.getAxes().getYaxis().setLabel("Occurance");

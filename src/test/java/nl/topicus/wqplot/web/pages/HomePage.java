@@ -24,7 +24,7 @@ public class HomePage extends WebPage
 		/*
 		 * Web examples
 		 */
-		pages.add(nl.topicus.wqplot.web.pages.examples.CorePage.class);
+		pages.add(nl.topicus.wqplot.web.pages.examples.CorePage.class);		
 		pages.add(nl.topicus.wqplot.web.pages.examples.AutoScalingPage.class);
 		pages.add(nl.topicus.wqplot.web.pages.examples.AxisLabelPage.class);
 		pages.add(nl.topicus.wqplot.web.pages.examples.ZoomTestPage.class);
@@ -40,6 +40,7 @@ public class HomePage extends WebPage
 		pages.add(BarMissingValuesPage.class);
 		pages.add(BubbleChart2Page.class);
 		pages.add(MissingValuesPage.class);
+		pages.add(DateAxisTestPage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(
