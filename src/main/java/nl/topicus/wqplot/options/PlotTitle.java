@@ -2,6 +2,8 @@ package nl.topicus.wqplot.options;
 
 import java.io.Serializable;
 
+import nl.topicus.wqplot.components.plugins.IRenderer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -137,6 +139,12 @@ public class PlotTitle implements Serializable
 	public PlotTitle setRenderer(String renderer)
 	{
 		this.renderer = renderer;
+		return this;
+	}
+
+	public PlotTitle setRenderer(IRenderer renderer)
+	{
+		this.renderer = renderer.getName();
 		return this;
 	}
 

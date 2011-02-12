@@ -3,20 +3,21 @@
  */
 package nl.topicus.wqplot.components.plugins;
 
-
 /**
  * @author Ernesto Reinaldo Barreiro
- *
+ * 
  */
-public class JQPlotBarRenderer extends Renderer {
+public class JQPlotBarRenderer extends Renderer
+{
 
-	public static final JQPlotBarRenderer INSTANCE = new JQPlotBarRenderer();
-	
+	private static final JQPlotBarRenderer INSTANCE = new JQPlotBarRenderer();
+
 	/**
 	 * @param name
 	 * @param javaScriptResourceReference
 	 */
-	private JQPlotBarRenderer() {
+	private JQPlotBarRenderer()
+	{
 		super("$.jqplot.BarRenderer", JQPlotBarRendererResourceReference.get());
 	}
 

@@ -3,20 +3,21 @@
  */
 package nl.topicus.wqplot.components.plugins;
 
-
 /**
  * @author Ernesto Reinaldo Barreiro
- *
+ * 
  */
-public class JQPlotCategoryAxisRenderer extends Renderer {
+public class JQPlotCategoryAxisRenderer extends Renderer
+{
 
-	public static final JQPlotCategoryAxisRenderer INSTANCE = new JQPlotCategoryAxisRenderer();
-	
+	private static final JQPlotCategoryAxisRenderer INSTANCE = new JQPlotCategoryAxisRenderer();
+
 	/**
 	 * @param name
 	 * @param javaScriptResourceReference
 	 */
-	private JQPlotCategoryAxisRenderer() {
+	private JQPlotCategoryAxisRenderer()
+	{
 		super("$.jqplot.CategoryAxisRenderer", JQPlotCategoryAxisRendererResourceReference.get());
 	}
 

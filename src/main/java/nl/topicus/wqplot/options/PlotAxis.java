@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.topicus.wqplot.components.plugins.IRenderer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -358,6 +360,12 @@ public class PlotAxis implements Serializable
 	public PlotAxis setRenderer(String renderer)
 	{
 		this.renderer = renderer;
+		return this;
+	}
+
+	public PlotAxis setRenderer(IRenderer renderer)
+	{
+		this.renderer = renderer.getName();
 		return this;
 	}
 

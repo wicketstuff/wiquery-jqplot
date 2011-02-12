@@ -2,6 +2,8 @@ package nl.topicus.wqplot.options;
 
 import java.io.Serializable;
 
+import nl.topicus.wqplot.components.plugins.IRenderer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -221,6 +223,12 @@ public class PlotSeries implements Serializable
 	public PlotSeries setRenderer(String renderer)
 	{
 		this.renderer = renderer;
+		return this;
+	}
+
+	public PlotSeries setRenderer(IRenderer renderer)
+	{
+		this.renderer = renderer.getName();
 		return this;
 	}
 

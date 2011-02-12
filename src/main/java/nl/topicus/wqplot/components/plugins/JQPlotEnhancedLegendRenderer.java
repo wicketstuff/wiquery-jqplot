@@ -3,21 +3,23 @@
  */
 package nl.topicus.wqplot.components.plugins;
 
-
 /**
  * @author Ernesto Reinaldo Barreiro
- *
+ * 
  */
-public class JQPlotEnhancedLegendRenderer extends Renderer {
+public class JQPlotEnhancedLegendRenderer extends Renderer
+{
 
-	public static final JQPlotEnhancedLegendRenderer INSTANCE = new JQPlotEnhancedLegendRenderer();
-	
+	private static final JQPlotEnhancedLegendRenderer INSTANCE = new JQPlotEnhancedLegendRenderer();
+
 	/**
 	 * @param name
 	 * @param javaScriptResourceReference
 	 */
-	private JQPlotEnhancedLegendRenderer() {
-		super("$.jqplot.EnhancedLegendRenderer", JQPlotEnhancedLegendRendererResourceReference.get());
+	private JQPlotEnhancedLegendRenderer()
+	{
+		super("$.jqplot.EnhancedLegendRenderer", JQPlotEnhancedLegendRendererResourceReference
+			.get());
 	}
 
 	public static JQPlotEnhancedLegendRenderer get()

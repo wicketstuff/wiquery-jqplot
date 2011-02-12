@@ -3,20 +3,21 @@
  */
 package nl.topicus.wqplot.components.plugins;
 
-
 /**
  * @author Ernesto Reinaldo Barreiro
- *
+ * 
  */
-public class JQPlotPieRenderer extends Renderer {
+public class JQPlotPieRenderer extends Renderer
+{
 
-	public static final JQPlotPieRenderer INSTANCE = new JQPlotPieRenderer();
-	
+	private static final JQPlotPieRenderer INSTANCE = new JQPlotPieRenderer();
+
 	/**
 	 * @param name
 	 * @param javaScriptResourceReference
 	 */
-	private JQPlotPieRenderer() {
+	private JQPlotPieRenderer()
+	{
 		super("$.jqplot.PieRenderer", JQPlotPieRendererResourceReference.get());
 	}
 
