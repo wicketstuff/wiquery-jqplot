@@ -1,6 +1,3 @@
-/**
- * 
- */
 package nl.topicus.wqplot.components.plugins;
 
 import java.util.HashMap;
@@ -10,11 +7,9 @@ import java.util.Map;
  * Default plugins resolver.
  * 
  * @author Ernesto Reinaldo Barreiro
- * 
  */
 public class DefaultPlugins implements IPluginResolver
 {
-
 	private static final DefaultPlugins INSTANCE = new DefaultPlugins();
 
 	private Map<String, IPlugin> plugins = new HashMap<String, IPlugin>();
