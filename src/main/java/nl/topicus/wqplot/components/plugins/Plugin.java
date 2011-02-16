@@ -22,19 +22,13 @@ public class Plugin implements IPlugin
 		this.javaScriptResourceReference = javaScriptResourceReference;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see nl.topicus.wqplot.components.plugins.IPlugin#getName()
-	 */
+	@Override
 	public String getName()
 	{
 		return name;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see nl.topicus.wqplot.components.plugins.IPlugin#getJavaScriptResourceReference()
-	 */
+	@Override
 	public WiQueryJavaScriptResourceReference getJavaScriptResourceReference()
 	{
 		return javaScriptResourceReference;

@@ -38,6 +38,7 @@ public class BarTestPage extends BasePage
 		addChart6();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart1()
 	{
 		JQPlot chart1 =
@@ -85,6 +86,7 @@ public class BarTestPage extends BasePage
 		}));
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart2()
 	{
 		JQPlot chart2 =
@@ -266,6 +268,7 @@ public class BarTestPage extends BasePage
 		}));
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart3()
 	{
 		JQPlot chart3 =
@@ -384,6 +387,7 @@ public class BarTestPage extends BasePage
 		add(chart5);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart6()
 	{
 		JQPlot chart6 =

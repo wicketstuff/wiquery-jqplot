@@ -94,6 +94,7 @@ public class CorePage extends WebPage
 		add(chart2);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void addPlot3()
 	{
 		NumberSeries<Double, Double> l1 = new NumberSeries<Double, Double>();
@@ -131,6 +132,7 @@ public class CorePage extends WebPage
 		add(chart3);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void addPlot4()
 	{
 		NumberSeries<Double, Double> l1 = new NumberSeries<Double, Double>();

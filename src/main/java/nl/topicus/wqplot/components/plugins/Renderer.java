@@ -11,14 +11,8 @@ import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
  */
 public class Renderer extends Plugin implements IRenderer
 {
-
-	/**
-	 * @param name
-	 * @param javaScriptResourceReference
-	 */
 	protected Renderer(String name, WiQueryJavaScriptResourceReference javaScriptResourceReference)
 	{
 		super(name, javaScriptResourceReference);
 	}
-
 }
