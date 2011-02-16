@@ -25,6 +25,7 @@ public class BarMissingValuesPage extends BasePage
 		addChart2();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart1()
 	{
 		NumberSeries<Integer, Integer> line1 = new NumberSeries<Integer, Integer>();
@@ -73,8 +74,8 @@ public class BarMissingValuesPage extends BasePage
 		PlotOptions chart2O = chart2.getOptions();
 		chart2O.getSeriesDefaults();
 		chart2O.getLegend().setShow(true).setLocation(PlotLegendLocation.nw);
-		chart2O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer")
-			.setTicks(2006, 2007, 2008, 2009, 2010, 2011);
+		chart2O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer").setTicks(2006,
+			2007, 2008, 2009, 2010, 2011);
 		chart2O.getAxes().getYaxis().setMin(0).setMax(20).setNumberTicks(6);
 
 		add(chart2);

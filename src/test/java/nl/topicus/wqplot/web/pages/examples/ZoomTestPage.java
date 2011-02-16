@@ -3,6 +3,8 @@ package nl.topicus.wqplot.web.pages.examples;
 import java.util.Arrays;
 
 import nl.topicus.wqplot.components.JQPlot;
+import nl.topicus.wqplot.components.plugins.JQPlotDateAxisRenderer;
+import nl.topicus.wqplot.components.plugins.JQPlotLogAxisRenderer;
 import nl.topicus.wqplot.data.NumberSeries;
 import nl.topicus.wqplot.data.StringNumberSeries;
 import nl.topicus.wqplot.options.PlotOptions;
@@ -94,11 +96,11 @@ public class ZoomTestPage extends WebPage
 		chart1series1.setLabel("Google, Inc.");
 		chart1series1.setNeighborThreshold(-1d);
 
-		chart1O.getAxes().getXaxis().setRenderer("$.jqplot.DateAxisRenderer");
+		chart1O.getAxes().getXaxis().setRenderer(JQPlotDateAxisRenderer.get());
 		chart1O.getAxes().getXaxis().setMin("August 1, 2007");
 		chart1O.getAxes().getXaxis().setTickInterval("4 months");
 		chart1O.getAxes().getXaxis().getTickOptions().setFormatString("%Y/%#m/%#d");
-		chart1O.getAxes().getYaxis().setRenderer("$.jqplot.LogAxisRenderer");
+		chart1O.getAxes().getYaxis().setRenderer(JQPlotLogAxisRenderer.get());
 		chart1O.getAxes().getYaxis().getTickOptions().setFormatString("$%.2f");
 
 		chart1O.getCursor().setShow(true);

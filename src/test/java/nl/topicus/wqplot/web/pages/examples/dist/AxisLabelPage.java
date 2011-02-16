@@ -22,6 +22,7 @@ public class AxisLabelPage extends BasePage
 		addChart1();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addChart1()
 	{
 		NumberSeries<Integer, Integer> l1 = new NumberSeries<Integer, Integer>();

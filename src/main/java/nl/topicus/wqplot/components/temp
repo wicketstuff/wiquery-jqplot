@@ -1,0 +1,12 @@
+ClientInfo info = RequestCycle.get().getClientInfo();
+		if (info instanceof WebClientInfo)
+		{
+			/**
+			 * only IE 9 supports canvas natively.
+			 */
+			WebClientInfo webinfo = (WebClientInfo) info;
+			if (webinfo.getProperties().isBrowserInternetExplorer()
+				&& webinfo.getProperties().getBrowserVersionMajor() < 9)
+				wiQueryResourceManager
+					.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
+		}

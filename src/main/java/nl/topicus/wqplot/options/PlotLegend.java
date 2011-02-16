@@ -3,6 +3,8 @@ package nl.topicus.wqplot.options;
 import java.io.Serializable;
 import java.util.List;
 
+import nl.topicus.wqplot.components.plugins.IRenderer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -302,6 +304,12 @@ public class PlotLegend implements Serializable
 	public PlotLegend setRenderer(String renderer)
 	{
 		this.renderer = renderer;
+		return this;
+	}
+
+	public PlotLegend setRenderer(IRenderer renderer)
+	{
+		this.renderer = renderer.getName();
 		return this;
 	}
 
