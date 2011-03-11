@@ -2,6 +2,8 @@ package nl.topicus.wqplot.options;
 
 import java.io.Serializable;
 
+import nl.topicus.wqplot.components.plugins.JQPlotPointLabelsRenderer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -56,7 +58,7 @@ public class PlotPointLabels implements Serializable
 
 	public PlotPointLabels()
 	{
-		renderer = "$.jqplot.PointLabels";
+		renderer = JQPlotPointLabelsRenderer.get().getName();
 	}
 
 	public Boolean getShow()

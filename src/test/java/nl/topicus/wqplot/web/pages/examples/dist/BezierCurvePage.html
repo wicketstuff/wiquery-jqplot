@@ -1,0 +1,44 @@
+<html xmlns:wicket>
+<body>
+<wicket:extend>
+	<style type="text/css">
+		p { margin-top: 30px; }
+	</style>
+
+	<p>The Bezier curve renderer can distinguish between two different
+	input data formats. This first example has the data passed in as 2 data
+	points, the second one defining the Bezier curve to the end point. With
+	this format, non-default axes renderers will require specifying the
+	minimum and maximum on the axes.</p>
+	<pre>[[xstart, ystart], [cp1x, cp1y, cp2x, cp2y, xend, yend]];</pre>
+	
+	<div wicket:id="chart1"
+		style="margin-top: 20px; margin-left: 20px; width: 400px; height: 300px;"></div>
+	
+	<p>This second example has the data broken out into 4 points, which
+	will be assembled to define the Bezier Curve. With this format, any
+	axes renderer can be used without explicitly specifying the minimum and
+	maximum.</p>
+	<pre>[[xstart, ystart], [cp1x, cp1y], [cp2x, cp2y], [xend, yend]];</pre>
+	
+	<div wicket:id="chart2"
+		style="margin-top: 20px; margin-left: 20px; width: 400px; height: 300px;"></div>
+	
+	<p>Here is an example using a date axis renderer with Bezier
+	curves. The data looks like:</p>
+	<pre>[['01/01/2010', 6], ['02/01/2010', 9], ['03/01/2010', 8], ['04/01/2010', 3]]</pre>
+
+	<div wicket:id="chart3"
+		style="margin-top: 20px; margin-left: 20px; width: 400px; height: 300px;"></div>
+
+	<p>Note that jqPlot converts the datetime strings into timestamps
+	internally, so further explicit modification of the x value (date
+	value) of series data points will have to be with integer time stamp
+	data. So, you would do something like:</p>
+
+	<pre>plot3.series[2].data[[1262322000000, 6], [1265000400000, 9], [1267419600000, 8], [1270094400000, 3]]
+   	plot3.series[2].data[1][0] = 1265900400000
+    plot3.drawSeries(2)</pre>
+</wicket:extend>
+</body>
+</html>

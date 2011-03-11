@@ -44,11 +44,24 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 
 	private List<String> afterRenderStatements = new ArrayList<String>();
 
+	private boolean catchErrors = true;
+
 	public JQPlot(String id, IModel< ? extends Collection< ? extends Series< ? , ? , ? >>> model)
 	{
 		super(id, model);
 		resolvers.add(DefaultPlugins.get());
 		setOutputMarkupId(true);
+	}
+
+	public boolean isCatchErrors()
+	{
+		return catchErrors;
+	}
+
+	public JQPlot setCatchErrors(boolean catchErrors)
+	{
+		this.catchErrors = catchErrors;
+		return this;
 	}
 
 	public PlotOptions getOptions()
@@ -214,7 +227,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 		{
 			e.printStackTrace();
 		}
-		JsStatement jsStatement = new JsStatement().append("$.jqplot.config.catchErrors = true;\n");
+		JsStatement jsStatement =
+			new JsStatement().append("$.jqplot.config.catchErrors = " + isCatchErrors() + ";\n");
 		jsStatement.append("var " + getMarkupId() + " = $.jqplot('" + getMarkupId() + "', "
 			+ plotDataStr + ", " + optionsStr + ");\n");
 

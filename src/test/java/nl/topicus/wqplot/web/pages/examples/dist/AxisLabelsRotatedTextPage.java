@@ -62,9 +62,12 @@ public class AxisLabelsRotatedTextPage extends BasePage
 
 		chart1O.getAxes().getYaxis().setAutoscale(true);
 		chart1O.getAxes().getYaxis().setRenderer("$.jqplot.LogAxisRenderer");
-		chart1O.getAxes().getYaxis().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setFormatString("%.2f").setLabelPosition(
-				PlotTickLabelPosition.middle).setAngle(-30d));
+		chart1O
+			.getAxes()
+			.getYaxis()
+			.setTickOptions(
+				new PlotCanvasAxisTickRendererOptions().setFormatString("%.2f")
+					.setLabelPosition(PlotTickLabelPosition.middle).setAngle(-30d));
 		chart1O.getAxes().getYaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
 		chart1O.getAxes().getYaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 		chart1O.getAxes().getYaxis().getLabelOptions().setFontSize("13pt");
@@ -85,9 +88,12 @@ public class AxisLabelsRotatedTextPage extends BasePage
 		chart2O.getAxes().getXaxis().setLabel("Incliment Occurrance");
 		chart2O.getAxes().getXaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 		chart2O.getAxes().getXaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart2O.getAxes().getXaxis().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setLabelPosition(PlotTickLabelPosition.middle)
-				.setAngle(15d));
+		chart2O
+			.getAxes()
+			.getXaxis()
+			.setTickOptions(
+				new PlotCanvasAxisTickRendererOptions().setLabelPosition(
+					PlotTickLabelPosition.middle).setAngle(15d));
 		chart2O.getAxes().getYaxis().setLabel("Incliment Factor");
 		chart2O.getAxes().getYaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 
@@ -106,8 +112,8 @@ public class AxisLabelsRotatedTextPage extends BasePage
 		chart3O.getAxes().getXaxis().setLabel("Warranty Concern");
 		chart3O.getAxes().getXaxis().setLabelRenderer("$.jqplot.CanvasAxisLabelRenderer");
 		chart3O.getAxes().getXaxis().setTickRenderer("$.jqplot.CanvasAxisTickRenderer");
-		chart3O.getAxes().getXaxis().setTickOptions(
-			new PlotCanvasAxisTickRendererOptions().setAngle(-30d));
+		chart3O.getAxes().getXaxis()
+			.setTickOptions(new PlotCanvasAxisTickRendererOptions().setAngle(-30d));
 
 		chart3O.getAxes().getYaxis().setAutoscale(true);
 		chart3O.getAxes().getYaxis().setLabel("Occurance");
@@ -116,4 +122,3 @@ public class AxisLabelsRotatedTextPage extends BasePage
 		add(chart3);
 	}
 }
-

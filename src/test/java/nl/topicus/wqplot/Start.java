@@ -23,12 +23,6 @@ public class Start
 		bb.setContextPath("/");
 		bb.setWar("src/test/webapp");
 
-		// START JMX SERVER
-		// MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
-		// MBeanContainer mBeanContainer = new MBeanContainer(mBeanServer);
-		// server.getContainer().addEventListener(mBeanContainer);
-		// mBeanContainer.start();
-
 		server.addHandler(bb);
 
 		try
@@ -37,9 +31,6 @@ public class Start
 			server.start();
 			System.in.read();
 			System.out.println(">>> STOPPING EMBEDDED JETTY SERVER");
-			// while (System.in.available() == 0) {
-			// Thread.sleep(5000);
-			// }
 			server.stop();
 			server.join();
 		}

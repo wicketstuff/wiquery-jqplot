@@ -3,6 +3,7 @@ package nl.topicus.wqplot.options;
 import java.io.Serializable;
 
 import nl.topicus.wqplot.components.plugins.IRenderer;
+import nl.topicus.wqplot.components.plugins.JQPlotCursorRenderer;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -44,7 +45,7 @@ public class PlotCursor implements Serializable
 
 	public PlotCursor()
 	{
-		renderer = "$.jqplot.Cursor";
+		renderer = JQPlotCursorRenderer.get().getName();
 	}
 
 	public String getStyle()

@@ -36,10 +36,15 @@ public class HomePage extends BasePage
 		pages.add(AxisLabelsRotatedTextPage.class);
 		pages.add(BarLinePieStackPage.class);
 		pages.add(BarMissingValuesPage.class);
-		pages.add(BubbleChart2Page.class);
+		pages.add(BarTest2Page.class);
 		pages.add(BarTestPage.class);
-		// pages.add(MissingValuesPage.class);
+		pages.add(BezierCurvePage.class);
+		pages.add(BlockPlotPage.class);
+		// pages.add(BreakOnNullPage.class);
+		// pages.add(BubbleChartPage.class);
+		pages.add(BubbleChart2Page.class);
 		pages.add(DateAxisTestPage.class);
+		// pages.add(MissingValuesPage.class);
 
 		ListView<Class< ? extends Page>> links =
 			new ListView<Class< ? extends Page>>("links", new ListModel<Class< ? extends Page>>(

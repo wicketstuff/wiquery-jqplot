@@ -6,9 +6,6 @@ import java.util.List;
 
 import nl.topicus.wqplot.components.JQPlot;
 import nl.topicus.wqplot.components.JQPlotEvent;
-import nl.topicus.wqplot.components.plugins.JQPlotBarRenderer;
-import nl.topicus.wqplot.components.plugins.JQPlotCategoryAxisRenderer;
-import nl.topicus.wqplot.components.plugins.JQPlotPieRenderer;
 import nl.topicus.wqplot.data.NumberSeries;
 import nl.topicus.wqplot.data.SimpleNumberSeries;
 import nl.topicus.wqplot.options.PlotBarDirection;
@@ -26,11 +23,11 @@ import org.odlabs.wiquery.core.events.WiQueryEventBehavior;
 import org.odlabs.wiquery.core.javascript.JsScope;
 import org.odlabs.wiquery.core.javascript.JsScopeContext;
 
-public class BarTestPage extends BasePage
+public class BreakOnNullPage extends BasePage
 {
 	private static final long serialVersionUID = 1L;
 
-	public BarTestPage()
+	public BreakOnNullPage()
 	{
 		addChart1();
 		addChart2();
@@ -49,10 +46,10 @@ public class BarTestPage extends BasePage
 				Arrays.asList(new SimpleNumberSeries<Integer>(2, 6, 7, 10))));
 
 		PlotOptions chart1O = chart1.getOptions();
-		chart1O.getSeriesDefaults().setRenderer(JQPlotBarRenderer.get());
+		chart1O.getSeriesDefaults().setRenderer("$.jqplot.BarRenderer");
 		chart1O.getSeriesDefaults().getPointLabels().setShow(true);
 
-		chart1O.getAxes().getXaxis().setRenderer(JQPlotCategoryAxisRenderer.get());
+		chart1O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 		chart1O.getAxes().getXaxis().setTicks("a", "b", "c", "d");
 
 		chart1O.getHighlighter().setShow(false);
@@ -98,10 +95,10 @@ public class BarTestPage extends BasePage
 					3, 2))));
 
 		PlotOptions chart2O = chart2.getOptions();
-		chart2O.getSeriesDefaults().setRenderer(JQPlotBarRenderer.get());
+		chart2O.getSeriesDefaults().setRenderer("$.jqplot.BarRenderer");
 		chart2O.getSeriesDefaults().getPointLabels().setShow(true);
 
-		chart2O.getAxes().getXaxis().setRenderer(JQPlotCategoryAxisRenderer.get());
+		chart2O.getAxes().getXaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 		chart2O.getAxes().getXaxis().setTicks("a", "b", "c", "d");
 
 		add(chart2);
@@ -178,7 +175,7 @@ public class BarTestPage extends BasePage
 			new JQPlot("chart2b", new ListModel<NumberSeries<Integer, Integer>>(series));
 
 		PlotOptions chart2bO = chart2b.getOptions();
-		chart2bO.getSeriesDefaults().setRenderer(JQPlotBarRenderer.get());
+		chart2bO.getSeriesDefaults().setRenderer("$.jqplot.BarRenderer");
 		chart2bO.getSeriesDefaults().getPointLabels().setShow(true);
 		chart2bO.getSeriesDefaults().getPointLabels().setLocation(PlotPointLabelLocation.e);
 		chart2bO.getSeriesDefaults().getPointLabels().setEdgeTolerance(-15d);
@@ -186,7 +183,7 @@ public class BarTestPage extends BasePage
 		chart2bO.getSeriesDefaults().setRendererOptions(
 			new PlotBarRendererOptions().setBarDirection(PlotBarDirection.horizontal));
 
-		chart2bO.getAxes().getYaxis().setRenderer(JQPlotCategoryAxisRenderer.get());
+		chart2bO.getAxes().getYaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 
 		add(chart2b);
 
@@ -283,7 +280,7 @@ public class BarTestPage extends BasePage
 		chart3O.setStackSeries(true);
 		chart3O.setCaptureRightClick(true);
 
-		chart3O.getSeriesDefaults().setRenderer(JQPlotBarRenderer.get());
+		chart3O.getSeriesDefaults().setRenderer("$.jqplot.BarRenderer");
 		chart3O.getSeriesDefaults().setRendererOptions(
 			new PlotBarRendererOptions().setHighlightMouseDown(true));
 		chart3O.getSeriesDefaults().getPointLabels().setShow(true);
@@ -343,7 +340,7 @@ public class BarTestPage extends BasePage
 		chart4O.setStackSeries(true);
 		chart4O.setCaptureRightClick(true);
 
-		chart4O.getSeriesDefaults().setRenderer(JQPlotBarRenderer.get());
+		chart4O.getSeriesDefaults().setRenderer("$.jqplot.BarRenderer");
 		chart4O.getSeriesDefaults().setShadowAngle(135d);
 		chart4O.getSeriesDefaults().setRendererOptions(
 			new PlotBarRendererOptions().setHighlightMouseDown(true).setBarDirection(
@@ -355,7 +352,7 @@ public class BarTestPage extends BasePage
 		chart4O.getLegend().setLocation(PlotLegendLocation.e);
 		chart4O.getLegend().setPlacement(PlotLegendPlacement.outside);
 
-		chart4O.getAxes().getYaxis().setRenderer(JQPlotCategoryAxisRenderer.get());
+		chart4O.getAxes().getYaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 
 		add(chart4);
 	}
@@ -373,7 +370,7 @@ public class BarTestPage extends BasePage
 		PlotOptions chart5O = chart5.getOptions();
 		chart5O.setCaptureRightClick(true);
 
-		chart5O.getSeriesDefaults().setRenderer(JQPlotBarRenderer.get());
+		chart5O.getSeriesDefaults().setRenderer("$.jqplot.BarRenderer");
 		chart5O.getSeriesDefaults().setShadowAngle(135d);
 		chart5O.getSeriesDefaults().setRendererOptions(
 			new PlotBarRendererOptions().setHighlightMouseDown(true).setBarDirection(
@@ -385,7 +382,7 @@ public class BarTestPage extends BasePage
 		chart5O.getLegend().setLocation(PlotLegendLocation.e);
 		chart5O.getLegend().setPlacement(PlotLegendPlacement.outside);
 
-		chart5O.getAxes().getYaxis().setRenderer(JQPlotCategoryAxisRenderer.get());
+		chart5O.getAxes().getYaxis().setRenderer("$.jqplot.CategoryAxisRenderer");
 
 		add(chart5);
 	}
@@ -399,7 +396,7 @@ public class BarTestPage extends BasePage
 
 		PlotOptions chart6O = chart6.getOptions();
 
-		chart6O.getSeriesDefaults().setRenderer(JQPlotPieRenderer.get());
+		chart6O.getSeriesDefaults().setRenderer("$.jqplot.PieRenderer");
 
 		add(chart6);
 	}

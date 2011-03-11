@@ -18,45 +18,48 @@ import org.apache.wicket.model.util.ListModel;
 
 /**
  * @author Ernesto Reinaldo Barreiro
- *
+ * 
  */
-public class DateAxisTestPage extends WebPage {
+public class DateAxisTestPage extends WebPage
+{
 
 	/**
 	 * 
 	 */
-	public DateAxisTestPage() {
+	public DateAxisTestPage()
+	{
 		addPlot1();
 	}
-	
+
 	private void addPlot1()
 	{
 		long currentTime = System.currentTimeMillis();
-		long day = 1000*60*60*24; 
+		long day = 1000 * 60 * 60 * 24;
 		DateNumberSeries<Double> l1 = new DateNumberSeries<Double>();
-		for (int i = 0; i < 10; i ++ )
-			l1.addEntry(new Date(currentTime+i*day), Math.random()*1000);
+		for (int i = 0; i < 10; i++)
+			l1.addEntry(new Date(currentTime + i * day), Math.random() * 1000);
 
 		DateNumberSeries<Double> l2 = new DateNumberSeries<Double>();
-		for (int i = 0; i < 10; i ++ )
-			l2.addEntry(new Date(currentTime+i*day), Math.random()*1000);
-		
+		for (int i = 0; i < 10; i++)
+			l2.addEntry(new Date(currentTime + i * day), Math.random() * 1000);
+
 		DateNumberSeries<Double> l3 = new DateNumberSeries<Double>();
-		for (int i = 0; i < 10; i ++ )
-			l3.addEntry(new Date(currentTime+i*day), Math.random()*1000);
+		for (int i = 0; i < 10; i++)
+			l3.addEntry(new Date(currentTime + i * day), Math.random() * 1000);
 
 		DateNumberSeries<Double> l4 = new DateNumberSeries<Double>();
-		for (int i = 0; i < 10; i ++ )
-			l4.addEntry(new Date(currentTime+i*day), Math.random()*1000);
-		
+		for (int i = 0; i < 10; i++)
+			l4.addEntry(new Date(currentTime + i * day), Math.random() * 1000);
+
 		@SuppressWarnings("unchecked")
 		JQPlot chart1 =
-			new JQPlot("chart1", new ListModel<DateNumberSeries<Double>>(Arrays.asList(l1, l2, l3, l4)));
+			new JQPlot("chart1", new ListModel<DateNumberSeries<Double>>(Arrays.asList(l1, l2, l3,
+				l4)));
 		PlotOptions chart1O = chart1.getOptions();
 		chart1O.setTitle("Date chart");
 
 		chart1O.getAxes().getXaxis().setRenderer(JQPlotDateAxisRenderer.get().getName());
-		
+
 		PlotSeries chart1series1 = chart1O.addNewSeries();
 		chart1series1.setLineWidth(2d);
 		chart1series1.getMarkerOptions().setStyle(PlotMarkerStyle.diamond);

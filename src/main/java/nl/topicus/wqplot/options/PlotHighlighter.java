@@ -2,6 +2,8 @@ package nl.topicus.wqplot.options;
 
 import java.io.Serializable;
 
+import nl.topicus.wqplot.components.plugins.JQPlotHighlighterRenderer;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -69,7 +71,7 @@ public class PlotHighlighter implements Serializable
 
 	public PlotHighlighter()
 	{
-		renderer = "$.jqplot.Highlighter";
+		renderer = JQPlotHighlighterRenderer.get().getName();
 	}
 
 	public Boolean getShow()

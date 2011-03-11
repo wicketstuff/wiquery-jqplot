@@ -1,8 +1,5 @@
 package nl.topicus.wqplot.components.plugins;
 
-/**
- * @author Ernesto Reinaldo Barreiro
- */
 public class JQPlotBarRenderer extends Renderer
 {
 	private static final JQPlotBarRenderer INSTANCE = new JQPlotBarRenderer();

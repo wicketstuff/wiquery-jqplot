@@ -1,8 +1,5 @@
 package nl.topicus.wqplot.components.plugins;
 
-/**
- * @author Ernesto Reinaldo Barreiro
- */
 public class JQPlotCanvasAxisTickRenderer extends Renderer
 {
 	private static final JQPlotCanvasAxisTickRenderer INSTANCE = new JQPlotCanvasAxisTickRenderer();
