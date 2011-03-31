@@ -180,6 +180,8 @@ public class PlotSeries implements Serializable
 
 	private PlotPointLabels pointLabels;
 
+	private Boolean highlightMouseDown;
+
 	public PlotSeries()
 	{
 	}
@@ -531,9 +533,20 @@ public class PlotSeries implements Serializable
 		return pointLabels;
 	}
 
-	public PlotSeries setPlotPointLabels(PlotPointLabels plotPointLabels)
+	public PlotSeries setPointLabels(PlotPointLabels plotPointLabels)
 	{
 		this.pointLabels = plotPointLabels;
+		return this;
+	}
+
+	public Boolean getHighlightMouseDown()
+	{
+		return highlightMouseDown;
+	}
+
+	public PlotSeries setHighlightMouseDown(Boolean highlightMouseDown)
+	{
+		this.highlightMouseDown = highlightMouseDown;
 		return this;
 	}
 }
