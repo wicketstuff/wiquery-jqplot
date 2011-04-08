@@ -26,7 +26,6 @@ public class BezierCurvePage extends BasePage
 		addChart3();
 	}
 
-	@SuppressWarnings("unchecked")
 	private void addChart1()
 	{
 
@@ -54,7 +53,6 @@ public class BezierCurvePage extends BasePage
 		add(chart1);
 	}
 
-	@SuppressWarnings("unchecked")
 	private void addChart2()
 	{
 		List<BezierCurveSeries<Double, Double, Double>> series =

@@ -18,12 +18,12 @@
 	<distributionManagement>
 		<repository>
 			<id>topicus-repo</id>
-			<url>dav:http://cvs.topicus.nl/artifactory/libs-releases-local</url>
+			<url>dav:http://repo-onderwijs.topicus.local/artifactory/libs-releases-local</url>
 			<uniqueVersion>false</uniqueVersion>
 		</repository>
 		<snapshotRepository>
 			<id>topicus-repo</id>
-			<url>dav:http://cvs.topicus.nl/artifactory/libs-snapshots-local</url>
+			<url>dav:http://repo-onderwijs.topicus.local/artifactory/libs-snapshots-local</url>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
