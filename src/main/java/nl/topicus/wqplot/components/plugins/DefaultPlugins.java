@@ -12,8 +12,6 @@ public class DefaultPlugins implements IPluginResolver
 {
 	private static final long serialVersionUID = 1L;
 
-	private static final DefaultPlugins INSTANCE = new DefaultPlugins();
-
 	private Map<String, IPlugin> plugins = new HashMap<String, IPlugin>();
 	{
 		plugins.put(JQPlotBarRenderer.get().getName(), JQPlotBarRenderer.get());
@@ -36,7 +34,7 @@ public class DefaultPlugins implements IPluginResolver
 		plugins.put(JQPlotPointLabelsRenderer.get().getName(), JQPlotPointLabelsRenderer.get());
 	}
 
-	private DefaultPlugins()
+	public DefaultPlugins()
 	{
 	}
 
@@ -46,10 +44,4 @@ public class DefaultPlugins implements IPluginResolver
 		IPlugin iPlugin = plugins.get(name);
 		return iPlugin;
 	}
-
-	public static IPluginResolver get()
-	{
-		return INSTANCE;
-	}
-
 }

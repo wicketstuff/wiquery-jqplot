@@ -49,7 +49,7 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 	public JQPlot(String id, IModel< ? extends Collection< ? extends Series< ? , ? , ? >>> model)
 	{
 		super(id, model);
-		resolvers.add(DefaultPlugins.get());
+		resolvers.add(new DefaultPlugins());
 		setOutputMarkupId(true);
 	}
 
