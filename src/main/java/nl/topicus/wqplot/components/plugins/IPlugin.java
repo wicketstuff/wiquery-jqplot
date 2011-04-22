@@ -1,11 +1,13 @@
 package nl.topicus.wqplot.components.plugins;
 
+import java.io.Serializable;
+
 import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
 
 /**
  * @author Ernesto Reinaldo Barreiro
  */
-public interface IPlugin
+public interface IPlugin extends Serializable
 {
 
 	/**

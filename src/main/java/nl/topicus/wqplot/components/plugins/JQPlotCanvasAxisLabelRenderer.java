@@ -2,6 +2,8 @@ package nl.topicus.wqplot.components.plugins;
 
 public class JQPlotCanvasAxisLabelRenderer extends Renderer
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final JQPlotCanvasAxisLabelRenderer INSTANCE =
 		new JQPlotCanvasAxisLabelRenderer();
 

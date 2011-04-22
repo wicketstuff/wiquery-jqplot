@@ -10,6 +10,8 @@ import java.util.Map;
  */
 public class DefaultPlugins implements IPluginResolver
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final DefaultPlugins INSTANCE = new DefaultPlugins();
 
 	private Map<String, IPlugin> plugins = new HashMap<String, IPlugin>();

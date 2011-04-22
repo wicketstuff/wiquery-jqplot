@@ -8,6 +8,8 @@ import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
 public class Plugin implements IPlugin
 {
 
+	private static final long serialVersionUID = 1L;
+
 	private String name;
 
 	private WiQueryJavaScriptResourceReference javaScriptResourceReference;
