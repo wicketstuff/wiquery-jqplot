@@ -25,7 +25,8 @@ public class WicketApplication extends WebApplication
 		super.init();
 
 		getMarkupSettings().setStripWicketTags(true);
-		getSharedResources().putClassAlias(Application.class, "application");
+		//getSharedResources().putClassAlias(Application.class, "application");
+		
 		getResourceSettings().setResourcePollFrequency(Duration.ONE_SECOND);
 
 		getRequestLoggerSettings().setRequestLoggerEnabled(true);
@@ -40,6 +41,6 @@ public class WicketApplication extends WebApplication
 
 	public boolean isDevelopment()
 	{
-		return Application.DEVELOPMENT.equals(getConfigurationType());
+		return Application.CONFIGURATION.equals(getConfigurationType());
 	}
 }

@@ -1,6 +1,6 @@
 package nl.topicus.wqplot.components;
 
-import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
+import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
 
 /**
  * Special javascript for when the User Agent is Internet Explorer.
