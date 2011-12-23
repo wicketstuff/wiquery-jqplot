@@ -1,6 +1,6 @@
 package nl.topicus.wqplot.components;
 
-import org.odlabs.wiquery.core.commons.WiQueryStyleSheetResourceReference;
+import org.odlabs.wiquery.core.resources.WiQueryStyleSheetResourceReference;
 
 public class JQPlotStyleSheetResourceReference extends WiQueryStyleSheetResourceReference
 {

@@ -2,7 +2,7 @@ package nl.topicus.wqplot.components.plugins;
 
 import java.io.Serializable;
 
-import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
+import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
 
 /**
  * @author Ernesto Reinaldo Barreiro

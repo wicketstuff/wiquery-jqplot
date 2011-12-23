@@ -18,9 +18,10 @@ import nl.topicus.wqplot.data.Series;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PluginReferenceSerializer;
 
-import org.apache.wicket.RequestCycle;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.protocol.http.WebSession;
 import org.apache.wicket.protocol.http.request.WebClientInfo;
 import org.apache.wicket.request.ClientInfo;
 import org.codehaus.jackson.JsonGenerationException;
@@ -28,8 +29,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
-import org.odlabs.wiquery.core.commons.IWiQueryPlugin;
-import org.odlabs.wiquery.core.commons.WiQueryResourceManager;
+import org.odlabs.wiquery.core.IWiQueryPlugin;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
 public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPluginResolver
@@ -76,9 +76,10 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 	}
 
 	@Override
-	public void contribute(WiQueryResourceManager wiQueryResourceManager)
+	public void renderHead(IHeaderResponse headerResponse)
 	{
-		ClientInfo info = RequestCycle.get().getClientInfo();
+		ClientInfo info = WebSession.get().getClientInfo();
+
 		if (info instanceof WebClientInfo)
 		{
 			/**
@@ -87,18 +88,21 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 			WebClientInfo webinfo = (WebClientInfo) info;
 			if (webinfo.getProperties().isBrowserInternetExplorer()
 				&& webinfo.getProperties().getBrowserVersionMajor() < 9)
-				wiQueryResourceManager
-					.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
+				// wiQueryResourceManager.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
+				headerResponse.renderJavaScriptReference(JQPlotExcanvasJavaScriptResourceReference
+					.get());
 		}
 
-		wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
-		wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
-		wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasTextRendererResourceReference
-			.get());
+		// wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
+		// wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
+		// wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasTextRendererResourceReference.get());
+		headerResponse.renderJavaScriptReference(JQPlotJavaScriptResourceReference.get());
+		headerResponse.renderCSSReference(JQPlotStyleSheetResourceReference.get());
+		headerResponse.renderJavaScriptReference(JQPlotCanvasTextRendererResourceReference.get());
 
 		try
 		{
-			addPlugins(wiQueryResourceManager);
+			addPlugins(headerResponse);
 		}
 		catch (IllegalAccessException e)
 		{
@@ -106,8 +110,7 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 		}
 	}
 
-	private void addPlugins(WiQueryResourceManager wiQueryResourceManager)
-			throws IllegalAccessException
+	private void addPlugins(IHeaderResponse headerResponse) throws IllegalAccessException
 	{
 		LinkedList<Object> remaining = new LinkedList<Object>();
 		remaining.add(options);
@@ -136,7 +139,7 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 						JsonSerialize serialize = curField.getAnnotation(JsonSerialize.class);
 						if (serialize != null
 							&& serialize.using() == PluginReferenceSerializer.class)
-							addPlugin(wiQueryResourceManager, (String) value);
+							addPlugin(headerResponse, (String) value);
 					}
 					else if (!(value instanceof Number) && !(value instanceof Boolean))
 						remaining.add(value);
@@ -146,11 +149,12 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 		}
 	}
 
-	private void addPlugin(WiQueryResourceManager wiQueryResourceManager, String plugin)
+	private void addPlugin(IHeaderResponse headerResponse, String plugin)
 	{
 		if (plugins.containsKey(plugin))
 		{
-			wiQueryResourceManager.addJavaScriptResource(getPlugin(plugin)
+			// wiQueryResourceManager.addJavaScriptResource(getPlugin(plugin).getJavaScriptResourceReference());
+			headerResponse.renderJavaScriptReference(getPlugin(plugin)
 				.getJavaScriptResourceReference());
 			return;
 		}
@@ -160,8 +164,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 			IPlugin iPlugin = pluginResolver.getPlugin(plugin);
 			if (iPlugin != null)
 			{
-				wiQueryResourceManager.addJavaScriptResource(iPlugin
-					.getJavaScriptResourceReference());
+				// wiQueryResourceManager.addJavaScriptResource(iPlugin.getJavaScriptResourceReference());
+				headerResponse.renderJavaScriptReference(iPlugin.getJavaScriptResourceReference());
 				return;
 			}
 		}

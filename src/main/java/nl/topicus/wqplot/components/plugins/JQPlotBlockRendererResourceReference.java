@@ -1,6 +1,6 @@
 package nl.topicus.wqplot.components.plugins;
 
-import org.odlabs.wiquery.core.commons.WiQueryJavaScriptResourceReference;
+import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
 
 public class JQPlotBlockRendererResourceReference extends WiQueryJavaScriptResourceReference
 {
