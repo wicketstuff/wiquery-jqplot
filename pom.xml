@@ -11,14 +11,14 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>WQPlot</name>
 	<description>Wicket/WiQuery-JqPlot binding</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wicket.version>1.4-SNAPSHOT</wicket.version>
-		<wiquery.version>1.2-SNAPSHOT</wiquery.version>
+		<wicket.version>1.4.19</wicket.version>
+		<wiquery.version>1.2.4</wiquery.version>
 		<slf4j.version>[1.6,1.6.10]</slf4j.version>
 		<junit.version>4.9</junit.version>
 		<jetty.version>6.1.26</jetty.version>
