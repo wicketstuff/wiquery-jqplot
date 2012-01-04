@@ -3,22 +3,33 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-    	<groupId>org.sonatype.oss</groupId>
-    	<artifactId>oss-parent</artifactId>
-    	<version>7</version>
-  	</parent>
-	
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
 	<groupId>nl.topicus</groupId>
 	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
 	<version>0.2-SNAPSHOT</version>
 	<name>WQPlot</name>
 	<description>Wicket/WiQuery-JqPlot binding</description>
+
 	<properties>
-		<wicket.version>1.5.3</wicket.version>
-		<jetty.version>6.1.25</jetty.version>
-		<slf4j.version>1.6.1</slf4j.version>
-		<wiquery.version>1.5.3</wiquery.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<wicket.version>1.5-SNAPSHOT</wicket.version>
+		<wiquery.version>1.5-SNAPSHOT</wiquery.version>
+		<slf4j.version>[1.6,1.6.10]</slf4j.version>
+		<junit.version>4.9</junit.version>
+		<jetty.version>6.1.26</jetty.version>
+
+		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
+		<maven-bundle-plugin.version>2.3.5</maven-bundle-plugin.version>
+		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+		<maven-eclipse-plugin.version>2.9-SNAPSHOT</maven-eclipse-plugin.version>
+		<maven-gpg-plugin.version>1.3</maven-gpg-plugin.version>
+		<maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
+		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
 	</properties>
 
 	<url>https://github.com/hielkehoeve/wiquery-jqplot/wiki</url>
@@ -53,11 +64,6 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>commons-logging</groupId>
-				<artifactId>commons-logging</artifactId>
-				<version>99.0-does-not-exist</version>
-			</dependency>
-			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
@@ -66,16 +72,12 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${slf4j.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.16</version>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -88,54 +90,44 @@
 		</dependency>
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
-			<artifactId>wiquery-core</artifactId>
-			<version>${wiquery.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.odlabs.wiquery</groupId>
 			<artifactId>wiquery-jquery-ui</artifactId>
 			<version>${wiquery.version}</version>
 		</dependency>
+
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 
-		<!-- JUNIT DEPENDENCY FOR TESTING -->
+		<!-- DEPENDENCIES FOR TESTING -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- JETTY DEPENDENCIES FOR TESTING -->
 		<dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jetty</artifactId>
 			<version>${jetty.version}</version>
-			<scope>provided</scope>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jetty-util</artifactId>
 			<version>${jetty.version}</version>
-			<scope>provided</scope>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jetty-management</artifactId>
 			<version>${jetty.version}</version>
-			<scope>provided</scope>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -171,7 +163,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<inherited>true</inherited>
 				<configuration>
 					<source>1.6</source>
@@ -184,7 +176,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
+				<version>${maven-source-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -197,7 +189,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.7</version>
+				<version>${maven-javadoc-plugin.version}</version>
 				<inherited>true</inherited>
 				<configuration>
 					<encoding>UTF-8</encoding>
@@ -213,7 +205,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.8</version>
+				<version>${maven-eclipse-plugin.version}</version>
 				<inherited>true</inherited>
 				<configuration>
 					<downloadSources>true</downloadSources>
@@ -224,6 +216,20 @@
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven-gpg-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
