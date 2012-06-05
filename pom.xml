@@ -11,7 +11,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
-	<version>0.2-SNAPSHOT</version>
+	<version>1.5-SNAPSHOT</version>
 	<name>WQPlot</name>
 	<description>Wicket/WiQuery-JqPlot binding</description>
 
