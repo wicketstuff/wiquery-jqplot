@@ -26,7 +26,7 @@
 		<maven-buildnumber-plugin.version>1.0</maven-buildnumber-plugin.version>
 		<maven-bundle-plugin.version>2.3.5</maven-bundle-plugin.version>
 		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
-		<maven-eclipse-plugin.version>2.9-SNAPSHOT</maven-eclipse-plugin.version>
+		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
 		<maven-gpg-plugin.version>1.3</maven-gpg-plugin.version>
 		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
 	</properties>
