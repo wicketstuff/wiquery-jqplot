@@ -109,7 +109,8 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 		}
 
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.getSerializationConfig().setSerializationInclusion(Inclusion.NON_NULL);
+		mapper.setSerializationConfig(mapper.getSerializationConfig().withSerializationInclusion(
+			Inclusion.NON_NULL));
 		String optionsStr = "{}";
 		String plotDataStr = "[]";
 		try

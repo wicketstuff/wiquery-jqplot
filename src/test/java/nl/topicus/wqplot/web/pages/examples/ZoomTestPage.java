@@ -88,7 +88,7 @@ public class ZoomTestPage extends WebPage
 		chart1O.setTitle("Google, Inc.");
 
 		Button button = new Button("button1");
-		button.add(new AttributeModifier("onclick", true, new Model<String>(chart1.getMarkupId()
+		button.add(AttributeModifier.replace("onclick", new Model<String>(chart1.getMarkupId()
 			+ ".resetZoom()")));
 		add(button);
 
