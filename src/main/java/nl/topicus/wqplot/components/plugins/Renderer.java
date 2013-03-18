@@ -1,6 +1,6 @@
 package nl.topicus.wqplot.components.plugins;
 
-import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
 /**
  * @author Ernesto Reinaldo Barreiro
@@ -9,7 +9,7 @@ public class Renderer extends Plugin implements IRenderer
 {
 	private static final long serialVersionUID = 1L;
 
-	protected Renderer(String name, WiQueryJavaScriptResourceReference javaScriptResourceReference)
+	protected Renderer(String name, JavaScriptResourceReference javaScriptResourceReference)
 	{
 		super(name, javaScriptResourceReference);
 	}
