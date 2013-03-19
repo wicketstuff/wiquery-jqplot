@@ -75,6 +75,11 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 		return (Collection< ? extends Series< ? , ? , ? >>) getDefaultModelObject();
 	}
 
+	public String getJQueryBinding()
+	{
+		return "$(document).ready(";
+	}
+
 	@Override
 	public void renderHead(org.apache.wicket.markup.head.IHeaderResponse response)
 	{
@@ -139,7 +144,8 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 		for (String statement : afterRenderStatements)
 			jsStatement.append(statement);
 
-		response.render(JavaScriptHeaderItem.forScript(jsStatement.render(),
+		response.render(JavaScriptHeaderItem.forScript(
+			String.format("%s function() {\n\t%s\n});", getJQueryBinding(), jsStatement.render()),
 			String.format("plot-%s", getMarkupId())));
 	}
 
