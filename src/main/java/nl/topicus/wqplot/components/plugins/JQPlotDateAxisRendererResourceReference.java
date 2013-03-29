@@ -1,8 +1,8 @@
 package nl.topicus.wqplot.components.plugins;
 
-import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-public class JQPlotDateAxisRendererResourceReference extends WiQueryJavaScriptResourceReference
+public class JQPlotDateAxisRendererResourceReference extends JavaScriptResourceReference
 {
 	private static final long serialVersionUID = -4771815414204892357L;
 

@@ -18,21 +18,21 @@ import nl.topicus.wqplot.data.Series;
 import nl.topicus.wqplot.options.PlotOptions;
 import nl.topicus.wqplot.options.PluginReferenceSerializer;
 
-import org.apache.wicket.markup.html.IHeaderResponse;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebSession;
 import org.apache.wicket.protocol.http.request.WebClientInfo;
-import org.apache.wicket.request.ClientInfo;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
-import org.odlabs.wiquery.core.IWiQueryPlugin;
 import org.odlabs.wiquery.core.javascript.JsStatement;
 
-public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPluginResolver
+public class JQPlot extends WebMarkupContainer implements IPluginResolver
 {
 	private static final long serialVersionUID = 1L;
 
@@ -75,39 +75,78 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 		return (Collection< ? extends Series< ? , ? , ? >>) getDefaultModelObject();
 	}
 
-	@Override
-	public void renderHead(IHeaderResponse headerResponse)
+	public String getJQueryBinding()
 	{
-		ClientInfo info = WebSession.get().getClientInfo();
+		return "$(document).ready(";
+	}
 
-		if (info instanceof WebClientInfo)
+	@Override
+	public void renderHead(org.apache.wicket.markup.head.IHeaderResponse response)
+	{
+		WebClientInfo info = WebSession.get().getClientInfo();
+
+		/**
+		 * only IE 9 supports canvas natively.
+		 */
+		if (info.getProperties().isBrowserInternetExplorer()
+			&& info.getProperties().getBrowserVersionMajor() < 9)
 		{
-			/**
-			 * only IE 9 supports canvas natively.
-			 */
-			WebClientInfo webinfo = (WebClientInfo) info;
-			if (webinfo.getProperties().isBrowserInternetExplorer()
-				&& webinfo.getProperties().getBrowserVersionMajor() < 9)
-				// wiQueryResourceManager.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
-				headerResponse.renderJavaScriptReference(JQPlotExcanvasJavaScriptResourceReference
-					.get());
+			// wiQueryResourceManager.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
+			response.render(JavaScriptHeaderItem
+				.forReference(JQPlotExcanvasJavaScriptResourceReference.get()));
 		}
 
 		// wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
 		// wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
 		// wiQueryResourceManager.addJavaScriptResource(JQPlotCanvasTextRendererResourceReference.get());
-		headerResponse.renderJavaScriptReference(JQPlotJavaScriptResourceReference.get());
-		headerResponse.renderCSSReference(JQPlotStyleSheetResourceReference.get());
-		headerResponse.renderJavaScriptReference(JQPlotCanvasTextRendererResourceReference.get());
+		response.render(JavaScriptHeaderItem.forReference(JQPlotJavaScriptResourceReference.get()));
+		response.render(CssHeaderItem.forReference(JQPlotStyleSheetResourceReference.get()));
+		response.render(JavaScriptHeaderItem.forReference(JQPlotCanvasTextRendererResourceReference
+			.get()));
 
 		try
 		{
-			addPlugins(headerResponse);
+			addPlugins(response);
 		}
 		catch (IllegalAccessException e)
 		{
 			throw new RuntimeException(e);
 		}
+
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.setSerializationConfig(mapper.getSerializationConfig().withSerializationInclusion(
+			Inclusion.NON_NULL));
+		String optionsStr = "{}";
+		String plotDataStr = "[]";
+		try
+		{
+			optionsStr = mapper.writeValueAsString(options);
+			plotDataStr = mapper.writeValueAsString(getModelObject());
+		}
+		catch (JsonGenerationException e)
+		{
+			e.printStackTrace();
+		}
+		catch (JsonMappingException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		JsStatement jsStatement =
+			new JsStatement().append("$.jqplot.config.catchErrors = " + isCatchErrors() + ";\n");
+		jsStatement.append("var " + getMarkupId() + " = $.jqplot('" + getMarkupId() + "', "
+			+ plotDataStr + ", " + optionsStr + ");\n");
+
+		for (String statement : afterRenderStatements)
+			jsStatement.append(statement);
+
+		response.render(JavaScriptHeaderItem.forScript(
+			String.format("%s function() {\n\t%s\n});", getJQueryBinding(), jsStatement.render()),
+			String.format("plot-%s", getMarkupId())));
 	}
 
 	private void addPlugins(IHeaderResponse headerResponse) throws IllegalAccessException
@@ -154,8 +193,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 		if (plugins.containsKey(plugin))
 		{
 			// wiQueryResourceManager.addJavaScriptResource(getPlugin(plugin).getJavaScriptResourceReference());
-			headerResponse.renderJavaScriptReference(getPlugin(plugin)
-				.getJavaScriptResourceReference());
+			headerResponse.render(JavaScriptHeaderItem.forReference(getPlugin(plugin)
+				.getJavaScriptResourceReference()));
 			return;
 		}
 
@@ -165,7 +204,8 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 			if (iPlugin != null)
 			{
 				// wiQueryResourceManager.addJavaScriptResource(iPlugin.getJavaScriptResourceReference());
-				headerResponse.renderJavaScriptReference(iPlugin.getJavaScriptResourceReference());
+				headerResponse.render(JavaScriptHeaderItem.forReference(iPlugin
+					.getJavaScriptResourceReference()));
 				return;
 			}
 		}
@@ -205,40 +245,5 @@ public class JQPlot extends WebMarkupContainer implements IWiQueryPlugin, IPlugi
 	public IPlugin getPlugin(String name)
 	{
 		return plugins.get(name);
-	}
-
-	@Override
-	public JsStatement statement()
-	{
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.getSerializationConfig().setSerializationInclusion(Inclusion.NON_NULL);
-		String optionsStr = "{}";
-		String plotDataStr = "[]";
-		try
-		{
-			optionsStr = mapper.writeValueAsString(options);
-			plotDataStr = mapper.writeValueAsString(getModelObject());
-		}
-		catch (JsonGenerationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (JsonMappingException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		JsStatement jsStatement =
-			new JsStatement().append("$.jqplot.config.catchErrors = " + isCatchErrors() + ";\n");
-		jsStatement.append("var " + getMarkupId() + " = $.jqplot('" + getMarkupId() + "', "
-			+ plotDataStr + ", " + optionsStr + ");\n");
-
-		for (String statement : afterRenderStatements)
-			jsStatement.append(statement);
-
-		return jsStatement;
 	}
 }

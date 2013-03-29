@@ -1,8 +1,8 @@
 package nl.topicus.wqplot.components.plugins;
 
-import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
-public class JQPlotPointLabelsResourceReference extends WiQueryJavaScriptResourceReference
+public class JQPlotPointLabelsResourceReference extends JavaScriptResourceReference
 {
 	private static final long serialVersionUID = -4771815414204892357L;
 

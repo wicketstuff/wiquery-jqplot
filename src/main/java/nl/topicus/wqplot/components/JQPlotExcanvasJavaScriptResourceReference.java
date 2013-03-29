@@ -1,13 +1,13 @@
 package nl.topicus.wqplot.components;
 
-import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
 /**
  * Special javascript for when the User Agent is Internet Explorer.
  * 
  * @author hielkehoeve
  */
-public class JQPlotExcanvasJavaScriptResourceReference extends WiQueryJavaScriptResourceReference
+public class JQPlotExcanvasJavaScriptResourceReference extends JavaScriptResourceReference
 {
 	private static final long serialVersionUID = -4771815414204892357L;
 

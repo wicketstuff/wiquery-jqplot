@@ -1,6 +1,6 @@
 package nl.topicus.wqplot.components.plugins;
 
-import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
 /**
  * @author Ernesto Reinaldo Barreiro
@@ -12,9 +12,9 @@ public class Plugin implements IPlugin
 
 	private String name;
 
-	private WiQueryJavaScriptResourceReference javaScriptResourceReference;
+	private JavaScriptResourceReference javaScriptResourceReference;
 
-	protected Plugin(String name, WiQueryJavaScriptResourceReference javaScriptResourceReference)
+	protected Plugin(String name, JavaScriptResourceReference javaScriptResourceReference)
 	{
 		this.name = name;
 		this.javaScriptResourceReference = javaScriptResourceReference;
@@ -27,7 +27,7 @@ public class Plugin implements IPlugin
 	}
 
 	@Override
-	public WiQueryJavaScriptResourceReference getJavaScriptResourceReference()
+	public JavaScriptResourceReference getJavaScriptResourceReference()
 	{
 		return javaScriptResourceReference;
 	}

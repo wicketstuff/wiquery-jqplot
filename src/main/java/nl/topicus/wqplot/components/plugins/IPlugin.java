@@ -2,7 +2,7 @@ package nl.topicus.wqplot.components.plugins;
 
 import java.io.Serializable;
 
-import org.odlabs.wiquery.core.resources.WiQueryJavaScriptResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
 /**
  * @author Ernesto Reinaldo Barreiro
@@ -18,6 +18,6 @@ public interface IPlugin extends Serializable
 	/**
 	 * The resource reference for the JavaScript file implementing the plugin.
 	 */
-	WiQueryJavaScriptResourceReference getJavaScriptResourceReference();
+	JavaScriptResourceReference getJavaScriptResourceReference();
 
 }
